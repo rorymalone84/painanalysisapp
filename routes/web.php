@@ -26,8 +26,9 @@ Route::controller(LoginController::class)->group(function () {
 });
 
 Route::middleware('auth')->group(function(){
-
     // controls authenticated Admin 'user_role = 2' routes
+    // responsible for registering patients and doctors
+    
     Route::controller(AdminController::class)->group(function () {
         Route::get('/admin/dashboard', 'index');
         /*
@@ -36,6 +37,11 @@ Route::middleware('auth')->group(function(){
         Route::get('/admin/patientsList', 'patientsList')->name('patients.list')->middleware('can:create, App\Models\User');
         Route::get('/admin/doctorsList', 'doctorsList')->name('doctors.list');
         /*
+        create and store doctor
+        */
+        Route::get('/admin/createDoctor', 'createDoctor')->middleware('can:create, App\Models\User');
+        Route::post('/admin/createDoctor', 'storeDoctor');
+         /*
         create and store user
         */
         Route::get('/admin/createUser', 'createUser')->middleware('can:create, App\Models\User');
@@ -47,9 +53,18 @@ Route::middleware('auth')->group(function(){
         Route::get('/admin/editUser/{user}', 'editUser')->name('edit.user')->middleware('can:create, App\Models\User');
         Route::put('/admin/editUser/{user}', 'updateUser')->name('update.user');
         /*
+        view/edit Doctor details
+        */
+        Route::get('/admin/showDoctor/{doctor}', 'showDoctor')->name('show.doctor')->middleware('can:create, App\Models\User');
+        Route::get('/admin/editDoctor/{doctor}', 'editDoctor')->name('edit.doctor')->middleware('can:create, App\Models\User');
+        Route::put('/admin/editDoctor/{doctor}', 'updateDoctor')->name('update.doctor');
+
+        
+        /*
         delete user
         */
         Route::delete('/destroy/{user}', [AdminController::class, 'destroy'])->name('users.destroy');
+        
     });
 
     //Where admins assign a user to doctor

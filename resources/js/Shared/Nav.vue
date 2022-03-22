@@ -6,7 +6,7 @@
       </li>
 
       <!-- Admin Links -->
-      <li v-if="$page.props.auth.user.role === 2">
+      <li v-if="$page.props.auth.user.role === 1">
         <NavLink
           href="/admin/patientsList"
           :active="$page.component === 'Admin/PatientsList'"
@@ -15,7 +15,7 @@
         </NavLink>
       </li>
 
-      <li v-if="$page.props.auth.user.role === 2">
+      <li v-if="$page.props.auth.user.role === 1">
         <NavLink
           href="/admin/doctorsList"
           :active="$page.component === 'Admin/DoctorsList'"

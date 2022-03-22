@@ -1,7 +1,7 @@
 <template>
   <Head title="Add new Doctor" />
 
-  <h1>Register a new user</h1>
+  <h1>Register a new Doctor</h1>
 
   <form @submit.prevent="submit" class="mx-w-md mx-auto mt-8">
     <div class="mb-6">
@@ -52,42 +52,6 @@
     <div class="mb-6">
       <label
         class="block mb-2 uppercase font-bold text-xs text-gray-700"
-        for="user_role"
-        >User role</label
-      >
-      <div class="p-6">
-        <input
-          v-model="form.user_role"
-          class="pr-2"
-          type="radio"
-          id="user_role1"
-          name="user_role"
-          value="0"
-        />
-        <label class="p-4" for="user_role1">Patient</label>
-
-        <input
-          v-model="form.user_role"
-          class="p-2"
-          type="radio"
-          id="user_role2"
-          name="user_role"
-          value="1"
-        />
-        <label class="p-2" for="user_role2">Admin</label>
-      </div>
-
-      <!-- Email validation -->
-      <div
-        v-if="form.errors.user_role"
-        v-text="form.errors.user_role"
-        class="text-red-500 mt-2"
-      ></div>
-    </div>
-
-    <div class="mb-6">
-      <label
-        class="block mb-2 uppercase font-bold text-xs text-gray-700"
         for="password"
         >Password</label
       >
@@ -130,11 +94,10 @@ let form = useForm({
   name: "",
   email: "",
   password: "",
-  user_role: "", // 1 is the user role value for Doctors
 });
 
 let submit = () => {
-  form.post("/admin/createUser", form);
+  form.post("/admin/createDoctor", form);
 };
 </script>
 

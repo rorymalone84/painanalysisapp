@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 use Request;
 use App\Models\User;
-use App\Models\Admin;
 use Inertia\Inertia;
+use App\Models\Admin;
+use App\Models\Doctor;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -19,10 +20,7 @@ class AdminController extends Controller
     //Admin dashboard
     public function index()
     {
-        return Inertia::render('Admin/Dashboard',[
-                        
-        ]
-        );
+        return Inertia::render('Admin/Dashboard');
     }
 
 
@@ -87,31 +85,6 @@ class AdminController extends Controller
         return redirect()->route('patients.list');
     }
 
-    //lists doctors with search filter on doctors link
-    public function doctorsList()
-    {
-        return Inertia::render('Admin/DoctorsList', [
-            'users' => User::query()->where('user_role', '=', '2')
-                ->when(Request::input('search'), function ($query, $search) {
-                    $query->where('name', 'like', "%{$search}%");
-                })
-                ->paginate(10)
-                ->withQueryString()
-                ->through(fn($user) => [
-                    'id' => $user->id,
-                    'name' => $user->name,
-                    'can' => [
-                        'edit' => Auth::user()->can('edit', $user)
-                    ]
-                ]),
-
-            'filters' => Request::only(['search']),
-            'can' => [
-                'createUser' => Auth::user()->can('create', User::class)
-            ],
-        ]);
-    }
-
     //lists patients with search filter on patients link
     public function patientsList()
     {   
@@ -142,4 +115,85 @@ class AdminController extends Controller
     {
         $user->delete();
     }
+
+    //Doctor resources
+
+    //lists doctors with search filter on doctors link
+    public function doctorsList()
+    {
+        return Inertia::render('Admin/DoctorsList', [
+            'doctors' => Doctor::query()
+                ->when(Request::input('search'), function ($query, $search) {
+                    $query->where('name', 'like', "%{$search}%");
+                })
+                ->paginate(10)
+                ->withQueryString()
+                ->through(fn($doctor) => [
+                    'id' => $doctor->id,
+                    'name' => $doctor->name,
+                    'can' => [
+                        'edit' => Auth::user()->can('edit', $doctor)
+                    ]
+                ]),
+            'filters' => Request::only(['search']),
+            'can' => [
+                'createUser' => Auth::user()->can('create', Doctor::class)
+            ],
+        ]);
+    }
+
+    public function createDoctor()
+    {
+        return Inertia::render('Admin/CreateDoctor');
+    }
+
+    public function storeDoctor()
+    {
+        $attributes = Request::validate([
+            'name' => 'required',
+            'email' => ['required', 'email'], 
+            'password' => 'required',
+        ]);
+    
+        Doctor::create($attributes);
+    
+        return Redirect::route('doctors.list'); 
+    }
+
+    public function showDoctor(Doctor $doctor)
+    {
+        return inertia::render('Admin/ShowDoctor', [
+            'doctor' => [
+               'id' => $doctor->id,
+               'name' => $doctor->name,
+               'email'=> $doctor->email, 
+            ]
+        ]); 
+    }
+
+    public function editDoctor(Doctor $doctor)
+    {
+        return inertia::render('Admin/EditDoctor', [
+            'doctor' => [
+               'id' => $doctor->id,
+               'name' => $doctor->name,
+               'email'=> $doctor->email, 
+            ]
+        ]);
+    }
+
+    //update doctor
+    public function updateDoctor(Request $request, Doctor $doctor)
+    {
+        $attributes = Request::validate([
+            'name' => 'required',
+            'email' => ['required', 'email'],
+        ]);
+
+        // update the user
+        $doctor->update($attributes);
+         
+        return redirect()->route('doctors.list');
+    }
+
 }
