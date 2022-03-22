@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Request;
 use App\Models\User;
+use App\Models\Admin;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Auth;
@@ -19,7 +19,10 @@ class AdminController extends Controller
     //Admin dashboard
     public function index()
     {
-        return Inertia::render('Admin/Dashboard');
+        return Inertia::render('Admin/Dashboard',[
+                        
+        ]
+        );
     }
 
 
@@ -46,13 +49,13 @@ class AdminController extends Controller
 
     //show a user record
     public function showUser(User $user)
-    {
+    {   
         return inertia::render('Admin/ShowUser', [
             'user' => [
                'id' => $user->id,
                'name' => $user->name,
                'email'=> $user->email, 
-               'user_role' => $user->user_role
+               'user_role' => $user->user_role,
             ]
         ]);
     }
@@ -88,7 +91,7 @@ class AdminController extends Controller
     public function doctorsList()
     {
         return Inertia::render('Admin/DoctorsList', [
-            'users' => User::query()->where('user_role', '=', '1')
+            'users' => User::query()->where('user_role', '=', '2')
                 ->when(Request::input('search'), function ($query, $search) {
                     $query->where('name', 'like', "%{$search}%");
                 })
@@ -105,7 +108,7 @@ class AdminController extends Controller
             'filters' => Request::only(['search']),
             'can' => [
                 'createUser' => Auth::user()->can('create', User::class)
-            ]
+            ],
         ]);
     }
 

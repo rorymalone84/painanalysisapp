@@ -86,6 +86,34 @@
         />
         <label class="p-2" for="user_role33">Admin</label>
       </div>
+
+      <div class="mb-6">
+      <label
+        class="block mb-2 uppercase font-bold text-xs text-gray-700"
+        for="user_role"
+        >Profile Type</label
+      >
+      <div class="p-6">
+        <input
+          v-model="form.user_role"
+          class="pr-2"
+          type="radio"
+          id="profile_type1"
+          name="profile_type"
+          value="patient"
+        />
+        <label class="p-4" for="profile_type1">Patient</label>
+
+        <input
+          v-model="form.user_role"
+          class="p-2"
+          type="radio"
+          id="profile_type2"
+          name="profile_type"
+          value="doctor"
+        />
+        <label class="p-4" for="profile_type">Doctor</label>
+      </div>
       <!-- Email validation -->
       <div
         v-if="form.errors.user_role"

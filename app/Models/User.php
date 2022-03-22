@@ -47,5 +47,13 @@ class User extends Authenticatable
 
     public function setPasswordAttribute($value){
         $this->attributes['password'] = bcrypt($value);        
-    }    
+    }
+
+    protected $with = ['profile'];
+ 
+    public function profile()
+    {
+      return $this->morphTo();
+    }
+
 }

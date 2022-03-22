@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('doctor_profiles', function (Blueprint $table) {
-            $table->id();
+        Schema::create('patient_profiles', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('next_appointment_date')->nullable();
+            $table->string('assigned_doctor')->nullable();
+            $table->string('prescriptions')->nullable();
+            $table->string('prescription_details')->nullable();
             $table->timestamps();
-            $table->string('specialism')->nullable();
-            $table->string('address_city')->nullable();
-            $table->string('mobile')->nullable();
-            $table->string('email')->nullable();
         });
     }
 
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('doctor_profiles');
+        Schema::dropIfExists('patient_profiles');
     }
 };
