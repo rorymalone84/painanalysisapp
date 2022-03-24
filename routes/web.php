@@ -8,17 +8,6 @@ use App\Http\Controllers\DoctorsController;
 use App\Http\Controllers\PatientsController;
 use App\Http\Controllers\Auth\LoginController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 Route::controller(LoginController::class)->group(function () {
     Route::get('/login', 'create')->name('login');
     Route::post('/login','store');
@@ -27,54 +16,36 @@ Route::controller(LoginController::class)->group(function () {
 
 Route::middleware('auth')->group(function(){
     // controls authenticated Admin 'user_role = 2' routes
-    // responsible for registering patients and doctors
-    
+    // responsible for registering patients and doctors    
     Route::controller(AdminController::class)->group(function () {
         Route::get('/admin/dashboard', 'index');
         /*
-        user lists
+        user and doctor lists
         */
         Route::get('/admin/patientsList', 'patientsList')->name('patients.list')->middleware('can:create, App\Models\User');
-        Route::get('/admin/doctorsList', 'doctorsList')->name('doctors.list');
+        Route::get('/admin/doctorsList', 'doctorsList')->name('doctors.list');        
         /*
-        create and store doctor
-        */
-        Route::get('/admin/createDoctor', 'createDoctor')->middleware('can:create, App\Models\User');
-        Route::post('/admin/createDoctor', 'storeDoctor');
-         /*
-        create and store user
+        user crud routes
         */
         Route::get('/admin/createUser', 'createUser')->middleware('can:create, App\Models\User');
         Route::post('/admin/createUser', 'storeUser');
-        /*
-        view/edit user details
-        */
         Route::get('/admin/show/{user}', 'showUser')->name('show.user')->middleware('can:create, App\Models\User');
         Route::get('/admin/editUser/{user}', 'editUser')->name('edit.user')->middleware('can:create, App\Models\User');
         Route::put('/admin/editUser/{user}', 'updateUser')->name('update.user');
+        Route::get('/admin/deleteUser/{user}', 'deleteUserPrompt')->name('deletePrompt.user');
+        Route::delete('/admin/deleteUser/{user}','deleteUser')->name('delete.user');
         /*
-        view/edit Doctor details
+        doctor crud routes
         */
+        Route::get('/admin/createDoctor', 'createDoctor')->middleware('can:create, App\Models\User');
+        Route::post('/admin/createDoctor', 'storeDoctor');
         Route::get('/admin/showDoctor/{doctor}', 'showDoctor')->name('show.doctor')->middleware('can:create, App\Models\User');
         Route::get('/admin/editDoctor/{doctor}', 'editDoctor')->name('edit.doctor')->middleware('can:create, App\Models\User');
-        Route::put('/admin/editDoctor/{doctor}', 'updateDoctor')->name('update.doctor');
-
-        
-        /*
-        delete user
-        */
-        Route::delete('/destroy/{user}', [AdminController::class, 'destroy'])->name('users.destroy');
-        
+        Route::put('/admin/editDoctor/{doctor}', 'updateDoctor')->name('update.doctor');        
+        Route::get('/admin/deleteDoctor/{doctor}', 'deleteDoctorPrompt')->name('doctor.deletePrompt');
+        Route::delete('/admin/deleteDoctor/{doctor}', 'deleteDoctor')->name('delete.doctor');        
     });
 
-    //Where admins assign a user to doctor
-    //Route::controller(AssignmentController::class)->group(function () {
-    //    Route::get('/admin/patientGroups/', 'showPatientGroup')->name('show.patientGroup')->middleware('can:create, App\Models\User');
-    //    Route::get('/admin/assignPatient/', 'assignPatient')->name('assign.patient')->middleware('can:create, App\Models\User');
-    //    Route::get('/admin/assignPatient/', 'assignPatient')->name('assign.patient')->middleware('can:create, App\Models\User');
-    //};
-
-    // controls authenticated Doctors 'user_role = 1' routes
     Route::controller(DoctorsController::class)->group(function () {
         Route::get('/doctors/dashboard', 'index');
         Route::get('/doctors/details', 'createDetails');
@@ -91,14 +62,19 @@ Route::middleware('auth')->group(function(){
         Route::get('/patients/journalEntries');
     });
 
+    //Where admins assign a user to doctor
+    //Route::controller(AssignmentController::class)->group(function () {
+    //    Route::get('/admin/patientGroups/', 'showPatientGroup')->name('show.patientGroup')->middleware('can:create, App\Models\User');
+    //    Route::get('/admin/assignPatient/', 'assignPatient')->name('assign.patient')->middleware('can:create, App\Models\User');
+    //    Route::get('/admin/assignPatient/', 'assignPatient')->name('assign.patient')->middleware('can:create, App\Models\User');
+    //};
+
     Route::get('/', function () {
         return Inertia::render('Home');
     });
     
     Route::get('/settings', function () {
         return Inertia::render('Settings');
-    });
-       
+    });   
 });
-
 //

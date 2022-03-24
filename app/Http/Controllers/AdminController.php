@@ -57,7 +57,8 @@ class AdminController extends Controller
             ]
         ]);
     }
-
+    
+    //update user form
     public function editUser(User $user)
     {
         return inertia::render('Admin/EditUser', [
@@ -70,7 +71,7 @@ class AdminController extends Controller
         ]);
     }
 
-    //updates user
+    //update user data function
     public function updateUser(Request $request, User $user)
     {
         $attributes = Request::validate([
@@ -111,9 +112,21 @@ class AdminController extends Controller
         ]);
     }
 
-    public function destroy(User $user)
+     //delete doctor prompt
+     public function deleteUserPrompt(User $user){
+        return inertia::render('Admin/DeleteUser', [
+           'user' => [
+               'id' => $user->id,
+               'name' => $user->name
+           ]
+        ]);
+    }
+
+    public function deleteUser(User $user)
     {
         $user->delete();
+
+        return redirect()->route('patients.list');
     }
 
     //Doctor resources
@@ -196,4 +209,21 @@ class AdminController extends Controller
         return redirect()->route('doctors.list');
     }
 
+    //delete doctor prompt
+    public function deleteDoctorPrompt(Doctor $doctor){
+        return inertia::render('Admin/DeleteDoctor', [
+           'doctor' => [
+               'id' => $doctor->id,
+               'name' => $doctor->name
+           ]
+        ]);
+    }
+
+    //delete doctor function
+    public function deleteDoctor(Doctor $doctor)
+    {
+        $doctor->delete();
+
+        return redirect()->route('doctors.list');
+    }
 }
