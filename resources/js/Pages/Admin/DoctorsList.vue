@@ -90,7 +90,7 @@
                 >
                   <Link
                     class="text-indigo-600 hover:text-indigo-900"
-                    :href="route('doctor.deletePrompt', doctor.id)"
+                    :href="route('deletePrompt.doctor', doctor.id)"
                   >
                     delete
                   </Link>

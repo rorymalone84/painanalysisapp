@@ -62,7 +62,7 @@
       <img src="https://i.imgur.com/VHc5SJE.png" alt="" />
       <div class="text-center">
         <h1 class="text-4xl font-bold text-gray-800">534</h1>
-        <span class="text-gray-500">Coaches</span>
+        <span class="text-gray-500">Coach</span>
       </div>
     </div>
     <div

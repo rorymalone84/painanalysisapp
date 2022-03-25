@@ -1,5 +1,5 @@
 <template>
-  <Head title="Home" />
+  <Head title="Settings" />
   <h1 class="text-3xl">Home</h1>
 </template>
 

@@ -42,32 +42,16 @@ Route::middleware('auth')->group(function(){
         Route::get('/admin/showDoctor/{doctor}', 'showDoctor')->name('show.doctor')->middleware('can:create, App\Models\User');
         Route::get('/admin/editDoctor/{doctor}', 'editDoctor')->name('edit.doctor')->middleware('can:create, App\Models\User');
         Route::put('/admin/editDoctor/{doctor}', 'updateDoctor')->name('update.doctor');        
-        Route::get('/admin/deleteDoctor/{doctor}', 'deleteDoctorPrompt')->name('doctor.deletePrompt');
+        Route::get('/admin/deleteDoctor/{doctor}', 'deleteDoctorPrompt')->name('doctor.deletePrompt');//route name inconsistency due to ziggy route issue
         Route::delete('/admin/deleteDoctor/{doctor}', 'deleteDoctor')->name('delete.doctor');        
     });
 
-    Route::controller(DoctorsController::class)->group(function () {
-        Route::get('/doctors/dashboard', 'index');
-        Route::get('/doctors/details', 'createDetails');
-        Route::get('/doctors/details', 'showDetails');
-        Route::get('/doctors/details', 'editDetails');
-        Route::get('/doctors/patients', 'patientList');
-        Route::get('/doctors/appointments');
-    });
-
     Route::controller(PatientsController::class)->group(function () {
-        Route::get('/patients/dashboard', 'index');
-        Route::get('/patients/painAnalysisForm', 'painAnalysisForm');
-        Route::post('/patients/painAnalysisForm', 'entryForm');
+        Route::get('/patients/home', 'index');
+        Route::get('/patients/analysisForm', 'analysisForm');
+        Route::post('/patients/analysisForm', 'analysisForm');
         Route::get('/patients/journalEntries');
     });
-
-    //Where admins assign a user to doctor
-    //Route::controller(AssignmentController::class)->group(function () {
-    //    Route::get('/admin/patientGroups/', 'showPatientGroup')->name('show.patientGroup')->middleware('can:create, App\Models\User');
-    //    Route::get('/admin/assignPatient/', 'assignPatient')->name('assign.patient')->middleware('can:create, App\Models\User');
-    //    Route::get('/admin/assignPatient/', 'assignPatient')->name('assign.patient')->middleware('can:create, App\Models\User');
-    //};
 
     Route::get('/', function () {
         return Inertia::render('Home');
@@ -75,6 +59,7 @@ Route::middleware('auth')->group(function(){
     
     Route::get('/settings', function () {
         return Inertia::render('Settings');
-    });   
+    });
+
 });
 //
