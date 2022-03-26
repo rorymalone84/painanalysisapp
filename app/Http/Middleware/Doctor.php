@@ -16,7 +16,7 @@ class Doctor
      */
     public function handle(Request $request, Closure $next)
     {
-        if ($request->user()->role_id === 1) {
+        if ($request->user()->role_id === 2) {
             return $next($request);
         }
 

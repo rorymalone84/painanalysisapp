@@ -49,6 +49,12 @@ class User extends Authenticatable
         $this->attributes['password'] = bcrypt($value);        
     }
 
+    
+    public function role() {
+        return $this->belongsTo('App\Role');
+    }
+
+    //details profile
     protected $with = ['profile'];
  
     public function profile()

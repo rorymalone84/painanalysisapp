@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Request;
+use App\Models\Role;
 use App\Models\User;
 use Inertia\Inertia;
 use App\Models\Admin;
@@ -17,9 +18,15 @@ class AdminController extends Controller
     */
 
     //Admin dashboard
-    public function index()
-    {
-        return Inertia::render('Admin/Dashboard');
+    public function index()    {
+        
+        $doctorCount =  User::where('role_id', '=', 2)->get();
+        $patientCount = User::where('role_id', '=', 1)->get();
+    
+        return Inertia::render('Admin/Dashboard',[
+            'doctorCount' => count($doctorCount),
+            'patientCount' => count($patientCount)
+        ]);
     }
 
     //create User form
@@ -88,7 +95,7 @@ class AdminController extends Controller
     public function patientsList()
     {   
         return Inertia::render('Admin/PatientsList', [
-            'users' => User::query()->where('role_id', '=', '0')
+            'users' => User::query()->where('role_id', '=', '1')
                 ->when(Request::input('search'), function ($query, $search) {
                     $query->where('name', 'like', "%{$search}%");
                 })
@@ -127,7 +134,7 @@ class AdminController extends Controller
     public function doctorsList()
     {
         return Inertia::render('Admin/DoctorsList', [
-            'users' => User::query()->where('role_id', '=', '1')
+            'users' => User::query()->where('role_id', '=', '2')
                 ->when(Request::input('search'), function ($query, $search) {
                     $query->where('name', 'like', "%{$search}%");
                 })

@@ -62,7 +62,7 @@
           type="radio"
           id="user_role1"
           name="role_id"
-          value="0"
+          value="1"
         />
         <label class="p-4" for="user_role1">Patient</label>
 
@@ -72,7 +72,7 @@
           type="radio"
           id="user_role2"
           name="role_id"
-          value="1"
+          value="2"
         />
         <label class="p-2" for="user_role2">Doctor</label>
 
@@ -82,7 +82,7 @@
           type="radio"
           id="user_role3"
           name="role_id"
-          value="2"
+          value="3"
         />
         <label class="p-2" for="user_role3">Admin</label>
       </div>

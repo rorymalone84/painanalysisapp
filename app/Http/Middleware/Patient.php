@@ -16,7 +16,7 @@ class Patient
      */
     public function handle(Request $request, Closure $next)
     {
-        if ($request->user()->role_id === 0) {
+        if ($request->user()->role_id === 1) {
             return $next($request);
         }
 

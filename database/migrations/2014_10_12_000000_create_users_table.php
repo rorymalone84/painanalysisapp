@@ -18,7 +18,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->integer('role_id')->default('0'); //patients 0 (default) - Doctors 1 - Admin 2
+            $table->bigInteger('role_id')->unsigned();
+            $table->foreign('role_id')->references('id')->on('roles');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
