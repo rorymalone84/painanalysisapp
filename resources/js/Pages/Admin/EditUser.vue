@@ -57,39 +57,39 @@
       >
       <div class="p-6">
         <input
-          v-model="form.user_role"
+          v-model="form.role_id"
           class="pr-2"
           type="radio"
           id="user_role1"
-          name="user_role"
+          name="role_id"
           value="0"
         />
         <label class="p-4" for="user_role1">Patient</label>
 
         <input
-          v-model="form.user_role"
+          v-model="form.role_id"
           class="p-2"
           type="radio"
           id="contactChoice2"
           name="user_role"
           value="1"
         />
-        <label class="p-4" for="user_role2">Doctor</label>
+        <label class="p-4" for="urole_id">Doctor</label>
 
         <input
-          v-model="form.user_role"
+          v-model="form.role_id"
           class="p-2"
           type="radio"
           id="contactChoice3"
-          name="user_role"
+          name="role_id"
           value="2"
         />
         <label class="p-4" for="user_role3">Admin</label>
       </div>
       <!-- Email validation -->
       <div
-        v-if="form.errors.user_role"
-        v-text="form.errors.user_role"
+        v-if="form.errors.role_id"
+        v-text="form.errors.role_id"
         class="text-red-500 mt-2"
       ></div>
     </div>
@@ -120,7 +120,7 @@ export default {
     let form = useForm({
       name: props.user.name,
       email: props.user.email,
-      user_role: props.user.user_role,
+      role_id: props.user.role_id,
       password: "",
     });
     return { form };

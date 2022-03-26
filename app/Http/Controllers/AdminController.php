@@ -34,7 +34,7 @@ class AdminController extends Controller
         $attributes = Request::validate([
             'name' => 'required',
             'email' => ['required', 'email'],
-            'user_role' => 'required', 
+            'role_id' => 'required', 
             'password' => 'required',
         ]);
     
@@ -51,7 +51,7 @@ class AdminController extends Controller
                'id' => $user->id,
                'name' => $user->name,
                'email'=> $user->email, 
-               'user_role' => $user->user_role,
+               'role_id' => $user->role_id,
             ]
         ]);
     }
@@ -64,7 +64,7 @@ class AdminController extends Controller
                'id' => $user->id,
                'name' => $user->name,
                'email'=> $user->email, 
-               'user_role' => $user->user_role,
+               'role_id' => $user->role_id,
             ]
         ]);
     }
@@ -75,7 +75,7 @@ class AdminController extends Controller
         $attributes = Request::validate([
             'name' => 'required',
             'email' => ['required', 'email'],
-            'user_role' => 'required',
+            'role_id' => 'required',
         ]);
 
         // update the user
@@ -88,7 +88,7 @@ class AdminController extends Controller
     public function patientsList()
     {   
         return Inertia::render('Admin/PatientsList', [
-            'users' => User::query()->where('user_role', '=', '0')
+            'users' => User::query()->where('role_id', '=', '0')
                 ->when(Request::input('search'), function ($query, $search) {
                     $query->where('name', 'like', "%{$search}%");
                 })
@@ -97,7 +97,7 @@ class AdminController extends Controller
                 ->through(fn($user) => [
                     'id' => $user->id,
                     'name' => $user->name,
-                    'user_role' => $user->user_role,
+                    'role_id' => $user->role_id,
                 ]),
 
             'filters' => Request::only(['search']),
@@ -127,7 +127,7 @@ class AdminController extends Controller
     public function doctorsList()
     {
         return Inertia::render('Admin/DoctorsList', [
-            'users' => User::query()->where('user_role', '=', '1')
+            'users' => User::query()->where('role_id', '=', '1')
                 ->when(Request::input('search'), function ($query, $search) {
                     $query->where('name', 'like', "%{$search}%");
                 })
