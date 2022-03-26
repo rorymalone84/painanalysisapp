@@ -74,7 +74,17 @@
           name="user_role"
           value="1"
         />
-        <label class="p-4" for="user_role2">Admin</label>
+        <label class="p-4" for="user_role2">Doctor</label>
+
+        <input
+          v-model="form.user_role"
+          class="p-2"
+          type="radio"
+          id="contactChoice3"
+          name="user_role"
+          value="2"
+        />
+        <label class="p-4" for="user_role3">Admin</label>
       </div>
       <!-- Email validation -->
       <div

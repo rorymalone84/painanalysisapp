@@ -14,7 +14,7 @@ class DoctorsController extends Controller
      */
     public function index()
     {
-
+        return Inertia::render('Doctors/Dashboard');
     }
 
     /**

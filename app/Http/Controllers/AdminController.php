@@ -23,7 +23,6 @@ class AdminController extends Controller
         return Inertia::render('Admin/Dashboard');
     }
 
-
     //create User form
     public function createUser()
     {
@@ -100,15 +99,9 @@ class AdminController extends Controller
                     'id' => $user->id,
                     'name' => $user->name,
                     'user_role' => $user->user_role,
-                    'can' => [
-                        'edit' => Auth::user()->can('edit', $user)
-                    ],
                 ]),
 
             'filters' => Request::only(['search']),
-            'can' => [
-                'createUser' => Auth::user()->can('create', User::class)
-            ]
         ]);
     }
 
@@ -135,23 +128,17 @@ class AdminController extends Controller
     public function doctorsList()
     {
         return Inertia::render('Admin/DoctorsList', [
-            'doctors' => Doctor::query()
+            'users' => User::query()->where('user_role', '=', '1')
                 ->when(Request::input('search'), function ($query, $search) {
                     $query->where('name', 'like', "%{$search}%");
                 })
                 ->paginate(10)
                 ->withQueryString()
-                ->through(fn($doctor) => [
-                    'id' => $doctor->id,
-                    'name' => $doctor->name,
-                    'can' => [
-                        'edit' => Auth::user()->can('edit', $doctor)
-                    ]
+                ->through(fn($user) => [
+                    'id' => $user->id,
+                    'name' => $user->name,
                 ]),
             'filters' => Request::only(['search']),
-            'can' => [
-                'createUser' => Auth::user()->can('create', Doctor::class)
-            ],
         ]);
     }
 
@@ -203,7 +190,6 @@ class AdminController extends Controller
             'email' => ['required', 'email'],
         ]);
 
-        // update the user
         $doctor->update($attributes);
          
         return redirect()->route('doctors.list');
