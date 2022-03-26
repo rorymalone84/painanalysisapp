@@ -5,7 +5,6 @@ use Request;
 use App\Models\User;
 use Inertia\Inertia;
 use App\Models\Admin;
-use App\Models\Doctor;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -140,76 +139,5 @@ class AdminController extends Controller
                 ]),
             'filters' => Request::only(['search']),
         ]);
-    }
-
-    public function createDoctor()
-    {
-        return Inertia::render('Admin/CreateDoctor');
-    }
-
-    public function storeDoctor()
-    {
-        $attributes = Request::validate([
-            'name' => 'required',
-            'email' => ['required', 'email'], 
-            'password' => 'required',
-        ]);
-    
-        Doctor::create($attributes);
-    
-        return Redirect::route('doctors.list'); 
-    }
-
-    public function showDoctor(Doctor $doctor)
-    {
-        return inertia::render('Admin/ShowDoctor', [
-            'doctor' => [
-               'id' => $doctor->id,
-               'name' => $doctor->name,
-               'email'=> $doctor->email, 
-            ]
-        ]); 
-    }
-
-    public function editDoctor(Doctor $doctor)
-    {
-        return inertia::render('Admin/EditDoctor', [
-            'doctor' => [
-               'id' => $doctor->id,
-               'name' => $doctor->name,
-               'email'=> $doctor->email, 
-            ]
-        ]);
-    }
-
-    //update doctor
-    public function updateDoctor(Request $request, Doctor $doctor)
-    {
-        $attributes = Request::validate([
-            'name' => 'required',
-            'email' => ['required', 'email'],
-        ]);
-
-        $doctor->update($attributes);
-         
-        return redirect()->route('doctors.list');
-    }
-
-    //delete doctor prompt
-    public function deleteDoctorPrompt(Doctor $doctor){
-        return inertia::render('Admin/DeleteDoctor', [
-           'doctor' => [
-               'id' => $doctor->id,
-               'name' => $doctor->name
-           ]
-        ]);
-    }
-
-    //delete doctor function
-    public function deleteDoctor(Doctor $doctor)
-    {
-        $doctor->delete();
-
-        return redirect()->route('doctors.list');
     }
 }

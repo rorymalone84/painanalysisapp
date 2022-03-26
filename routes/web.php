@@ -47,16 +47,15 @@ Route::middleware('auth','admin:2')->group(function(){
 
 });
 
-Route::middleware('auth', 'doctor:1')->group(function(){
-    // controls authenticated Admin 'user_role = 2' routes
-    // responsible for registering patients and doctors    
+// controls authenticated doctor 'user_role = 1' routes
+Route::middleware('auth', 'doctor:1')->group(function(){     
     Route::controller(DoctorsController::class)->group(function () {
         Route::get('/doctors/dashboard', 'index');     
     });
 });
 
-Route::middleware('auth','patient:0')->group(function(){
-    // controls authenticated Patient 'user_role = 0' routes    
+// controls authenticated Patient 'user_role = 0' routes
+Route::middleware('auth','patient:0')->group(function(){        
     Route::controller(PatientsController::class)->group(function () {
         Route::get('/patients/home', 'index');     
     });
