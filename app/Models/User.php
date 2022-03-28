@@ -54,6 +54,10 @@ class User extends Authenticatable
         return $this->belongsTo('App\Role');
     }
 
+    public function painAnalysisPost() {
+        return $this->hasMany('App\PainAnalysis');
+    }
+
     //details profile
     protected $with = ['profile'];
  

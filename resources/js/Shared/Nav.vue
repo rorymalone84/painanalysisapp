@@ -50,10 +50,5 @@ import NavLink from "./NavLink";
 
 export default {
   components: { NavLink },
-  computed: {
-    name() {
-      return this.$page.props.auth.user.name;
-    },
-  },
 };
 </script>

@@ -18,7 +18,7 @@ Route::controller(LoginController::class)->group(function () {
 // Authorizes Admin 'role_id = 3' routes
 Route::middleware('auth','admin:3')->group(function(){
     
-    // Admin is responsible for registering patients and doctors    
+    // Admin is responsible for registering patients and doctors, and their interactions   
     Route::controller(AdminController::class)->group(function () {
         Route::get('/admin/dashboard', 'index');
         /*
@@ -49,17 +49,21 @@ Route::middleware('auth','admin:3')->group(function(){
 
 });
 
-// controls authenticated doctor 'role_id = 2' routes
+// Authenticates doctor 'role_id = 2' routes
 Route::middleware('auth', 'doctor:2')->group(function(){     
     Route::controller(DoctorsController::class)->group(function () {
         Route::get('/doctors/dashboard', 'index');     
     });
 });
 
-// controls authenticated Patient 'role_id = 1' routes
+// Authenticates Patient 'role_id = 1' routes
 Route::middleware('auth','patient:1')->group(function(){        
     Route::controller(PatientsController::class)->group(function () {
         Route::get('/patients/home', 'index');     
+    });
+
+    Route::controller(PatientsController::class)->group(function () {
+        Route::get('/patients/form', 'painAnalysisForm');     
     });
 });
 

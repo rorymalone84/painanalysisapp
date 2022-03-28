@@ -2,7 +2,7 @@
   <div class="flex justify-between mb-6">
     <Head title="Registered Patients" />
     <div class="flex items-center">
-      <h1 class="text-3xl">Patients</h1>
+      <h1 class="text-3xl">Doctors</h1>
       <Link
         href="/admin/createUser"
         class="
