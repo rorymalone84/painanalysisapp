@@ -13,9 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pain_analysis_posts', function (Blueprint $table) {
+        Schema::create('pain_analyses', function (Blueprint $table) {
             $table->id();
-            $table->string('qusetion_1');
+            $table->string('question_1');
+            $table->string('question_2');
+            $table->string('question_3');
+            $table->string('question_4');
+            $table->string('question_5');
+            $table->string('question_6');
+            $table->string('question_7');
+            $table->string('question_8');
+            $table->string('question_9');
+            $table->string('question_10');
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();

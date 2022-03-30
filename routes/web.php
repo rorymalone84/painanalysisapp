@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DoctorsController;
 use App\Http\Controllers\PatientsController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\PainAnalysisController;
 
 Route::controller(LoginController::class)->group(function () {
     Route::get('/login', 'create')->name('login');
@@ -59,12 +60,15 @@ Route::middleware('auth', 'doctor:2')->group(function(){
 // Authenticates Patient 'role_id = 1' routes
 Route::middleware('auth','patient:1')->group(function(){        
     Route::controller(PatientsController::class)->group(function () {
-        Route::get('/patients/home', 'index');     
+        Route::get('/patients/home', 'index');         
     });
 
-    Route::controller(PatientsController::class)->group(function () {
-        Route::get('/patients/form', 'painAnalysisForm');     
+    Route::controller(PainAnalysisController::class)->group(function () {
+        Route::get('/patients/form', 'painAnalysisForm');
+        Route::post('/patients/form', 'store')->name('store.form');
     });
+
+    
 });
 
 //

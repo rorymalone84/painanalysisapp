@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Inertia\Inertia;
 use Illuminate\Http\Request;
+use App\Models\PainAnalysisPost;
+use Illuminate\Support\Facades\Auth;
 
 class PatientsController extends Controller
 {
@@ -15,12 +17,5 @@ class PatientsController extends Controller
     public function index()
     {
         return Inertia::render('Patients/Dashboard');      
-    }
-
-   public function painAnalysisForm()
-   {
-       return Inertia::render('Patients/PainAnalysisForm');
-   }
-
-    
+    }    
 }

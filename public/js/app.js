@@ -21786,23 +21786,27 @@ __webpack_require__.r(__webpack_exports__);
     var expose = _ref.expose;
     expose();
     var form = (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__.useForm)({
-      user_id: "",
-      question_1: null
+      question_1: null,
+      question_2: null,
+      question_3: null,
+      question_4: null,
+      question_5: null,
+      question_6: null,
+      question_7: null,
+      question_8: null,
+      question_9: null,
+      question_10: null
     });
 
     var submit = function submit() {
-      form.post("/patients/painAnalysisForm", form);
+      form.post("/patients/form", form);
     };
 
     var step = (0,vue__WEBPACK_IMPORTED_MODULE_1__.ref)(1);
-
-    var firstQuestion = function firstQuestion() {};
-
     var __returned__ = {
       form: form,
       submit: submit,
       step: step,
-      firstQuestion: firstQuestion,
       useForm: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__.useForm,
       ref: vue__WEBPACK_IMPORTED_MODULE_1__.ref
     };
@@ -23218,90 +23222,86 @@ var _hoisted_2 = {
 };
 
 var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "class": "block mb-2 uppercase font-bold text-xs text-gray-700",
+  "class": "block mb-2 uppercase font-bold text-gray-700",
   "for": "name"
-}, "Question 1", -1
+}, "1. What best describes the pain you have felt today?", -1
 /* HOISTED */
 );
 
 var _hoisted_4 = ["textContent"];
 
 var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "class": "block mb-2 uppercase font-bold text-xs text-gray-700",
+  "class": "block mb-2 uppercase font-bold text-gray-700",
   "for": "name"
-}, "Question 2", -1
+}, "2. Point to where you feel the pain the most", -1
 /* HOISTED */
 );
 
 var _hoisted_6 = ["textContent"];
 
 var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "class": "block mb-2 uppercase font-bold text-xs text-gray-700",
+  "class": "block mb-2 uppercase font-bold text-gray-700",
   "for": "name"
-}, "Question 3", -1
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" 3. Between 1 and 10, describe your pain at its "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("b", null, "highest"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" over the last 24 hours ")])], -1
 /* HOISTED */
 );
 
 var _hoisted_8 = ["textContent"];
 
 var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "class": "block mb-2 uppercase font-bold text-xs text-gray-700",
+  "class": "block mb-2 uppercase font-bold text-gray-700",
   "for": "name"
-}, "Question 4", -1
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("4. Between 1 and 10, describe your pain at its "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("b", null, "lowest"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" over the last 24 hours")], -1
 /* HOISTED */
 );
 
 var _hoisted_10 = ["textContent"];
-
-var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "class": "block mb-2 uppercase font-bold text-xs text-gray-700",
+var _hoisted_11 = {
+  "class": "block mb-2 uppercase font-bold text-gray-700",
   "for": "name"
-}, "Question 5", -1
-/* HOISTED */
-);
-
+};
 var _hoisted_12 = ["textContent"];
 
 var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "class": "block mb-2 uppercase font-bold text-xs text-gray-700",
+  "class": "block mb-2 uppercase font-bold text-gray-700",
   "for": "name"
-}, "Question 6", -1
+}, "6. How intense is the pain you feel right now?", -1
 /* HOISTED */
 );
 
 var _hoisted_14 = ["textContent"];
 
 var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "class": "block mb-2 uppercase font-bold text-xs text-gray-700",
+  "class": "block mb-2 uppercase font-bold text-gray-700",
   "for": "name"
-}, "Question 7", -1
+}, "7. Which treatments or medications are you receiving for your pain?", -1
 /* HOISTED */
 );
 
 var _hoisted_16 = ["textContent"];
 
 var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "class": "block mb-2 uppercase font-bold text-xs text-gray-700",
+  "class": "block mb-2 uppercase font-bold text-gray-700",
   "for": "name"
-}, "Question 8", -1
+}, "8. What amount of the prescribed medication dosage was taken today?", -1
 /* HOISTED */
 );
 
 var _hoisted_18 = ["textContent"];
 
 var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "class": "block mb-2 uppercase font-bold text-xs text-gray-700",
+  "class": "block mb-2 uppercase font-bold text-gray-700",
   "for": "name"
-}, "Question 9", -1
+}, "9. In the last 24 hours, how much relief has medication provided?", -1
 /* HOISTED */
 );
 
 var _hoisted_20 = ["textContent"];
 
 var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "class": "block mb-2 uppercase font-bold text-xs text-gray-700",
+  "class": "block mb-2 uppercase font-bold text-gray-700",
   "for": "name"
-}, "Question 10", -1
+}, "10. How has pain interfered with your daily activities in the past 24 hours.", -1
 /* HOISTED */
 );
 
@@ -23355,9 +23355,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     required: ""
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.form.question_2]]), $setup.form.errors.question_1 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.form.question_2]]), $setup.form.errors.question_2 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
     key: 0,
-    textContent: (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.form.errors.question_1),
+    textContent: (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.form.errors.question_2),
     "class": "text-red-500 mt-2"
   }, null, 8
   /* PROPS */
@@ -23384,24 +23384,26 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* NEED_PATCH */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.step === 3]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Question 4"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
-      return $setup.form.question_2 = $event;
+      return $setup.form.question_4 = $event;
     }),
     type: "text",
-    name: "question_2",
-    id: "question_2",
+    name: "question_4",
+    id: "question_4",
     "class": "border border-gray-400 p-2 w-full",
     required: ""
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.form.question_2]]), $setup.form.errors.question_1 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.form.question_4]]), $setup.form.errors.question_4 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
     key: 0,
-    textContent: (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.form.errors.question_1),
+    textContent: (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.form.errors.question_4),
     "class": "text-red-500 mt-2"
   }, null, 8
   /* PROPS */
   , _hoisted_10)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.step == 4]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Question 5"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.step == 4]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Question 5"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_11, "5. On average, how intense has the pain felt over the last 24 hours? " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.user_id), 1
+  /* TEXT */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
       return $setup.form.question_5 = $event;
     }),
@@ -23425,8 +23427,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return $setup.form.question_6 = $event;
     }),
     type: "text",
-    name: "question_2",
-    id: "question_2",
+    name: "question_6",
+    id: "question_6",
     "class": "border border-gray-400 p-2 w-full",
     required: ""
   }, null, 512
@@ -23530,16 +23532,16 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return $setup.step--;
     }),
     disabled: $setup.step === 1,
-    "class": "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 border border-blue-700 rounded m-4"
-  }, " No ", 8
+    "class": "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-3 border border-blue-700 rounded m-4"
+  }, " Previous ", 8
   /* PROPS */
   , _hoisted_26), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     onClick: _cache[12] || (_cache[12] = function ($event) {
       return $setup.step++;
     }),
     disabled: $setup.step === 11,
-    "class": "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-6 border border-blue-700 rounded"
-  }, " Yes ", 8
+    "class": "bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-6 border border-blue-700 rounded"
+  }, " Next ", 8
   /* PROPS */
   , _hoisted_27)])], 64
   /* STABLE_FRAGMENT */

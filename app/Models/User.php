@@ -54,7 +54,7 @@ class User extends Authenticatable
         return $this->belongsTo('App\Role');
     }
 
-    public function painAnalysisPost() {
+    public function painAnalysis() {
         return $this->hasMany('App\PainAnalysis');
     }
 
