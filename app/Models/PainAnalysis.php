@@ -24,6 +24,12 @@ class PainAnalysis extends Model
         'user_id'        
     ];
 
+    protected $casts = [
+        'question_1' => 'array',
+        'question_2' => 'array',
+        'question_7' => 'array',
+    ];
+
     public function users() {
         return $this->hasMany('App\User');
     }

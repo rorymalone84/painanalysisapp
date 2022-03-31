@@ -9,19 +9,35 @@
     <div class="mb-6">
       <!-- Question 1-->
 
+      <!-- array- checkbox -->
       <div v-show="step === 1">
         <label class="block mb-2 uppercase font-bold text-gray-700" for="name"
           >1. What best describes the pain you have felt today?</label
         >
-
         <input
-          v-model="form.question_1"
-          type="text"
-          name="question_1"
-          id="question"
-          class="border border-gray-400 p-2 w-full"
-          required
+          type="checkbox"
+          id="option1"
+          name="question_1[]"
+          value="pulsing"
+          v-model="form.question_2"
         />
+        <label for="option1"> Pulsing</label><br />
+        <input
+          type="checkbox"
+          id="option2"
+          name="question_1[]"
+          value="burning"
+          v-model="form.question_1"
+        />
+        <label for="option2"> Burning</label><br />
+        <input
+          type="checkbox"
+          id="option3"
+          name="question_1[]"
+          value="sore"
+          v-model="form.question_1"
+        />
+        <label for="option3"> Sore</label><br />
 
         <div
           v-if="form.errors.question_1"
@@ -29,21 +45,38 @@
           class="text-red-500 mt-2"
         ></div>
       </div>
-      <!-- Question 2-->
 
+      <!-- Question 2-->
+      <!-- image map - check box -->
       <div v-show="step === 2">
         <label class="block mb-2 uppercase font-bold text-gray-700" for="name"
           >2. Point to where you feel the pain the most</label
         >
 
         <input
+          type="checkbox"
+          id="option1"
+          name="question_2[]"
+          value="Head"
           v-model="form.question_2"
-          type="text"
-          name="question_2"
-          id="question_2"
-          class="border border-gray-400 p-2 w-full"
-          required
         />
+        <label for="option1"> Head</label><br />
+        <input
+          type="checkbox"
+          id="option2"
+          name="question_2[]"
+          value="Back"
+          v-model="form.question_2"
+        />
+        <label for="option2"> Back</label><br />
+        <input
+          type="checkbox"
+          id="option3"
+          name="question_2[]"
+          value="Hand"
+          v-model="form.question_2"
+        />
+        <label for="option3"> Hand</label><br />
 
         <div
           v-if="form.errors.question_2"
@@ -53,6 +86,7 @@
       </div>
 
       <!-- Question 3-->
+      <!-- slider - int -->
       <div v-show="step === 3">
         <label class="block mb-2 uppercase font-bold text-gray-700" for="name"
           ><h1>
@@ -76,6 +110,8 @@
           class="text-red-500 mt-2"
         ></div>
       </div>
+
+      <!-- slider - int -->
       <!-- Question 4-->
       <div v-show="step == 4">
         <label class="block mb-2 uppercase font-bold text-gray-700" for="name"
@@ -98,6 +134,8 @@
           class="text-red-500 mt-2"
         ></div>
       </div>
+
+      <!-- slider - int -->
       <!-- Question 5-->
       <div v-show="step == 5">
         <label class="block mb-2 uppercase font-bold text-gray-700" for="name"
@@ -120,6 +158,8 @@
           class="text-red-500 mt-2"
         ></div>
       </div>
+
+      <!-- slider - int -->
       <!-- Question 6-->
       <div v-show="step == 6">
         <label class="block mb-2 uppercase font-bold text-gray-700" for="name"
@@ -141,6 +181,8 @@
           class="text-red-500 mt-2"
         ></div>
       </div>
+
+      <!-- checkbox - array -->
       <!-- Question 7-->
       <div v-show="step === 7">
         <label class="block mb-2 uppercase font-bold text-gray-700" for="name"
@@ -149,13 +191,29 @@
         >
 
         <input
+          type="checkbox"
+          id="option1"
+          name="question_7[]"
+          value="Paracetomal"
           v-model="form.question_7"
-          type="text"
-          name="question_7"
-          id="question_7"
-          class="border border-gray-400 p-2 w-full"
-          required
         />
+        <label for="option1"> Paracetomal</label><br />
+        <input
+          type="checkbox"
+          id="option2"
+          name="question_7[]"
+          value="Medicine"
+          v-model="form.question_7"
+        />
+        <label for="option2"> Medicine</label><br />
+        <input
+          type="checkbox"
+          id="option3"
+          name="question_7[]"
+          value="None"
+          v-model="form.question_7"
+        />
+        <label for="option3"> None</label><br />
 
         <div
           v-if="form.errors.question_7"
@@ -163,10 +221,12 @@
           class="text-red-500 mt-2"
         ></div>
       </div>
+
+      <!-- slider - int -->
       <!-- Question 8-->
       <div v-show="step === 8">
         <label class="block mb-2 uppercase font-bold text-gray-700" for="name"
-          >8. What amount of the prescribed medication dosage was taken
+          >8. How many doses of the prescribed medication dosage was taken
           today?</label
         >
 
@@ -185,6 +245,8 @@
           class="text-red-500 mt-2"
         ></div>
       </div>
+
+      <!-- slider - int -->
       <!-- Question 9-->
       <div v-show="step == 9">
         <label class="block mb-2 uppercase font-bold text-gray-700" for="name"
@@ -207,6 +269,8 @@
           class="text-red-500 mt-2"
         ></div>
       </div>
+
+      <!-- int - slider -->
       <!-- Question 10-->
       <div v-show="step == 10">
         <label class="block mb-2 uppercase font-bold text-gray-700" for="name"
@@ -293,13 +357,13 @@ defineProps({
 });
 
 let form = useForm({
-  question_1: null,
-  question_2: null,
+  question_1: [],
+  question_2: [],
   question_3: null,
   question_4: null,
   question_5: null,
   question_6: null,
-  question_7: null,
+  question_7: [],
   question_8: null,
   question_9: null,
   question_10: null,

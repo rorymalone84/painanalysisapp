@@ -15,16 +15,16 @@ return new class extends Migration
     {
         Schema::create('pain_analyses', function (Blueprint $table) {
             $table->id();
-            $table->string('question_1');
-            $table->string('question_2');
-            $table->string('question_3');
-            $table->string('question_4');
-            $table->string('question_5');
+            $table->json('question_1');
+            $table->json('question_2');
+            $table->integer('question_3');
+            $table->integer('question_4');
+            $table->integer('question_5');
             $table->string('question_6');
-            $table->string('question_7');
-            $table->string('question_8');
-            $table->string('question_9');
-            $table->string('question_10');
+            $table->json('question_7');
+            $table->integer('question_8');
+            $table->integer('question_9');
+            $table->integer('question_10');
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
