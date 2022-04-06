@@ -64,7 +64,7 @@ Route::middleware('auth','patient:1')->group(function(){
     });
 
     Route::controller(PainAnalysisController::class)->group(function () {
-        Route::get('/patients/form', 'painAnalysisForm');
+        Route::get('/patients/form', 'form');
         Route::post('/patients/form', 'store')->name('store.form');
     });    
 });

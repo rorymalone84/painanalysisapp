@@ -10,12 +10,24 @@ use Illuminate\Support\Facades\Redirect;
 
 class PainAnalysisController extends Controller
 {
-    public function painAnalysisForm()
+    public function form()
    {
-       return Inertia::render('Patients/PainAnalysisForm',[
+       return Inertia::render('PainAnalysis/Form',[
            'user' => [
             'user_id' => Auth::id(),
-           ]           
+           ],
+           'question1_values' => [
+               'sore' => "sore",
+               'cold' => "cold",
+           ],
+           'question2_values' => [
+            'face' => "face",
+            'back' => "back",
+           ],
+           'question7_values' => [
+            'fentanol' => "fentanol",
+            'morphine' => "morphine",           
+        ]
        ]);
    }
 

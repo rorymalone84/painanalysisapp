@@ -21762,10 +21762,10 @@ var __default__ = {
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Patients/PainAnalysisForm.vue?vue&type=script&setup=true&lang=js":
-/*!*************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Patients/PainAnalysisForm.vue?vue&type=script&setup=true&lang=js ***!
-  \*************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/PainAnalysis/Form.vue?vue&type=script&setup=true&lang=js":
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/PainAnalysis/Form.vue?vue&type=script&setup=true&lang=js ***!
+  \*****************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -21775,40 +21775,51 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var vue3_radial_progress__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue3-radial-progress */ "./node_modules/vue3-radial-progress/dist/RadialProgressBar.esm.js");
+
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     user: Object,
-    errors: Object
+    errors: Object,
+    question1_values: Array,
+    question2_values: Array,
+    question7_values: Array
   },
   setup: function setup(__props, _ref) {
     var expose = _ref.expose;
     expose();
+
+    components: ["RadialProgressBar"]; //step paginates the questions into steps
+
+
+    var step = (0,vue__WEBPACK_IMPORTED_MODULE_1__.ref)(1);
     var form = (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__.useForm)({
       question_1: [],
       question_2: [],
-      question_3: null,
-      question_4: null,
-      question_5: null,
-      question_6: null,
+      question_3: "",
+      question_4: "",
+      question_5: "",
+      question_6: "",
       question_7: [],
-      question_8: null,
-      question_9: null,
-      question_10: null
+      question_8: "",
+      question_9: "",
+      question_10: ""
     });
 
     var submit = function submit() {
       form.post("/patients/form", form);
     };
 
-    var step = (0,vue__WEBPACK_IMPORTED_MODULE_1__.ref)(1);
     var __returned__ = {
+      step: step,
       form: form,
       submit: submit,
-      step: step,
       useForm: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__.useForm,
-      ref: vue__WEBPACK_IMPORTED_MODULE_1__.ref
+      ref: vue__WEBPACK_IMPORTED_MODULE_1__.ref,
+      defineComponent: vue__WEBPACK_IMPORTED_MODULE_1__.defineComponent,
+      RadialProgressBar: vue3_radial_progress__WEBPACK_IMPORTED_MODULE_2__["default"]
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -23151,7 +23162,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
   "class": "text-3xl"
-}, "Home", -1
+}, "Home ", -1
 /* HOISTED */
 );
 
@@ -23167,10 +23178,10 @@ function render(_ctx, _cache) {
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Patients/Dashboard.vue?vue&type=template&id=744c1f9c":
-/*!***********************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Patients/Dashboard.vue?vue&type=template&id=744c1f9c ***!
-  \***********************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/PainAnalysis/Form.vue?vue&type=template&id=305bda28":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/PainAnalysis/Form.vue?vue&type=template&id=305bda28 ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -23180,272 +23191,239 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
-
-var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
-  "class": "text-3xl"
-}, "Patients Home", -1
-/* HOISTED */
-);
-
-function render(_ctx, _cache) {
-  var _component_Head = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Head");
-
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Head, {
-    title: "Settings"
-  }), _hoisted_1], 64
-  /* STABLE_FRAGMENT */
-  );
-}
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Patients/PainAnalysisForm.vue?vue&type=template&id=541f28de":
-/*!******************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Patients/PainAnalysisForm.vue?vue&type=template&id=541f28de ***!
-  \******************************************************************************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* binding */ render)
-/* harmony export */ });
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
-
-
-var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", null, "Make a new entry", -1
-/* HOISTED */
-);
-
+var _hoisted_1 = {
+  "class": "grid place-items-center"
+};
 var _hoisted_2 = {
+  key: 0,
+  "class": "font-bold text-gray-500"
+};
+var _hoisted_3 = {
+  key: 1,
+  "class": "font-bold text-gray-500"
+};
+var _hoisted_4 = {
   "class": "mb-6"
 };
-
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "class": "block mb-2 uppercase font-bold text-gray-700",
+var _hoisted_5 = {
+  "class": "block mb-2 font-bold text-gray-500",
   "for": "name"
-}, "1. What best describes the pain you have felt today?", -1
-/* HOISTED */
-);
-
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "option1"
-}, " Pulsing", -1
-/* HOISTED */
-);
-
-var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
-/* HOISTED */
-);
-
-var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "option2"
-}, " Burning", -1
-/* HOISTED */
-);
-
-var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
-/* HOISTED */
-);
-
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "option3"
-}, " Sore", -1
-/* HOISTED */
-);
-
-var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
-/* HOISTED */
-);
-
+};
+var _hoisted_6 = {
+  "class": "grid grid-cols-4"
+};
+var _hoisted_7 = {
+  "class": "PillList-item"
+};
+var _hoisted_8 = ["value"];
+var _hoisted_9 = {
+  "class": "PillList-label"
+};
 var _hoisted_10 = ["textContent"];
 
 var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "class": "block mb-2 uppercase font-bold text-gray-700",
+  "class": "block mb-2 font-bold text-gray-500",
   "for": "name"
-}, "2. Point to where you feel the pain the most", -1
+}, "Point to where you feel the pain the most", -1
 /* HOISTED */
 );
 
-var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "option1"
-}, " Head", -1
-/* HOISTED */
-);
+var _hoisted_12 = {
+  "class": "grid grid-cols-4"
+};
+var _hoisted_13 = {
+  "class": "PillList-item"
+};
+var _hoisted_14 = ["value"];
+var _hoisted_15 = {
+  "class": "PillList-label"
+};
+var _hoisted_16 = ["textContent"];
 
-var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
-/* HOISTED */
-);
-
-var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "option2"
-}, " Back", -1
-/* HOISTED */
-);
-
-var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
-/* HOISTED */
-);
-
-var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "option3"
-}, " Hand", -1
-/* HOISTED */
-);
-
-var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
-/* HOISTED */
-);
-
-var _hoisted_18 = ["textContent"];
-
-var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "class": "block mb-2 uppercase font-bold text-gray-700",
+var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "class": "block mb-2 font-bold text-gray-500",
   "for": "name"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" 3. Between 1 and 10, describe your pain at its "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("b", null, "highest"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" over the last 24 hours ")])], -1
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Between 1 and 10, describe your pain at its "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("b", null, "highest"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" over the last 24 hours: ")], -1
 /* HOISTED */
 );
+
+var _hoisted_18 = {
+  "class": "block mb-2 text-gray-700 mb-6"
+};
+
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" of 10 ");
 
 var _hoisted_20 = ["textContent"];
 
 var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "class": "block mb-2 uppercase font-bold text-gray-700",
+  "class": "block mb-2 font-bold text-gray-500",
   "for": "name"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("4. Between 1 and 10, describe your pain at its "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("b", null, "lowest"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" over the last 24 hours")], -1
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Between 1 and 10, describe your pain at its "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("b", null, "lowest"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" over the last 24 hours")], -1
 /* HOISTED */
 );
 
-var _hoisted_22 = ["textContent"];
-var _hoisted_23 = {
-  "class": "block mb-2 uppercase font-bold text-gray-700",
-  "for": "name"
+var _hoisted_22 = {
+  "class": "block mb-2 text-gray-700 mb-6"
 };
+
+var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" of 10 ");
+
 var _hoisted_24 = ["textContent"];
 
 var _hoisted_25 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "class": "block mb-2 uppercase font-bold text-gray-700",
+  "class": "block mb-2 font-bold text-gray-500",
   "for": "name"
-}, "6. How intense is the pain you feel right now?", -1
+}, "On average, how intense has the pain felt over the last 24 hours?", -1
 /* HOISTED */
 );
 
-var _hoisted_26 = ["textContent"];
+var _hoisted_26 = {
+  "class": "block mb-2 text-gray-700 mb-6"
+};
 
-var _hoisted_27 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "class": "block mb-2 uppercase font-bold text-gray-700",
+var _hoisted_27 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" of 10 ");
+
+var _hoisted_28 = ["textContent"];
+
+var _hoisted_29 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "class": "block mb-2 font-bold text-gray-500",
   "for": "name"
-}, "7. Which treatments or medications are you receiving for your pain?", -1
+}, "How intense is the pain you feel right now?", -1
 /* HOISTED */
 );
 
-var _hoisted_28 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "option1"
-}, " Paracetomal", -1
-/* HOISTED */
-);
+var _hoisted_30 = {
+  "class": "block mb-2 text-gray-700 mb-6"
+};
 
-var _hoisted_29 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
-/* HOISTED */
-);
+var _hoisted_31 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" of 10 ");
 
-var _hoisted_30 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "option2"
-}, " Medicine", -1
-/* HOISTED */
-);
+var _hoisted_32 = ["textContent"];
 
-var _hoisted_31 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
-/* HOISTED */
-);
-
-var _hoisted_32 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "option3"
-}, " None", -1
-/* HOISTED */
-);
-
-var _hoisted_33 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
-/* HOISTED */
-);
-
-var _hoisted_34 = ["textContent"];
-
-var _hoisted_35 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "class": "block mb-2 uppercase font-bold text-gray-700",
+var _hoisted_33 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "class": "block mb-2 font-bold text-gray-500",
   "for": "name"
-}, "8. How many doses of the prescribed medication dosage was taken today?", -1
+}, "Which treatments or medications are you receiving for your pain?", -1
 /* HOISTED */
 );
 
-var _hoisted_36 = ["textContent"];
+var _hoisted_34 = {
+  "class": "grid grid-cols-3"
+};
+var _hoisted_35 = {
+  "class": "PillList-item"
+};
+var _hoisted_36 = ["value"];
+var _hoisted_37 = {
+  "class": "PillList-label"
+};
+var _hoisted_38 = ["textContent"];
 
-var _hoisted_37 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "class": "block mb-2 uppercase font-bold text-gray-700",
+var _hoisted_39 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "class": "block mb-2 font-bold text-gray-500",
+  "for": "name"
+}, "How many doses of the prescribed medication dosage was taken today?", -1
+/* HOISTED */
+);
+
+var _hoisted_40 = {
+  "class": "block mb-2 text-gray-700 mb-6"
+};
+
+var _hoisted_41 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" of 10 ");
+
+var _hoisted_42 = ["textContent"];
+
+var _hoisted_43 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "class": "block mb-2 font-bold text-gray-500",
   "for": "name"
 }, "9. In the last 24 hours, how much relief has medication provided?", -1
 /* HOISTED */
 );
 
-var _hoisted_38 = ["textContent"];
+var _hoisted_44 = {
+  "class": "block mb-2 text-gray-700 mb-6"
+};
 
-var _hoisted_39 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "class": "block mb-2 uppercase font-bold text-gray-700",
+var _hoisted_45 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" of 10 ");
+
+var _hoisted_46 = ["textContent"];
+
+var _hoisted_47 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "class": "block mb-2 font-bold text-gray-500",
   "for": "name"
 }, "10. How has pain interfered with your daily activities in the past 24 hours.", -1
 /* HOISTED */
 );
 
-var _hoisted_40 = ["textContent"];
-var _hoisted_41 = {
+var _hoisted_48 = {
+  "class": "block mb-2 text-gray-700 mb-6"
+};
+
+var _hoisted_49 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" of 10 ");
+
+var _hoisted_50 = ["textContent"];
+var _hoisted_51 = {
+  "class": "m-4 grid place-items-center"
+};
+var _hoisted_52 = {
+  key: 0
+};
+var _hoisted_53 = ["disabled"];
+var _hoisted_54 = ["disabled"];
+var _hoisted_55 = {
   "class": "mb-6 mt-2"
 };
-var _hoisted_42 = ["disabled"];
-var _hoisted_43 = {
-  "class": "mb-6 mt-6"
-};
-var _hoisted_44 = ["disabled"];
-var _hoisted_45 = ["disabled"];
+var _hoisted_56 = ["disabled"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Head = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Head");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Head, {
     title: "Pain Analysis Form"
-  }), _hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
-    onSubmit: _cache[16] || (_cache[16] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["RadialProgressBar"], {
+    diameter: 125,
+    "completed-steps": $setup.step,
+    "total-steps": 11,
+    stopColor: '#bcf7f4',
+    startColor: '#77fcf6'
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [$setup.step < 11 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("h4", _hoisted_2, " Question " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.step), 1
+      /* TEXT */
+      )) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("h1", _hoisted_3, "Complete"))];
+    }),
+    _: 1
+    /* STABLE */
+
+  }, 8
+  /* PROPS */
+  , ["completed-steps"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
+    onSubmit: _cache[12] || (_cache[12] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
       return $setup.submit && $setup.submit.apply($setup, arguments);
     }, ["prevent"])),
-    "class": "mx-w-md mx-auto mt-8"
-  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Questions "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Question 1"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" array- checkbox "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "checkbox",
-    id: "option1",
-    name: "question_1[]",
-    value: "pulsing",
-    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
-      return $setup.form.question_2 = $event;
-    })
-  }, null, 512
-  /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox, $setup.form.question_2]]), _hoisted_4, _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "checkbox",
-    id: "option2",
-    name: "question_1[]",
-    value: "burning",
-    "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
-      return $setup.form.question_1 = $event;
-    })
-  }, null, 512
-  /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox, $setup.form.question_1]]), _hoisted_6, _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "checkbox",
-    id: "option3",
-    name: "question_1[]",
-    value: "sore",
-    "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
-      return $setup.form.question_1 = $event;
-    })
-  }, null, 512
-  /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox, $setup.form.question_1]]), _hoisted_8, _hoisted_9, $setup.form.errors.question_1 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+    "class": "mx-w-md m-8"
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Questions "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Question 1"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_5, "What best describes the pain you have felt today? " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.form.question_1), 1
+  /* TEXT */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.question1_values, function (key, index) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+      key: index
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+      type: "checkbox",
+      id: "grid-item",
+      name: "question_1[]",
+      value: key,
+      "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+        return $setup.form.question_1 = $event;
+      }),
+      "class": "PillList-item"
+    }, null, 8
+    /* PROPS */
+    , _hoisted_8), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox, $setup.form.question_1]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(key), 1
+    /* TEXT */
+    )])]);
+  }), 128
+  /* KEYED_FRAGMENT */
+  ))]), $setup.form.errors.question_1 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
     key: 0,
     textContent: (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.form.errors.question_1),
     "class": "text-red-500 mt-2"
@@ -23453,49 +23431,44 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* PROPS */
   , _hoisted_10)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.step === 1]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Question 2"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" image map - check box "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "checkbox",
-    id: "option1",
-    name: "question_2[]",
-    value: "Head",
-    "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
-      return $setup.form.question_2 = $event;
-    })
-  }, null, 512
-  /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox, $setup.form.question_2]]), _hoisted_12, _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "checkbox",
-    id: "option2",
-    name: "question_2[]",
-    value: "Back",
-    "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
-      return $setup.form.question_2 = $event;
-    })
-  }, null, 512
-  /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox, $setup.form.question_2]]), _hoisted_14, _hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "checkbox",
-    id: "option3",
-    name: "question_2[]",
-    value: "Hand",
-    "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
-      return $setup.form.question_2 = $event;
-    })
-  }, null, 512
-  /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox, $setup.form.question_2]]), _hoisted_16, _hoisted_17, $setup.form.errors.question_2 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.step === 1]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Question 2"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.form.question_2) + " ", 1
+  /* TEXT */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.question2_values, function (key, index) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+      key: index,
+      "class": "grid"
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+      type: "checkbox",
+      name: "question_2[]",
+      value: key,
+      "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+        return $setup.form.question_2 = $event;
+      }),
+      "class": "PillList-item"
+    }, null, 8
+    /* PROPS */
+    , _hoisted_14), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox, $setup.form.question_2]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(key), 1
+    /* TEXT */
+    )])]);
+  }), 128
+  /* KEYED_FRAGMENT */
+  ))]), $setup.form.errors.question_2 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
     key: 0,
     textContent: (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.form.errors.question_2),
     "class": "text-red-500 mt-2"
   }, null, 8
   /* PROPS */
-  , _hoisted_18)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 512
+  , _hoisted_16)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.step === 2]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Question 3"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" slider - int "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    "onUpdate:modelValue": _cache[6] || (_cache[6] = function ($event) {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.step === 2]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Question 3"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("b", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.form.question_3), 1
+  /* TEXT */
+  ), _hoisted_19]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
       return $setup.form.question_3 = $event;
     }),
-    type: "text",
+    type: "range",
+    min: "1",
+    max: "10",
     name: "question_3",
     id: "question_3",
     "class": "border border-gray-400 p-2 w-full",
@@ -23510,11 +23483,15 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* PROPS */
   , _hoisted_20)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.step === 3]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" slider - int "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Question 4"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    "onUpdate:modelValue": _cache[7] || (_cache[7] = function ($event) {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.step === 3]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Question 4"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("b", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.form.question_4), 1
+  /* TEXT */
+  ), _hoisted_23]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
       return $setup.form.question_4 = $event;
     }),
-    type: "text",
+    type: "range",
+    min: "1",
+    max: "10",
     name: "question_4",
     id: "question_4",
     "class": "border border-gray-400 p-2 w-full",
@@ -23527,15 +23504,17 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "text-red-500 mt-2"
   }, null, 8
   /* PROPS */
-  , _hoisted_22)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 512
+  , _hoisted_24)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.step == 4]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" slider - int "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Question 5"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_23, "5. On average, how intense has the pain felt over the last 24 hours? " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.user_id), 1
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.step == 4]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Question 5"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_25, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_26, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("b", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.form.question_5), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    "onUpdate:modelValue": _cache[8] || (_cache[8] = function ($event) {
+  ), _hoisted_27]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
       return $setup.form.question_5 = $event;
     }),
-    type: "text",
+    type: "range",
+    min: "0",
+    max: "10",
     name: "question_5",
     id: "question_5",
     "class": "border border-gray-400 p-2 w-full",
@@ -23548,13 +23527,17 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "text-red-500 mt-2"
   }, null, 8
   /* PROPS */
-  , _hoisted_24)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 512
+  , _hoisted_28)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.step == 5]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" slider - int "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Question 6"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_25, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    "onUpdate:modelValue": _cache[9] || (_cache[9] = function ($event) {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.step == 5]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Question 6"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_29, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_30, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("b", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.form.question_6), 1
+  /* TEXT */
+  ), _hoisted_31]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
       return $setup.form.question_6 = $event;
     }),
-    type: "text",
+    type: "range",
+    min: "1",
+    max: "10",
     name: "question_6",
     id: "question_6",
     "class": "border border-gray-400 p-2 w-full",
@@ -23567,51 +23550,45 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "text-red-500 mt-2"
   }, null, 8
   /* PROPS */
-  , _hoisted_26)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 512
+  , _hoisted_32)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.step == 6]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" checkbox - array "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Question 7"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_27, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "checkbox",
-    id: "option1",
-    name: "question_7[]",
-    value: "Paracetomal",
-    "onUpdate:modelValue": _cache[10] || (_cache[10] = function ($event) {
-      return $setup.form.question_7 = $event;
-    })
-  }, null, 512
-  /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox, $setup.form.question_7]]), _hoisted_28, _hoisted_29, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "checkbox",
-    id: "option2",
-    name: "question_7[]",
-    value: "Medicine",
-    "onUpdate:modelValue": _cache[11] || (_cache[11] = function ($event) {
-      return $setup.form.question_7 = $event;
-    })
-  }, null, 512
-  /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox, $setup.form.question_7]]), _hoisted_30, _hoisted_31, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "checkbox",
-    id: "option3",
-    name: "question_7[]",
-    value: "None",
-    "onUpdate:modelValue": _cache[12] || (_cache[12] = function ($event) {
-      return $setup.form.question_7 = $event;
-    })
-  }, null, 512
-  /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox, $setup.form.question_7]]), _hoisted_32, _hoisted_33, $setup.form.errors.question_7 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.step == 6]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Question 7"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_33, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_34, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.question7_values, function (key, index) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+      key: index,
+      "class": "col-md-12"
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_35, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+      type: "checkbox",
+      id: "grid-item",
+      name: "question_7[]",
+      value: key,
+      "onUpdate:modelValue": _cache[6] || (_cache[6] = function ($event) {
+        return $setup.form.question_7 = $event;
+      }),
+      "class": "PillList-item"
+    }, null, 8
+    /* PROPS */
+    , _hoisted_36), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox, $setup.form.question_7]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_37, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(key), 1
+    /* TEXT */
+    )])]);
+  }), 128
+  /* KEYED_FRAGMENT */
+  ))]), $setup.form.errors.question_7 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
     key: 0,
     textContent: (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.form.errors.question_7),
     "class": "text-red-500 mt-2"
   }, null, 8
   /* PROPS */
-  , _hoisted_34)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 512
+  , _hoisted_38)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.step === 7]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" slider - int "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Question 8"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_35, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    "onUpdate:modelValue": _cache[13] || (_cache[13] = function ($event) {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.step === 7]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Question 8"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_39, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_40, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("b", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.form.question_8), 1
+  /* TEXT */
+  ), _hoisted_41]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    "onUpdate:modelValue": _cache[7] || (_cache[7] = function ($event) {
       return $setup.form.question_8 = $event;
     }),
-    type: "text",
+    type: "range",
+    min: "0",
+    max: "10",
     name: "question_8",
     id: "question_8",
     "class": "border border-gray-400 p-2 w-full",
@@ -23624,13 +23601,17 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "text-red-500 mt-2"
   }, null, 8
   /* PROPS */
-  , _hoisted_36)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 512
+  , _hoisted_42)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.step === 8]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" slider - int "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Question 9"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_37, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    "onUpdate:modelValue": _cache[14] || (_cache[14] = function ($event) {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.step === 8]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Question 9"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_43, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_44, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("b", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.form.question_9), 1
+  /* TEXT */
+  ), _hoisted_45]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    "onUpdate:modelValue": _cache[8] || (_cache[8] = function ($event) {
       return $setup.form.question_9 = $event;
     }),
-    type: "text",
+    type: "range",
+    min: "0",
+    max: "10",
     name: "question_9",
     id: "question_9",
     "class": "border border-gray-400 p-2 w-full",
@@ -23643,13 +23624,17 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "text-red-500 mt-2"
   }, null, 8
   /* PROPS */
-  , _hoisted_38)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 512
+  , _hoisted_46)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.step == 9]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" int - slider "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Question 10"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_39, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    "onUpdate:modelValue": _cache[15] || (_cache[15] = function ($event) {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.step == 9]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Question 10"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_47, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_48, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("b", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.form.question_10), 1
+  /* TEXT */
+  ), _hoisted_49]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    "onUpdate:modelValue": _cache[9] || (_cache[9] = function ($event) {
       return $setup.form.question_10 = $event;
     }),
-    type: "text",
+    type: "range",
+    min: "0",
+    max: "10",
     name: "question_10",
     id: "question_10",
     "class": "border border-gray-400 p-2 w-full",
@@ -23662,35 +23647,35 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "text-red-500 mt-2"
   }, null, 8
   /* PROPS */
-  , _hoisted_40)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 512
+  , _hoisted_50)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.step == 10]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" submit "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_41, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-    type: "submit",
-    "class": "bg-blue-500 text-white py-2 rounded px-4 hover:bg-blue-300",
-    disabled: $setup.form.processing
-  }, " Submit ", 8
-  /* PROPS */
-  , _hoisted_42)])], 512
-  /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.step === 11]])])], 32
-  /* HYDRATE_EVENTS */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Nav buttons "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_43, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-    onClick: _cache[17] || (_cache[17] = function ($event) {
-      return $setup.step--;
-    }),
-    disabled: $setup.step === 1,
-    "class": "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-3 border border-blue-700 rounded m-4"
-  }, " Previous ", 8
-  /* PROPS */
-  , _hoisted_44), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-    onClick: _cache[18] || (_cache[18] = function ($event) {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.step == 10]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Nav buttons "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_51, [$setup.step < 11 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_52, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    onClick: _cache[10] || (_cache[10] = function ($event) {
       return $setup.step++;
     }),
     disabled: $setup.step === 11,
     "class": "bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-6 border border-blue-700 rounded"
   }, " Next ", 8
   /* PROPS */
-  , _hoisted_45)])], 64
+  , _hoisted_53)])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    onClick: _cache[11] || (_cache[11] = function ($event) {
+      return $setup.step--;
+    }),
+    disabled: $setup.step === 1,
+    "class": "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-3 border border-blue-700 rounded m-4"
+  }, " Previous ", 8
+  /* PROPS */
+  , _hoisted_54), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" submit "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_55, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    type: "submit",
+    "class": "bg-green-500 text-white py-2 rounded px-4 hover:bg-blue-300",
+    disabled: $setup.form.processing
+  }, " Submit ", 8
+  /* PROPS */
+  , _hoisted_56)])], 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.step === 11]])])])], 32
+  /* HYDRATE_EVENTS */
+  )], 64
   /* STABLE_FRAGMENT */
   );
 }
@@ -23974,7 +23959,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 _inertiajs_progress__WEBPACK_IMPORTED_MODULE_2__.InertiaProgress.init({
-  color: 'navy',
+  color: "navy",
   showSpinner: true
 });
 (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__.createInertiaApp)({
@@ -24004,7 +23989,7 @@ _inertiajs_progress__WEBPACK_IMPORTED_MODULE_2__.InertiaProgress.init({
     .component("Link", _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__.Link).component("Head", _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__.Head).mount(el);
   },
   title: function title(_title) {
-    return 'Pain Analysis App - ' + _title;
+    return "Pain Analysis App - " + _title;
   }
 });
 
@@ -24841,6 +24826,106 @@ if ($defineProperty) {
 	module.exports.apply = applyBind;
 }
 
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/PainAnalysis/Form.vue?vue&type=style&index=0&id=305bda28&lang=css":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/PainAnalysis/Form.vue?vue&type=style&index=0&id=305bda28&lang=css ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\n.PillList-item {\r\n  cursor: pointer;\r\n  display: inline-block;\r\n  font-size: 14px;\r\n  font-weight: normal;\r\n  line-height: 20px;\r\n  margin: 0 12px 12px 0;\r\n  text-transform: capitalize;\n}\n.PillList-item input[type=\"checkbox\"] {\r\n  display: none;\n}\n.PillList-item input[type=\"checkbox\"]:checked + .PillList-label {\r\n  background-color: #c8e7fd;\r\n  border: 1px solid #1da1f2;\r\n  font-weight: bold;\r\n  color: rgb(0, 0, 0);\n}\n.PillList-label {\r\n  border: 1px solid #1da1f2;\r\n  border-radius: 20px;\r\n  color: #1c94e0;\r\n  display: block;\r\n  padding: 7px 28px;\r\n  text-decoration: none;\n}\n.PillList-item input[type=\"checkbox\"]:checked + .PillList-label .Icon--addLight,\r\n.PillList-label .Icon--checkLight,\r\n.PillList-children {\r\n  display: none;\n}\n.PillList-label .Icon {\r\n  width: 12px;\r\n  height: 12px;\r\n  margin: 0 0 0 12px;\n}\n.Icon--smallest {\r\n  font-size: 12px;\r\n  line-height: 12px;\n}\n.Icon {\r\n  background: transparent;\r\n  display: inline-block;\r\n  font-style: normal;\r\n  vertical-align: baseline;\r\n  position: relative;\n}\r\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/runtime/api.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/css-loader/dist/runtime/api.js ***!
+  \*****************************************************/
+/***/ ((module) => {
+
+"use strict";
+
+
+/*
+  MIT License http://www.opensource.org/licenses/mit-license.php
+  Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+// eslint-disable-next-line func-names
+module.exports = function (cssWithMappingToString) {
+  var list = []; // return the list of modules as css string
+
+  list.toString = function toString() {
+    return this.map(function (item) {
+      var content = cssWithMappingToString(item);
+
+      if (item[2]) {
+        return "@media ".concat(item[2], " {").concat(content, "}");
+      }
+
+      return content;
+    }).join("");
+  }; // import a list of modules into the list
+  // eslint-disable-next-line func-names
+
+
+  list.i = function (modules, mediaQuery, dedupe) {
+    if (typeof modules === "string") {
+      // eslint-disable-next-line no-param-reassign
+      modules = [[null, modules, ""]];
+    }
+
+    var alreadyImportedModules = {};
+
+    if (dedupe) {
+      for (var i = 0; i < this.length; i++) {
+        // eslint-disable-next-line prefer-destructuring
+        var id = this[i][0];
+
+        if (id != null) {
+          alreadyImportedModules[id] = true;
+        }
+      }
+    }
+
+    for (var _i = 0; _i < modules.length; _i++) {
+      var item = [].concat(modules[_i]);
+
+      if (dedupe && alreadyImportedModules[item[0]]) {
+        // eslint-disable-next-line no-continue
+        continue;
+      }
+
+      if (mediaQuery) {
+        if (!item[2]) {
+          item[2] = mediaQuery;
+        } else {
+          item[2] = "".concat(mediaQuery, " and ").concat(item[2]);
+        }
+      }
+
+      list.push(item);
+    }
+  };
+
+  return list;
+};
 
 /***/ }),
 
@@ -49340,6 +49425,315 @@ module.exports = function getSideChannel() {
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/PainAnalysis/Form.vue?vue&type=style&index=0&id=305bda28&lang=css":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/PainAnalysis/Form.vue?vue&type=style&index=0&id=305bda28&lang=css ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Form_vue_vue_type_style_index_0_id_305bda28_lang_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Form.vue?vue&type=style&index=0&id=305bda28&lang=css */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/PainAnalysis/Form.vue?vue&type=style&index=0&id=305bda28&lang=css");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Form_vue_vue_type_style_index_0_id_305bda28_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Form_vue_vue_type_style_index_0_id_305bda28_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js":
+/*!****************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
+  \****************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var isOldIE = function isOldIE() {
+  var memo;
+  return function memorize() {
+    if (typeof memo === 'undefined') {
+      // Test for IE <= 9 as proposed by Browserhacks
+      // @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
+      // Tests for existence of standard globals is to allow style-loader
+      // to operate correctly into non-standard environments
+      // @see https://github.com/webpack-contrib/style-loader/issues/177
+      memo = Boolean(window && document && document.all && !window.atob);
+    }
+
+    return memo;
+  };
+}();
+
+var getTarget = function getTarget() {
+  var memo = {};
+  return function memorize(target) {
+    if (typeof memo[target] === 'undefined') {
+      var styleTarget = document.querySelector(target); // Special case to return head of iframe instead of iframe itself
+
+      if (window.HTMLIFrameElement && styleTarget instanceof window.HTMLIFrameElement) {
+        try {
+          // This will throw an exception if access to iframe is blocked
+          // due to cross-origin restrictions
+          styleTarget = styleTarget.contentDocument.head;
+        } catch (e) {
+          // istanbul ignore next
+          styleTarget = null;
+        }
+      }
+
+      memo[target] = styleTarget;
+    }
+
+    return memo[target];
+  };
+}();
+
+var stylesInDom = [];
+
+function getIndexByIdentifier(identifier) {
+  var result = -1;
+
+  for (var i = 0; i < stylesInDom.length; i++) {
+    if (stylesInDom[i].identifier === identifier) {
+      result = i;
+      break;
+    }
+  }
+
+  return result;
+}
+
+function modulesToDom(list, options) {
+  var idCountMap = {};
+  var identifiers = [];
+
+  for (var i = 0; i < list.length; i++) {
+    var item = list[i];
+    var id = options.base ? item[0] + options.base : item[0];
+    var count = idCountMap[id] || 0;
+    var identifier = "".concat(id, " ").concat(count);
+    idCountMap[id] = count + 1;
+    var index = getIndexByIdentifier(identifier);
+    var obj = {
+      css: item[1],
+      media: item[2],
+      sourceMap: item[3]
+    };
+
+    if (index !== -1) {
+      stylesInDom[index].references++;
+      stylesInDom[index].updater(obj);
+    } else {
+      stylesInDom.push({
+        identifier: identifier,
+        updater: addStyle(obj, options),
+        references: 1
+      });
+    }
+
+    identifiers.push(identifier);
+  }
+
+  return identifiers;
+}
+
+function insertStyleElement(options) {
+  var style = document.createElement('style');
+  var attributes = options.attributes || {};
+
+  if (typeof attributes.nonce === 'undefined') {
+    var nonce =  true ? __webpack_require__.nc : 0;
+
+    if (nonce) {
+      attributes.nonce = nonce;
+    }
+  }
+
+  Object.keys(attributes).forEach(function (key) {
+    style.setAttribute(key, attributes[key]);
+  });
+
+  if (typeof options.insert === 'function') {
+    options.insert(style);
+  } else {
+    var target = getTarget(options.insert || 'head');
+
+    if (!target) {
+      throw new Error("Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid.");
+    }
+
+    target.appendChild(style);
+  }
+
+  return style;
+}
+
+function removeStyleElement(style) {
+  // istanbul ignore if
+  if (style.parentNode === null) {
+    return false;
+  }
+
+  style.parentNode.removeChild(style);
+}
+/* istanbul ignore next  */
+
+
+var replaceText = function replaceText() {
+  var textStore = [];
+  return function replace(index, replacement) {
+    textStore[index] = replacement;
+    return textStore.filter(Boolean).join('\n');
+  };
+}();
+
+function applyToSingletonTag(style, index, remove, obj) {
+  var css = remove ? '' : obj.media ? "@media ".concat(obj.media, " {").concat(obj.css, "}") : obj.css; // For old IE
+
+  /* istanbul ignore if  */
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = replaceText(index, css);
+  } else {
+    var cssNode = document.createTextNode(css);
+    var childNodes = style.childNodes;
+
+    if (childNodes[index]) {
+      style.removeChild(childNodes[index]);
+    }
+
+    if (childNodes.length) {
+      style.insertBefore(cssNode, childNodes[index]);
+    } else {
+      style.appendChild(cssNode);
+    }
+  }
+}
+
+function applyToTag(style, options, obj) {
+  var css = obj.css;
+  var media = obj.media;
+  var sourceMap = obj.sourceMap;
+
+  if (media) {
+    style.setAttribute('media', media);
+  } else {
+    style.removeAttribute('media');
+  }
+
+  if (sourceMap && typeof btoa !== 'undefined') {
+    css += "\n/*# sourceMappingURL=data:application/json;base64,".concat(btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))), " */");
+  } // For old IE
+
+  /* istanbul ignore if  */
+
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = css;
+  } else {
+    while (style.firstChild) {
+      style.removeChild(style.firstChild);
+    }
+
+    style.appendChild(document.createTextNode(css));
+  }
+}
+
+var singleton = null;
+var singletonCounter = 0;
+
+function addStyle(obj, options) {
+  var style;
+  var update;
+  var remove;
+
+  if (options.singleton) {
+    var styleIndex = singletonCounter++;
+    style = singleton || (singleton = insertStyleElement(options));
+    update = applyToSingletonTag.bind(null, style, styleIndex, false);
+    remove = applyToSingletonTag.bind(null, style, styleIndex, true);
+  } else {
+    style = insertStyleElement(options);
+    update = applyToTag.bind(null, style, options);
+
+    remove = function remove() {
+      removeStyleElement(style);
+    };
+  }
+
+  update(obj);
+  return function updateStyle(newObj) {
+    if (newObj) {
+      if (newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap) {
+        return;
+      }
+
+      update(obj = newObj);
+    } else {
+      remove();
+    }
+  };
+}
+
+module.exports = function (list, options) {
+  options = options || {}; // Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+  // tags it will allow on a page
+
+  if (!options.singleton && typeof options.singleton !== 'boolean') {
+    options.singleton = isOldIE();
+  }
+
+  list = list || [];
+  var lastIdentifiers = modulesToDom(list, options);
+  return function update(newList) {
+    newList = newList || [];
+
+    if (Object.prototype.toString.call(newList) !== '[object Array]') {
+      return;
+    }
+
+    for (var i = 0; i < lastIdentifiers.length; i++) {
+      var identifier = lastIdentifiers[i];
+      var index = getIndexByIdentifier(identifier);
+      stylesInDom[index].references--;
+    }
+
+    var newLastIdentifiers = modulesToDom(newList, options);
+
+    for (var _i = 0; _i < lastIdentifiers.length; _i++) {
+      var _identifier = lastIdentifiers[_i];
+
+      var _index = getIndexByIdentifier(_identifier);
+
+      if (stylesInDom[_index].references === 0) {
+        stylesInDom[_index].updater();
+
+        stylesInDom.splice(_index, 1);
+      }
+    }
+
+    lastIdentifiers = newLastIdentifiers;
+  };
+};
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/dist/exportHelper.js":
 /*!******************************************************!*\
   !*** ./node_modules/vue-loader/dist/exportHelper.js ***!
@@ -49638,6 +50032,37 @@ if (false) {}
 
 /***/ }),
 
+/***/ "./resources/js/Pages/PainAnalysis/Form.vue":
+/*!**************************************************!*\
+  !*** ./resources/js/Pages/PainAnalysis/Form.vue ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Form_vue_vue_type_template_id_305bda28__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Form.vue?vue&type=template&id=305bda28 */ "./resources/js/Pages/PainAnalysis/Form.vue?vue&type=template&id=305bda28");
+/* harmony import */ var _Form_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form.vue?vue&type=script&setup=true&lang=js */ "./resources/js/Pages/PainAnalysis/Form.vue?vue&type=script&setup=true&lang=js");
+/* harmony import */ var _Form_vue_vue_type_style_index_0_id_305bda28_lang_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Form.vue?vue&type=style&index=0&id=305bda28&lang=css */ "./resources/js/Pages/PainAnalysis/Form.vue?vue&type=style&index=0&id=305bda28&lang=css");
+/* harmony import */ var C_xampp_htdocs_inertia_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+
+
+const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_inertia_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_Form_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Form_vue_vue_type_template_id_305bda28__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Pages/PainAnalysis/Form.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
 /***/ "./resources/js/Pages/Patients/Dashboard.vue":
 /*!***************************************************!*\
   !*** ./resources/js/Pages/Patients/Dashboard.vue ***!
@@ -49649,44 +50074,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _Dashboard_vue_vue_type_template_id_744c1f9c__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Dashboard.vue?vue&type=template&id=744c1f9c */ "./resources/js/Pages/Patients/Dashboard.vue?vue&type=template&id=744c1f9c");
-/* harmony import */ var C_xampp_htdocs_inertia_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
-
+/* harmony import */ var C_xampp_htdocs_inertia_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 const script = {}
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_inertia_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_1__["default"])(script, [['render',_Dashboard_vue_vue_type_template_id_744c1f9c__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Pages/Patients/Dashboard.vue"]])
-/* hot reload */
-if (false) {}
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
-
-/***/ }),
-
-/***/ "./resources/js/Pages/Patients/PainAnalysisForm.vue":
-/*!**********************************************************!*\
-  !*** ./resources/js/Pages/Patients/PainAnalysisForm.vue ***!
-  \**********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _PainAnalysisForm_vue_vue_type_template_id_541f28de__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PainAnalysisForm.vue?vue&type=template&id=541f28de */ "./resources/js/Pages/Patients/PainAnalysisForm.vue?vue&type=template&id=541f28de");
-/* harmony import */ var _PainAnalysisForm_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PainAnalysisForm.vue?vue&type=script&setup=true&lang=js */ "./resources/js/Pages/Patients/PainAnalysisForm.vue?vue&type=script&setup=true&lang=js");
-/* harmony import */ var C_xampp_htdocs_inertia_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
-
-
-
-
-;
-const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_inertia_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_PainAnalysisForm_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_PainAnalysisForm_vue_vue_type_template_id_541f28de__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Pages/Patients/PainAnalysisForm.vue"]])
-/* hot reload */
-if (false) {}
-
+const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_inertia_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_0__["default"])(script, [['__file',"resources/js/Pages/Patients/Dashboard.vue"]])
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
 
@@ -49958,18 +50350,18 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/Pages/Patients/PainAnalysisForm.vue?vue&type=script&setup=true&lang=js":
-/*!*********************************************************************************************!*\
-  !*** ./resources/js/Pages/Patients/PainAnalysisForm.vue?vue&type=script&setup=true&lang=js ***!
-  \*********************************************************************************************/
+/***/ "./resources/js/Pages/PainAnalysis/Form.vue?vue&type=script&setup=true&lang=js":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/Pages/PainAnalysis/Form.vue?vue&type=script&setup=true&lang=js ***!
+  \*************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_PainAnalysisForm_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Form_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_PainAnalysisForm_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./PainAnalysisForm.vue?vue&type=script&setup=true&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Patients/PainAnalysisForm.vue?vue&type=script&setup=true&lang=js");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Form_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Form.vue?vue&type=script&setup=true&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/PainAnalysis/Form.vue?vue&type=script&setup=true&lang=js");
  
 
 /***/ }),
@@ -50198,34 +50590,18 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/Pages/Patients/Dashboard.vue?vue&type=template&id=744c1f9c":
-/*!*********************************************************************************!*\
-  !*** ./resources/js/Pages/Patients/Dashboard.vue?vue&type=template&id=744c1f9c ***!
-  \*********************************************************************************/
+/***/ "./resources/js/Pages/PainAnalysis/Form.vue?vue&type=template&id=305bda28":
+/*!********************************************************************************!*\
+  !*** ./resources/js/Pages/PainAnalysis/Form.vue?vue&type=template&id=305bda28 ***!
+  \********************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Dashboard_vue_vue_type_template_id_744c1f9c__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Form_vue_vue_type_template_id_305bda28__WEBPACK_IMPORTED_MODULE_0__.render)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Dashboard_vue_vue_type_template_id_744c1f9c__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Dashboard.vue?vue&type=template&id=744c1f9c */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Patients/Dashboard.vue?vue&type=template&id=744c1f9c");
-
-
-/***/ }),
-
-/***/ "./resources/js/Pages/Patients/PainAnalysisForm.vue?vue&type=template&id=541f28de":
-/*!****************************************************************************************!*\
-  !*** ./resources/js/Pages/Patients/PainAnalysisForm.vue?vue&type=template&id=541f28de ***!
-  \****************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_PainAnalysisForm_vue_vue_type_template_id_541f28de__WEBPACK_IMPORTED_MODULE_0__.render)
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_PainAnalysisForm_vue_vue_type_template_id_541f28de__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./PainAnalysisForm.vue?vue&type=template&id=541f28de */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Patients/PainAnalysisForm.vue?vue&type=template&id=541f28de");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Form_vue_vue_type_template_id_305bda28__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Form.vue?vue&type=template&id=305bda28 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/PainAnalysis/Form.vue?vue&type=template&id=305bda28");
 
 
 /***/ }),
@@ -50306,6 +50682,341 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Paginator_vue_vue_type_template_id_5ad437e5__WEBPACK_IMPORTED_MODULE_0__.render)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Paginator_vue_vue_type_template_id_5ad437e5__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Paginator.vue?vue&type=template&id=5ad437e5 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Shared/Paginator.vue?vue&type=template&id=5ad437e5");
+
+
+/***/ }),
+
+/***/ "./resources/js/Pages/PainAnalysis/Form.vue?vue&type=style&index=0&id=305bda28&lang=css":
+/*!**********************************************************************************************!*\
+  !*** ./resources/js/Pages/PainAnalysis/Form.vue?vue&type=style&index=0&id=305bda28&lang=css ***!
+  \**********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Form_vue_vue_type_style_index_0_id_305bda28_lang_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader/dist/cjs.js!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Form.vue?vue&type=style&index=0&id=305bda28&lang=css */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/PainAnalysis/Form.vue?vue&type=style&index=0&id=305bda28&lang=css");
+
+
+/***/ }),
+
+/***/ "./node_modules/vue3-radial-progress/dist/RadialProgressBar.esm.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/vue3-radial-progress/dist/RadialProgressBar.esm.js ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ entry_esm)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+
+function randomString() {
+  return Math.random().toString(16).substring(2);
+}
+
+var script = (0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
+  props: {
+    // Sets width/diameter of the inner stroke.
+    diameter: {
+      type: Number,
+      required: false,
+      default: 200
+    },
+    // Sets the total steps/progress to the end.
+    totalSteps: {
+      type: Number,
+      required: true,
+      default: 10
+    },
+    // Sets the current progress of the inner stroke.
+    completedSteps: {
+      type: Number,
+      required: true,
+      default: 0
+    },
+    // Sets the start color of the inner stroke (gradient).
+    startColor: {
+      type: String,
+      required: false,
+      default: "#00C58E"
+    },
+    // Sets the end color of the inner stroke (gradient).
+    stopColor: {
+      type: String,
+      required: false,
+      default: "#00E0A1"
+    },
+    // Sets the color of the inner stroke to be applied to the shape.
+    innerStrokeColor: {
+      type: String,
+      required: false,
+      default: "#2F495E"
+    },
+    // Sets the width of the stroke to be applied to the shape.
+    // Read more: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-width
+    strokeWidth: {
+      type: Number,
+      required: false,
+      default: 10
+    },
+    // Sets the  width of the inner stroke to be applied to the shape.
+    innerStrokeWidth: {
+      type: Number,
+      required: false,
+      default: 10
+    },
+    // Sets the shape to be used at the end of stroked.
+    // Read more: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-linecap
+    strokeLinecap: {
+      type: String,
+      required: false,
+      default: "round"
+    },
+    // Sets how long the animation should take to complete one cycle.
+    // Read more: https://www.w3schools.com/cssref/css3_pr_animation-duration.asp
+    animateSpeed: {
+      type: Number,
+      required: false,
+      default: 1000
+    },
+    // Sets the frames per seconds to update inner stroke animation.
+    fps: {
+      type: Number,
+      required: false,
+      default: 60
+    },
+    // Sets how the animation progresses through the duration of each cycle.
+    // Read more: https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timing-function
+    timingFunc: {
+      type: String,
+      required: false,
+      default: "linear"
+    },
+    // Sets the inner stroke direction.
+    isClockwise: {
+      type: Boolean,
+      required: false,
+      default: true
+    }
+  },
+
+  setup(props) {
+    const gradient = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
+      fx: 0.99,
+      fy: 0.5,
+      cx: 0.5,
+      cy: 0.5,
+      r: 0.65
+    });
+    const radialGradientId = `rg-${randomString()}`;
+    const strokeDashoffset = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(0);
+    const currentAngle = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(0);
+    const gradientAnimation = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null);
+    const radius = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => props.diameter / 2);
+    const innerCircleDiameter = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => props.diameter - props.innerStrokeWidth * 2);
+    const circumference = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => Math.PI * innerCircleDiameter.value);
+    const stepSize = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => props.totalSteps === 0 ? 0 : 100 / props.totalSteps);
+    const finishedPercentage = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => stepSize.value * props.completedSteps);
+    const circleSlice = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => 2 * Math.PI / props.totalSteps);
+    const animationIncrements = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => 100 / props.fps);
+    const totalPoints = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => props.animateSpeed / animationIncrements.value);
+    const animateSlice = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => circleSlice.value / totalPoints.value);
+    const innerCircleRadius = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => innerCircleDiameter.value / 2);
+    const containerStyle = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => ({
+      height: `${props.diameter}px`,
+      width: `${props.diameter}px`
+    }));
+    const progressStyle = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => ({
+      height: `${props.diameter}px`,
+      width: `${props.diameter}px`,
+      strokeWidth: `${props.strokeWidth}px`,
+      strokeDashoffset: strokeDashoffset.value,
+      transition: `stroke-dashoffset ${props.animateSpeed}ms ${props.timingFunc}`
+    }));
+    const strokeStyle = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => ({
+      height: `${props.diameter}px`,
+      width: `${props.diameter}px`,
+      strokeWidth: `${props.innerStrokeWidth}px`
+    }));
+    const innerCircleStyle = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => ({
+      width: `${innerCircleDiameter.value}px`
+    }));
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.watch)(() => [props.diameter, props.totalSteps, props.completedSteps, props.strokeWidth], changeProgress, {
+      immediate: true
+    });
+
+    function getPointOfCircle(angle) {
+      const radius = 0.5;
+      const x = radius + radius * Math.cos(angle);
+      const y = radius + radius * Math.sin(angle);
+      return {
+        x,
+        y
+      };
+    }
+
+    function gotoPoint() {
+      const point = getPointOfCircle(currentAngle.value);
+
+      if (point.x && point.y) {
+        gradient.fx = point.x;
+        gradient.fy = point.y;
+      }
+    }
+
+    function direction() {
+      return props.isClockwise ? 1 : -1;
+    }
+
+    function changeProgress() {
+      strokeDashoffset.value = (100 - finishedPercentage.value) / 100 * circumference.value * direction();
+
+      if (gradientAnimation.value) {
+        clearInterval(gradientAnimation.value);
+      }
+
+      const angleOffset = (props.completedSteps - 1) * circleSlice.value;
+      let i = (currentAngle.value - angleOffset) / animateSlice.value;
+      const incrementer = Math.abs(i - totalPoints.value) / totalPoints.value;
+      const isMoveForward = i < totalPoints.value;
+      gradientAnimation.value = setInterval(() => {
+        if (isMoveForward && i >= totalPoints.value || !isMoveForward && i < totalPoints.value) {
+          gradientAnimation.value && clearInterval(gradientAnimation.value);
+          return;
+        }
+
+        currentAngle.value = angleOffset + animateSlice.value * i;
+        gotoPoint();
+        i += isMoveForward ? incrementer : -incrementer;
+      }, animationIncrements.value);
+    }
+
+    return {
+      gradientAnimation,
+      innerCircleRadius,
+      radialGradientId,
+      strokeDashoffset,
+      innerCircleStyle,
+      containerStyle,
+      circumference,
+      progressStyle,
+      currentAngle,
+      strokeStyle,
+      gradient,
+      radius
+    };
+  }
+
+});
+
+const _hoisted_1 = ["width", "height"];
+const _hoisted_2 = ["id", "fx", "fy", "cx", "cy", "r"];
+const _hoisted_3 = ["stop-color"];
+const _hoisted_4 = ["stop-color"];
+const _hoisted_5 = ["r", "cx", "cy", "stroke", "stroke-dasharray", "stroke-linecap"];
+const _hoisted_6 = ["transform", "r", "cx", "cy", "stroke", "stroke-dasharray", "stroke-dashoffset", "stroke-linecap"];
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+    class: "vrp__wrapper",
+    style: (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeStyle)(_ctx.containerStyle)
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    class: "vrp__inner",
+    style: (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeStyle)(_ctx.innerCircleStyle)
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")], 4), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("svg", {
+    width: _ctx.diameter,
+    height: _ctx.diameter,
+    version: "1.1",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("defs", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("radialGradient", {
+    id: _ctx.radialGradientId,
+    fx: _ctx.gradient.fx,
+    fy: _ctx.gradient.fy,
+    cx: _ctx.gradient.cx,
+    cy: _ctx.gradient.cy,
+    r: _ctx.gradient.r
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("stop", {
+    offset: "30%",
+    "stop-color": _ctx.startColor
+  }, null, 8, _hoisted_3), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("stop", {
+    offset: "100%",
+    "stop-color": _ctx.stopColor
+  }, null, 8, _hoisted_4)], 8, _hoisted_2)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("circle", {
+    r: _ctx.innerCircleRadius,
+    cx: _ctx.radius,
+    cy: _ctx.radius,
+    fill: "transparent",
+    stroke: _ctx.innerStrokeColor,
+    "stroke-dasharray": _ctx.circumference,
+    "stroke-dashoffset": "0",
+    "stroke-linecap": _ctx.strokeLinecap,
+    style: (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeStyle)(_ctx.strokeStyle)
+  }, null, 12, _hoisted_5), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("circle", {
+    transform: 'rotate(270, ' + _ctx.radius + ',' + _ctx.radius + ')',
+    r: _ctx.innerCircleRadius,
+    cx: _ctx.radius,
+    cy: _ctx.radius,
+    fill: "transparent",
+    stroke: `url('#${_ctx.radialGradientId}')`,
+    "stroke-dasharray": _ctx.circumference,
+    "stroke-dashoffset": _ctx.circumference,
+    "stroke-linecap": _ctx.strokeLinecap,
+    style: (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeStyle)(_ctx.progressStyle)
+  }, null, 12, _hoisted_6)], 8, _hoisted_1))], 4);
+}
+
+function styleInject(css, ref) {
+  if ( ref === void 0 ) ref = {};
+  var insertAt = ref.insertAt;
+
+  if (!css || typeof document === 'undefined') { return; }
+
+  var head = document.head || document.getElementsByTagName('head')[0];
+  var style = document.createElement('style');
+  style.type = 'text/css';
+
+  if (insertAt === 'top') {
+    if (head.firstChild) {
+      head.insertBefore(style, head.firstChild);
+    } else {
+      head.appendChild(style);
+    }
+  } else {
+    head.appendChild(style);
+  }
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = css;
+  } else {
+    style.appendChild(document.createTextNode(css));
+  }
+}
+
+var css_248z = "\n.vrp__wrapper[data-v-6a0cf1f6] {\r\n  position: relative;\n}\n.vrp__inner[data-v-6a0cf1f6] {\r\n  position: absolute;\r\n  top: 0;\r\n  right: 0;\r\n  bottom: 0;\r\n  left: 0;\r\n  border-radius: 50%;\r\n  margin: 0 auto;\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  justify-content: center;\n}\r\n";
+styleInject(css_248z);
+
+script.render = render;
+script.__scopeId = "data-v-6a0cf1f6";
+
+// IIFE injects install function into component, allowing component
+// to be registered via Vue.use() as well as Vue.component(),
+
+var entry_esm = /*#__PURE__*/(() => {
+  // Assign InstallableComponent type
+  const installable = script; // Attach install function executed by Vue.use()
+
+  installable.install = app => {
+    app.component("RadialProgressBar", installable);
+  };
+
+  return installable;
+})(); // It's possible to expose named exports when writing components that can
+// also be used as directives, etc. - eg. import { RollupDemoDirective } from 'rollup-demo';
+// export const RollupDemoDirective = directive;
+
+
 
 
 /***/ }),
@@ -50567,10 +51278,10 @@ var map = {
 	"./Doctors/Dashboard.vue": "./resources/js/Pages/Doctors/Dashboard.vue",
 	"./Home": "./resources/js/Pages/Home.vue",
 	"./Home.vue": "./resources/js/Pages/Home.vue",
+	"./PainAnalysis/Form": "./resources/js/Pages/PainAnalysis/Form.vue",
+	"./PainAnalysis/Form.vue": "./resources/js/Pages/PainAnalysis/Form.vue",
 	"./Patients/Dashboard": "./resources/js/Pages/Patients/Dashboard.vue",
 	"./Patients/Dashboard.vue": "./resources/js/Pages/Patients/Dashboard.vue",
-	"./Patients/PainAnalysisForm": "./resources/js/Pages/Patients/PainAnalysisForm.vue",
-	"./Patients/PainAnalysisForm.vue": "./resources/js/Pages/Patients/PainAnalysisForm.vue",
 	"./Settings": "./resources/js/Pages/Settings.vue",
 	"./Settings.vue": "./resources/js/Pages/Settings.vue"
 };

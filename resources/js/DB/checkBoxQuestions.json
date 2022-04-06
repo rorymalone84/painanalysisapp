@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "step": 1,
+        "question": "What best describes the pain you have felt today?",
+        "name": "question_1[]",
+        "value": ["pulsing", "burning", "sore"],
+        "bindTo": "form.question_1"
+    },
+    {
+        "id": 2,
+        "step": 2,
+        "question": "Where do you feel the pain the most?",
+        "name": "question_2[]",
+        "value": ["face", "back", "hands"],
+        "bindTo": "form.question_2"
+    },
+    {
+        "id": 3,
+        "step": 7,
+        "question": "What medication have you taken today?",
+        "name": "question_7[]",
+        "value": ["paracetomal", "medicine", "fentanol"],
+        "bindTo": "form.question_7"
+    }
+]
