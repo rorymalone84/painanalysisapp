@@ -21,9 +21,8 @@
     <div class="mb-6">
       <!-- Question 1-->
       <div v-show="step === 1">
-        <label class="block mb-2 font-bold text-gray-500" for="name"
+        <label class="block mb-4 font-bold text-gray-500" for="name"
           >What best describes the pain you have felt today?
-          {{ form.question_1 }}
         </label>
 
         <div class="grid grid-cols-4">
@@ -51,12 +50,11 @@
 
       <!-- Question 2-->
       <div v-show="step === 2">
-        <label class="block mb-2 font-bold text-gray-500" for="name"
+        <label class="block mb-4 font-bold text-gray-500" for="name"
           >Point to where you feel the pain the most</label
         >
-        {{ form.question_2 }}
 
-        <div class="grid grid-cols-4">
+        <div class="grid grid-cols-4 md:grid-cols-6">
           <div
             v-for="(key, index) in question2_values"
             :key="index"
@@ -84,12 +82,12 @@
 
       <!-- Question 3-->
       <div v-show="step === 3">
-        <label class="block mb-2 font-bold text-gray-500" for="name">
+        <label class="block mb-4 font-bold text-gray-500" for="name">
           Between 1 and 10, describe your pain at its <b>highest</b> over the
           last 24 hours:
         </label>
-        <label class="block mb-2 text-gray-700 mb-6">
-          <b>{{ form.question_3 }} </b> of 10
+        <label class="block mb-4 text-gray-700 mb-6">
+          <b v-if="form.question_3">{{ form.question_3 }}</b> of 10
         </label>
         <input
           v-model="form.question_3"
@@ -97,7 +95,7 @@
           min="1"
           max="10"
           name="question_3"
-          id="question_3"
+          id="rangeSlider"
           class="border border-gray-400 p-2 w-full"
           required
         />
@@ -110,11 +108,11 @@
 
       <!-- Question 4-->
       <div v-show="step == 4">
-        <label class="block mb-2 font-bold text-gray-500" for="name"
+        <label class="block mb-4 font-bold text-gray-500" for="name"
           >Between 1 and 10, describe your pain at its <b>lowest</b> over the
           last 24 hours</label
         >
-        <label class="block mb-2 text-gray-700 mb-6">
+        <label class="block mb-4 text-gray-700 mb-6">
           <b>{{ form.question_4 }} </b> of 10
         </label>
         <input
@@ -135,17 +133,17 @@
       </div>
       <!-- Question 5-->
       <div v-show="step == 5">
-        <label class="block mb-2 font-bold text-gray-500" for="name"
+        <label class="block mb-4 font-bold text-gray-500" for="name"
           >On average, how intense has the pain felt over the last 24
           hours?</label
         >
-        <label class="block mb-2 text-gray-700 mb-6">
+        <label class="block mb-4 text-gray-700 mb-6">
           <b>{{ form.question_5 }} </b> of 10
         </label>
         <input
           v-model="form.question_5"
           type="range"
-          min="0"
+          min="1"
           max="10"
           name="question_5"
           id="question_5"
@@ -161,11 +159,11 @@
 
       <!-- Question 6-->
       <div v-show="step == 6">
-        <label class="block mb-2 font-bold text-gray-500" for="name"
+        <label class="block mb-4 font-bold text-gray-500" for="name"
           >How intense is the pain you feel right now?</label
         >
 
-        <label class="block mb-2 text-gray-700 mb-6">
+        <label class="block mb-4 text-gray-700 mb-6">
           <b>{{ form.question_6 }} </b> of 10
         </label>
 
@@ -189,7 +187,7 @@
       <!-- Question 7-->
 
       <div v-show="step === 7">
-        <label class="block mb-2 font-bold text-gray-500" for="name"
+        <label class="block mb-4 font-bold text-gray-500" for="name"
           >Which treatments or medications are you receiving for your
           pain?</label
         >
@@ -223,11 +221,11 @@
 
       <!-- Question 8-->
       <div v-show="step === 8">
-        <label class="block mb-2 font-bold text-gray-500" for="name"
+        <label class="block mb-4 font-bold text-gray-500" for="name"
           >How many doses of the prescribed medication dosage was taken
           today?</label
         >
-        <label class="block mb-2 text-gray-700 mb-6">
+        <label class="block mb-4 text-gray-700 mb-6">
           <b>{{ form.question_8 }} </b> of 10
         </label>
         <input
@@ -248,17 +246,16 @@
       </div>
       <!-- Question 9-->
       <div v-show="step == 9">
-        <label class="block mb-2 font-bold text-gray-500" for="name"
-          >9. In the last 24 hours, how much relief has medication
-          provided?</label
+        <label class="block mb-4 font-bold text-gray-500" for="name"
+          >In the last 24 hours, how much relief has medication provided?</label
         >
-        <label class="block mb-2 text-gray-700 mb-6">
+        <label class="block mb-4 text-gray-700 mb-6">
           <b>{{ form.question_9 }} </b> of 10
         </label>
         <input
           v-model="form.question_9"
           type="range"
-          min="0"
+          min="1"
           max="10"
           name="question_9"
           id="question_9"
@@ -273,17 +270,17 @@
       </div>
       <!-- Question 10-->
       <div v-show="step == 10">
-        <label class="block mb-2 font-bold text-gray-500" for="name"
-          >10. How has pain interfered with your daily activities in the past 24
+        <label class="block mb-4 font-bold text-gray-500" for="name"
+          >How has pain interfered with your daily activities in the past 24
           hours.</label
         >
-        <label class="block mb-2 text-gray-700 mb-6">
+        <label class="block mb-4 text-gray-700">
           <b>{{ form.question_10 }} </b> of 10
         </label>
         <input
           v-model="form.question_10"
           type="range"
-          min="0"
+          min="1"
           max="10"
           name="question_10"
           id="question_10"
@@ -316,22 +313,24 @@
             Next
           </div>
         </div>
-        <div
-          @click="step--"
-          :disabled="step === 1"
-          class="
-            bg-blue-500
-            hover:bg-blue-700
-            text-white
-            font-bold
-            py-2
-            px-3
-            border border-blue-700
-            rounded
-            m-4
-          "
-        >
-          Previous
+        <div v-if="step > 1">
+          <div
+            @click="step--"
+            :disabled="step === 1"
+            class="
+              bg-blue-500
+              hover:bg-blue-700
+              text-white
+              font-bold
+              py-2
+              px-3
+              border border-blue-700
+              rounded
+              m-4
+            "
+          >
+            Previous
+          </div>
         </div>
         <div v-show="step === 11">
           <!-- submit -->
@@ -359,17 +358,31 @@
 
 <script setup>
 import { useForm } from "@inertiajs/inertia-vue3";
-import { ref, defineComponent } from "vue";
+import { ref, defineComponent, onMounted } from "vue";
 import RadialProgressBar from "vue3-radial-progress";
 
 components: ["RadialProgressBar"];
 
-//step paginates the questions into steps
+//'step' is used to paginate the questions into 1 question per page
+//this variable sets step 1
 let step = ref(1);
+
+//sets the initial value for the range sliders v-model to the midway point of the slider
+onMounted(() => {
+  form.question_3 = 5;
+  form.question_4 = 5;
+  form.question_5 = 5;
+  form.question_6 = 5;
+  form.question_8 = 5;
+  form.question_9 = 5;
+  form.question_10 = 5;
+});
 
 defineProps({
   user: Object,
   errors: Object,
+
+  //question values are passed for the checkbox values
   question1_values: Array,
   question2_values: Array,
   question7_values: Array,
