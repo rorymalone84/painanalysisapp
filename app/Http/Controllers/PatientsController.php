@@ -17,5 +17,11 @@ class PatientsController extends Controller
     public function index()
     {
         return Inertia::render('Patients/Dashboard');      
-    }    
+    }
+
+    public function consultsIndex()
+    {
+        return Inertia::render('Patients/Consults');      
+    }
+
 }

@@ -30,17 +30,48 @@
       </li>
       <!-- end of Admin specific links -->
 
-      <li>
-        <NavLink href="/settings" :active="$page.component === 'Settings'">
-          Settings
+      <!-- patient links -->
+      <li v-if="$page.props.auth.user.role_id === 1">
+        <NavLink
+          href="/patients/home"
+          :active="$page.component === 'Patients/Dashboard'"
+        >
+          Home
         </NavLink>
       </li>
+
+      <li v-if="$page.props.auth.user.role_id === 1">
+        <NavLink
+          href="/patients/form"
+          :active="$page.component === 'PainAnalysis/Form'"
+        >
+          Form
+        </NavLink>
+      </li>
+
+      <li v-if="$page.props.auth.user.role_id === 1">
+        <NavLink
+          href="/patients/journal"
+          :active="$page.component === 'Patients/Journal'"
+        >
+          Journal
+        </NavLink>
+      </li>
+
+      <li v-if="$page.props.auth.user.role_id === 1">
+        <NavLink
+          href="/patients/consults"
+          :active="$page.component === 'Patients/Consults'"
+        >
+          Consults
+        </NavLink>
+      </li>
+
+      <!-- end of patient links -->
 
       <li>
         <NavLink href="/logout" method="post"> Logout </NavLink>
       </li>
-
-      <h1>{{ pr }}</h1>
     </ul>
   </nav>
 </template>

@@ -25,7 +25,7 @@
           >What best describes the pain you have felt today?
         </label>
 
-        <div class="grid grid-cols-4">
+        <div class="grid grid-cols-3">
           <div v-for="(key, index) in question1_values" :key="index">
             <label class="PillList-item">
               <input
@@ -53,6 +53,8 @@
         <label class="block mb-4 font-bold text-gray-500" for="name"
           >Point to where you feel the pain the most</label
         >
+
+        <BodyMap />
 
         <div class="grid grid-cols-4 md:grid-cols-6">
           <div
@@ -361,8 +363,6 @@ import { useForm } from "@inertiajs/inertia-vue3";
 import { ref, defineComponent, onMounted } from "vue";
 import RadialProgressBar from "vue3-radial-progress";
 
-components: ["RadialProgressBar"];
-
 //'step' is used to paginate the questions into 1 question per page
 //this variable sets step 1
 let step = ref(1);
@@ -406,7 +406,7 @@ let submit = () => {
 };
 </script>
 
-<style>
+<style scoped>
 .PillList-item {
   cursor: pointer;
   display: inline-block;
@@ -431,7 +431,7 @@ let submit = () => {
   border-radius: 20px;
   color: #1c94e0;
   display: block;
-  padding: 7px 28px;
+  padding: 6px 24px;
   text-decoration: none;
 }
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Inertia\Inertia;
 use App\Models\PainAnalysis;
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
@@ -17,16 +18,34 @@ class PainAnalysisController extends Controller
             'user_id' => Auth::id(),
            ],
            'question1_values' => [
-               'sore' => "sore",
-               'cold' => "cold",
+               'Aching' => "Sore",
+               'Throbbing' => "Throbbing",
+               'Sharp' => "Sharp",
+               'Stabbing' => "Stabbing",
+               'Shooting' => "Shooting",
+               'Gnawing' => "Gnawing",
+               'Tender' => "Tender",
+               'Burning' => "Burning",
+               'Tiring' => "Tiring",
+               'Penetrating' => "Penetrating",
+               'Nagging' => "Nagging",
+               'Numb' => "Numb",
+               'Unbearable' => "Unbearable",
+               'Constant' => "Constant",
+               'Intermittent' => "Intermittenet"
            ],
            'question2_values' => [
             'face' => "face",
             'back' => "back",
            ],
            'question7_values' => [
-            'fentanol' => "fentanol",
-            'morphine' => "morphine",           
+            'None' => 'None',
+            'Fentanyl' => "Fentanyl",
+            'Morphine' => "Morphine",
+            'Hyrdocone' => "Hydrocone",            
+            'Codeine' => "Codeine",
+            'Paracetomol' => "Paracetomol",            
+            'Oxymorphone' => "Oxymorphone",
         ]
        ]);
    }
@@ -65,5 +84,31 @@ class PainAnalysisController extends Controller
 
     return Redirect::route('patients.home');
    }
+
+   public function journalIndex(PainAnalysis $painAnalysis)
+    {   
+        return Inertia::render('Patients/Journal', [
+            'painAnalyses' => PainAnalysis::all()
+        ]);
+    }
+
+    public function showEntry(PainAnalysis $painAnalysis)
+    {           
+        return Inertia::render('PainAnalysis/ShowEntry', [
+            'painAnalysis' => [
+                'id' => $painAnalysis->id,
+                'question_1' => $painAnalysis->question_1,
+                'question_2' => $painAnalysis->question_2,
+                'question_7' => $painAnalysis->question_7,
+            ]
+        ]);
+    }
+
+    public function deletePrompt(PainAnalysis $painAnalysis)
+    {           
+        return Inertia::render('Patients/EditEntry', [
+            'painAnalyses' => PainAnalysis::all()
+        ]);
+    }
 
 }
