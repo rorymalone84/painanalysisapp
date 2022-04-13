@@ -15,8 +15,9 @@ class PainAnalysisController extends Controller
    {
        return Inertia::render('PainAnalysis/Form',[
            'user' => [
-            'user_id' => Auth::id(),
+                'user_id' => Auth::id(),
            ],
+           //checkbox input values and label names for v-for loop
            'question1_values' => [
                'Aching' => "Sore",
                'Throbbing' => "Throbbing",
@@ -35,18 +36,34 @@ class PainAnalysisController extends Controller
                'Intermittent' => "Intermittenet"
            ],
            'question2_values' => [
-            'face' => "face",
-            'back' => "back",
+                'face' => "face",
+                'back' => "back",
            ],
-           'question7_values' => [
-            'None' => 'None',
-            'Fentanyl' => "Fentanyl",
-            'Morphine' => "Morphine",
-            'Hyrdocone' => "Hydrocone",            
-            'Codeine' => "Codeine",
-            'Paracetomol' => "Paracetomol",            
-            'Oxymorphone' => "Oxymorphone",
-        ]
+           'question3_values' => [
+                'Morning' => "Morning",
+                'Afternoon' => "Afternoon",
+                'Evening' => "Evening",
+                'Night' => "Night",
+                'It varies' => 'It varies',
+                   'Nothing today' => "Nothing today"
+            ],
+            'question4_values' => [
+                'Occasional' => "Occasional",
+                'Frequent' => "Frequent",
+                'Often' => "Often",
+                'Constant' => "Constant",
+                'It varies' => "It varies",
+                'Nothing today' => "Nothing today"
+            ],
+           'question9_values' => [
+                'None' => 'None',
+                'Fentanyl' => "Fentanyl",
+                'Morphine' => "Morphine",
+                'Hyrdocone' => "Hydrocone",            
+                'Codeine' => "Codeine",
+                'Paracetomol' => "Paracetomol",            
+                'Oxymorphone' => "Oxymorphone",
+            ]
        ]);
    }
 
@@ -65,7 +82,9 @@ class PainAnalysisController extends Controller
         'question_7' => 'required',
         'question_8' => 'required',
         'question_9' => 'required',
-        'question_10' => 'required',
+        'question_10'=> 'required',
+        'question_11'=>'required',
+        'question_12' => 'required'
         ]);
 
     PainAnalysis::create([ 
@@ -79,16 +98,18 @@ class PainAnalysisController extends Controller
         'question_8' => $request->question_8,
         'question_9' => $request->question_9,
         'question_10' => $request->question_10,
-        'user_id' => $user_id               
+        'question_11' => $request->question_11,
+        'question_12' => $request->question_12,
+        'user_id' => $user_id              
        ]);
 
-    return Redirect::route('patients.home');
+        return Redirect::route('patients.home');
    }
 
-   public function journalIndex(PainAnalysis $painAnalysis)
-    {   
+   public function journalIndex()
+    {          
         return Inertia::render('Patients/Journal', [
-            'painAnalyses' => PainAnalysis::all()
+            'painAnalyses' => PainAnalysis::where('user_id', Auth::id())->get()
         ]);
     }
 
@@ -99,7 +120,7 @@ class PainAnalysisController extends Controller
                 'id' => $painAnalysis->id,
                 'question_1' => $painAnalysis->question_1,
                 'question_2' => $painAnalysis->question_2,
-                'question_7' => $painAnalysis->question_7,
+                'question_9' => $painAnalysis->question_9,
             ]
         ]);
     }

@@ -91,7 +91,7 @@
             Treatment
           </p>
           <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-            {{ painAnalysis.question_7.toString() }}
+            {{ painAnalysis.question_9.toString() }}
           </p>
         </div>
       </div>

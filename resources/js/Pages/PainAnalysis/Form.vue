@@ -5,11 +5,11 @@
     <RadialProgressBar
       :diameter="125"
       :completed-steps="step"
-      :total-steps="11"
+      :total-steps="13"
       :stopColor="'#bcf7f4'"
       :startColor="'#77fcf6'"
     >
-      <h4 class="font-bold text-gray-500" v-if="step < 11">
+      <h4 class="font-bold text-gray-500" v-if="step < 13">
         Question {{ step }}
       </h4>
       <h1 class="font-bold text-gray-500" v-else>Complete</h1>
@@ -54,8 +54,6 @@
           >Point to where you feel the pain the most</label
         >
 
-        <BodyMap />
-
         <div class="grid grid-cols-4 md:grid-cols-6">
           <div
             v-for="(key, index) in question2_values"
@@ -82,25 +80,29 @@
         ></div>
       </div>
 
-      <!-- Question 3-->
+      <!--Question 3 -->
       <div v-show="step === 3">
         <label class="block mb-4 font-bold text-gray-500" for="name">
-          Between 1 and 10, describe your pain at its <b>highest</b> over the
-          last 24 hours:
+          At what time('s) of day does the pain mostly occur?
         </label>
-        <label class="block mb-4 text-gray-700 mb-6">
-          <b v-if="form.question_3">{{ form.question_3 }}</b> of 10
-        </label>
-        <input
-          v-model="form.question_3"
-          type="range"
-          min="1"
-          max="10"
-          name="question_3"
-          id="rangeSlider"
-          class="border border-gray-400 p-2 w-full"
-          required
-        />
+        <div class="grid grid-cols-2 md:grid-cols-3">
+          <div
+            v-for="(key, index) in question3_values"
+            :key="index"
+            class="grid"
+          >
+            <label class="PillList-item">
+              <input
+                type="checkbox"
+                name="question_3[]"
+                :value="key"
+                v-model="form.question_3"
+                class="PillList-item"
+              />
+              <span class="PillList-label">{{ key }} </span>
+            </label>
+          </div>
+        </div>
         <div
           v-if="form.errors.question_3"
           v-text="form.errors.question_3"
@@ -108,39 +110,44 @@
         ></div>
       </div>
 
-      <!-- Question 4-->
-      <div v-show="step == 4">
-        <label class="block mb-4 font-bold text-gray-500" for="name"
-          >Between 1 and 10, describe your pain at its <b>lowest</b> over the
-          last 24 hours</label
-        >
-        <label class="block mb-4 text-gray-700 mb-6">
-          <b>{{ form.question_4 }} </b> of 10
+      <!--Question 4 -->
+      <div v-show="step === 4">
+        <label class="block mb-4 font-bold text-gray-500" for="name">
+          How frequently does the pain occur?
         </label>
-        <input
-          v-model="form.question_4"
-          type="range"
-          min="1"
-          max="10"
-          name="question_4"
-          id="question_4"
-          class="border border-gray-400 p-2 w-full"
-          required
-        />
+        <div class="grid grid-cols-2 md:grid-cols-3">
+          <div
+            v-for="(key, index) in question4_values"
+            :key="index"
+            class="grid"
+          >
+            <label class="PillList-item">
+              <input
+                type="checkbox"
+                name="question_4[]"
+                :value="key"
+                v-model="form.question_4"
+                class="PillList-item"
+              />
+              <span class="PillList-label">{{ key }} </span>
+            </label>
+          </div>
+        </div>
         <div
           v-if="form.errors.question_4"
           v-text="form.errors.question_4"
           class="text-red-500 mt-2"
         ></div>
       </div>
+
       <!-- Question 5-->
-      <div v-show="step == 5">
-        <label class="block mb-4 font-bold text-gray-500" for="name"
-          >On average, how intense has the pain felt over the last 24
-          hours?</label
-        >
+      <div v-show="step === 5">
+        <label class="block mb-4 font-bold text-gray-500" for="name">
+          Between 1 and 10, describe your pain at its <b>highest</b> over the
+          last 24 hours:
+        </label>
         <label class="block mb-4 text-gray-700 mb-6">
-          <b>{{ form.question_5 }} </b> of 10
+          <b v-if="form.question_5">{{ form.question_5 }}</b> of 10
         </label>
         <input
           v-model="form.question_5"
@@ -148,7 +155,7 @@
           min="1"
           max="10"
           name="question_5"
-          id="question_5"
+          id="rangeSlider"
           class="border border-gray-400 p-2 w-full"
           required
         />
@@ -162,13 +169,12 @@
       <!-- Question 6-->
       <div v-show="step == 6">
         <label class="block mb-4 font-bold text-gray-500" for="name"
-          >How intense is the pain you feel right now?</label
+          >Between 1 and 10, describe your pain at its <b>lowest</b> over the
+          last 24 hours</label
         >
-
         <label class="block mb-4 text-gray-700 mb-6">
           <b>{{ form.question_6 }} </b> of 10
         </label>
-
         <input
           v-model="form.question_6"
           type="range"
@@ -185,35 +191,25 @@
           class="text-red-500 mt-2"
         ></div>
       </div>
-
       <!-- Question 7-->
-
-      <div v-show="step === 7">
+      <div v-show="step == 7">
         <label class="block mb-4 font-bold text-gray-500" for="name"
-          >Which treatments or medications are you receiving for your
-          pain?</label
+          >On average, how intense has the pain felt over the last 24
+          hours?</label
         >
-
-        <div class="grid grid-cols-3">
-          <div
-            v-for="(key, index) in question7_values"
-            :key="index"
-            class="col-md-12"
-          >
-            <label class="PillList-item">
-              <input
-                type="checkbox"
-                id="grid-item"
-                name="question_7[]"
-                :value="key"
-                v-model="form.question_7"
-                class="PillList-item"
-              />
-              <span class="PillList-label">{{ key }} </span>
-            </label>
-          </div>
-        </div>
-
+        <label class="block mb-4 text-gray-700 mb-6">
+          <b>{{ form.question_7 }} </b> of 10
+        </label>
+        <input
+          v-model="form.question_7"
+          type="range"
+          min="1"
+          max="10"
+          name="question_7"
+          id="question_7"
+          class="border border-gray-400 p-2 w-full"
+          required
+        />
         <div
           v-if="form.errors.question_7"
           v-text="form.errors.question_7"
@@ -222,18 +218,19 @@
       </div>
 
       <!-- Question 8-->
-      <div v-show="step === 8">
+      <div v-show="step == 8">
         <label class="block mb-4 font-bold text-gray-500" for="name"
-          >How many doses of the prescribed medication dosage was taken
-          today?</label
+          >How intense is the pain you feel right now?</label
         >
+
         <label class="block mb-4 text-gray-700 mb-6">
           <b>{{ form.question_8 }} </b> of 10
         </label>
+
         <input
           v-model="form.question_8"
           type="range"
-          min="0"
+          min="1"
           max="10"
           name="question_8"
           id="question_8"
@@ -246,43 +243,54 @@
           class="text-red-500 mt-2"
         ></div>
       </div>
+
       <!-- Question 9-->
-      <div v-show="step == 9">
+      <div v-show="step === 9">
         <label class="block mb-4 font-bold text-gray-500" for="name"
-          >In the last 24 hours, how much relief has medication provided?</label
+          >Which treatments or medications are you receiving for your
+          pain?</label
         >
-        <label class="block mb-4 text-gray-700 mb-6">
-          <b>{{ form.question_9 }} </b> of 10
-        </label>
-        <input
-          v-model="form.question_9"
-          type="range"
-          min="1"
-          max="10"
-          name="question_9"
-          id="question_9"
-          class="border border-gray-400 p-2 w-full"
-          required
-        />
+
+        <div class="grid grid-cols-3">
+          <div
+            v-for="(key, index) in question9_values"
+            :key="index"
+            class="col-md-12"
+          >
+            <label class="PillList-item">
+              <input
+                type="checkbox"
+                id="grid-item"
+                name="question_9[]"
+                :value="key"
+                v-model="form.question_9"
+                class="PillList-item"
+              />
+              <span class="PillList-label">{{ key }} </span>
+            </label>
+          </div>
+        </div>
+
         <div
           v-if="form.errors.question_9"
           v-text="form.errors.question_9"
           class="text-red-500 mt-2"
         ></div>
       </div>
+
       <!-- Question 10-->
-      <div v-show="step == 10">
+      <div v-show="step === 10">
         <label class="block mb-4 font-bold text-gray-500" for="name"
-          >How has pain interfered with your daily activities in the past 24
-          hours.</label
+          >How many doses of the prescribed medication dosage was taken
+          today?</label
         >
-        <label class="block mb-4 text-gray-700">
+        <label class="block mb-4 text-gray-700 mb-6">
           <b>{{ form.question_10 }} </b> of 10
         </label>
         <input
           v-model="form.question_10"
           type="range"
-          min="1"
+          min="0"
           max="10"
           name="question_10"
           id="question_10"
@@ -295,12 +303,61 @@
           class="text-red-500 mt-2"
         ></div>
       </div>
+      <!-- Question 11-->
+      <div v-show="step == 11">
+        <label class="block mb-4 font-bold text-gray-500" for="name"
+          >In the last 24 hours, how much relief has medication provided?</label
+        >
+        <label class="block mb-4 text-gray-700 mb-6">
+          <b>{{ form.question_11 }} </b> of 10
+        </label>
+        <input
+          v-model="form.question_11"
+          type="range"
+          min="1"
+          max="10"
+          name="question_11"
+          id="question_11"
+          class="border border-gray-400 p-2 w-full"
+          required
+        />
+        <div
+          v-if="form.errors.question_11"
+          v-text="form.errors.question_11"
+          class="text-red-500 mt-2"
+        ></div>
+      </div>
+      <!-- Question 12-->
+      <div v-show="step == 12">
+        <label class="block mb-4 font-bold text-gray-500" for="name"
+          >How has pain interfered with your daily activities in the past 24
+          hours.</label
+        >
+        <label class="block mb-4 text-gray-700">
+          <b>{{ form.question_12 }} </b> of 10
+        </label>
+        <input
+          v-model="form.question_12"
+          type="range"
+          min="1"
+          max="10"
+          name="question_12"
+          id="question_12"
+          class="border border-gray-400 p-2 w-full"
+          required
+        />
+        <div
+          v-if="form.errors.question_12"
+          v-text="form.errors.question_12"
+          class="text-red-500 mt-2"
+        ></div>
+      </div>
       <!-- Nav buttons -->
       <div class="m-4 grid place-items-center">
-        <div v-if="step < 11">
+        <div v-if="step < 13">
           <div
             @click="step++"
-            :disabled="step === 11"
+            :disabled="step === 13"
             class="
               bg-green-500
               hover:bg-green-700
@@ -334,7 +391,7 @@
             Previous
           </div>
         </div>
-        <div v-show="step === 11">
+        <div v-show="step === 13">
           <!-- submit -->
           <div class="mb-6 mt-2">
             <button
@@ -369,13 +426,13 @@ let step = ref(1);
 
 //sets the initial value for the range sliders v-model to the midway point of the slider
 onMounted(() => {
-  form.question_3 = 5;
-  form.question_4 = 5;
   form.question_5 = 5;
   form.question_6 = 5;
+  form.question_7 = 5;
   form.question_8 = 5;
-  form.question_9 = 5;
   form.question_10 = 5;
+  form.question_11 = 5;
+  form.question_12 = 5;
 });
 
 defineProps({
@@ -385,20 +442,24 @@ defineProps({
   //question values are passed for the checkbox values
   question1_values: Array,
   question2_values: Array,
-  question7_values: Array,
+  question3_values: Array,
+  question4_values: Array,
+  question9_values: Array,
 });
 
 let form = useForm({
   question_1: [],
   question_2: [],
-  question_3: "",
-  question_4: "",
+  question_3: [],
+  question_4: [],
   question_5: "",
   question_6: "",
-  question_7: [],
+  question_7: "",
   question_8: "",
-  question_9: "",
+  question_9: [],
   question_10: "",
+  question_11: "",
+  question_12: "",
 });
 
 let submit = () => {

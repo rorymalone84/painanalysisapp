@@ -28,7 +28,7 @@ Route::middleware('auth','admin:3')->group(function(){
         Route::get('/admin/patientsList', 'patientsList')->name('patients.list');
         Route::get('/admin/doctorsList', 'doctorsList')->name('doctors.list');        
         /*
-        user crud routes
+        crud routes
         */
         Route::get('/admin/createUser', 'createUser');
         Route::post('/admin/createUser', 'storeUser');
@@ -67,7 +67,7 @@ Route::middleware('auth','patient:1')->group(function(){
     Route::controller(PainAnalysisController::class)->group(function () {
         Route::get('/patients/form', 'form');
         Route::post('/patients/form', 'store')->name('store.form');
-        Route::get('/patients/journal', 'journalIndex');
+        Route::get('/patients/journal', 'journalIndex')->name('journal');
         Route::get('/patients/showEntry/{painAnalysis}', 'showEntry')->name('show.entry');
         Route::get('/patients/editEntry/{painAnalysis}', 'editEntry')->name('edit.entry');
         Route::get('/patients/deletePrompt/{painAnalysis}', 'deletePrompt')->name('deletePrompt.entry');

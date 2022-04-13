@@ -1,13 +1,8 @@
-  <!--Journal - an index of the users pain analysis posts by date - with tabs
-  containining visualisations for day/week and month -->
-
-
-
 <template>
   <div class="flex justify-between mb-6">
     <Head title="Registered Patients" />
     <div class="flex items-center">
-      <h1 class="text-3xl">My Journal entries</h1>
+      <h1 class="text-3xl">Patients</h1>
       <Link
         href="/patients/form"
         class="
@@ -18,7 +13,7 @@
           hover:bg-blue-400
           ml-4
         "
-        >+ Create Entry</Link
+        >+Create Entry</Link
       >
     </div>
   </div>
@@ -31,12 +26,12 @@
         >
           <table class="min-w-full divide-y divide-gray-200">
             <tbody class="bg-white divide-y divide-gray-200">
-              <tr v-for="painAnalysis in painAnalyses" :key="painAnalysis.id">
+              <tr v-for="painAnalysis in painAnalyses" :key="painAnalysis">
                 <td class="px-6 py-4 whitespace-nowrap">
                   <div class="flex items-center">
                     <div class="ml-4">
                       <div class="text-sm font-medium text-gray-900">
-                        {{ painAnalysis.id }}
+                        {{ painAnalysis.created_at }}
                       </div>
                     </div>
                   </div>
@@ -67,14 +62,7 @@
                     text-right text-sm
                     font-medium
                   "
-                >
-                  <Link
-                    :href="route('edit.entry', painAnalysis.id)"
-                    class="text-indigo-600 hover:text-indigo-900"
-                  >
-                    Edit
-                  </Link>
-                </td>
+                ></td>
 
                 <td
                   class="
@@ -105,11 +93,8 @@
 import { ref, watch } from "vue";
 import Paginator from "../../Shared/Paginator.vue";
 import inertia, { Inertia } from "@inertiajs/inertia";
-import throttle from "lodash/throttle";
 
 let props = defineProps({
-  user: Object,
-  filters: Object,
   painAnalyses: Object,
 });
 </script>
