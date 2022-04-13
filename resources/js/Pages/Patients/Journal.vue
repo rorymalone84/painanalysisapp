@@ -2,7 +2,7 @@
   <div class="flex justify-between mb-6">
     <Head title="Registered Patients" />
     <div class="flex items-center">
-      <h1 class="text-3xl">Patients</h1>
+      <h1 class="text-3xl">Journal entries</h1>
       <Link
         href="/patients/form"
         class="
@@ -31,7 +31,11 @@
                   <div class="flex items-center">
                     <div class="ml-4">
                       <div class="text-sm font-medium text-gray-900">
-                        {{ painAnalysis.created_at }}
+                        {{
+                          moment(painAnalysis.created_at).format(
+                            "dddd, MMMM Do YYYY, h:mm:ss a"
+                          )
+                        }}
                       </div>
                     </div>
                   </div>
@@ -91,7 +95,7 @@
 
 <script setup>
 import { ref, watch } from "vue";
-import Paginator from "../../Shared/Paginator.vue";
+import moment from "moment";
 import inertia, { Inertia } from "@inertiajs/inertia";
 
 let props = defineProps({
