@@ -2,7 +2,7 @@
   <div class="flex justify-between mb-6">
     <Head title="Registered Patients" />
     <div class="flex items-center">
-      <h1 class="text-3xl">Journal entries</h1>
+      <h1 class="text-3xl">Journal</h1>
       <Link
         href="/patients/form"
         class="
@@ -21,6 +21,57 @@
   <div class="flex flex-col">
     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
       <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+        <div
+          class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg"
+        >
+          <!-- tabs -->
+          <h2 class="mb-4 font-bold text-center text-blue-900 text-1xl">
+            Your condition over the last...
+          </h2>
+          <div class="container mx-auto">
+            <ul class="flex justify-center space-x-2 text-black">
+              <li>
+                <button
+                  @click="currentTab(1)"
+                  class="inline-block px-4 py-2 bg-blue-200 focus:outline-none"
+                >
+                  7 days
+                </button>
+              </li>
+              <li>
+                <button
+                  @click="currentTab(2)"
+                  class="inline-block px-4 py-2 bg-blue-200 focus:outline-none"
+                >
+                  30 days
+                </button>
+              </li>
+              <li>
+                <button
+                  @click="currentTab(3)"
+                  class="inline-block px-4 py-2 bg-blue-200 focus:outline-none"
+                >
+                  Quarter
+                </button>
+              </li>
+            </ul>
+            <div class="p-3 mt-6 text-center bg-white">
+              <div v-if="tab === 1">
+                {{ painAnalyses.question_10 }}
+              </div>
+              <div v-if="tab === 2">
+                Tab 2 Content show Lorem ipsum dolor sit amet consectetur,
+                adipisicing elit. aliquam rem. Exercitationem corporis eius
+                voluptatibus.
+              </div>
+              <div v-if="tab === 3">
+                Tab 3 Content show Lorem ipsum dolor sit amet consectetur
+                adipisicing elit.
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div
           class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg"
         >
@@ -97,6 +148,9 @@
 import { ref, watch } from "vue";
 import moment from "moment";
 import inertia, { Inertia } from "@inertiajs/inertia";
+
+const tab = ref(1);
+const currentTab = (tabNumber) => (tab.value = tabNumber);
 
 let props = defineProps({
   painAnalyses: Object,

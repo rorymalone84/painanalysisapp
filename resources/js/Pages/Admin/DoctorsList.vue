@@ -107,7 +107,7 @@
 
 <script setup>
 import { ref, watch } from "vue";
-import Paginator from "../../Shared/Paginator.vue";
+
 import inertia, { Inertia } from "@inertiajs/inertia";
 import throttle from "lodash/throttle";
 
