@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Carbon\Carbon;
 
 class PainAnalysisController extends Controller
 {
@@ -107,9 +108,39 @@ class PainAnalysisController extends Controller
    }
 
    public function journalIndex()
-    {          
+    {   
+        $pastWeek = Carbon::now()->subDays(7);
+        $pastMonth = Carbon::now()->subDays(30);
+        $pastQuarter = Carbon::now()->subDays(90);
+        
         return Inertia::render('Patients/Journal', [
-            'painAnalyses' => PainAnalysis::where('user_id', Auth::id())->get()
+            //Journal - weekly tab records and chart data
+            'pastWeekAnalyses' => PainAnalysis::where('user_id', Auth::id())
+            ->where('created_at', '>=', $pastWeek)->get(['id', 'created_at']),
+            'weeklyMeds' => PainAnalysis::where('user_id', Auth::id())->where('created_at', '>=', $pastWeek)
+            ->pluck('question_10', 'created_at'),    
+            'weeklyPainIntensity' => PainAnalysis::where('user_id', Auth::id())->where('created_at', '>=', $pastWeek)
+            ->pluck('question_5', 'created_at'), 
+            'weeklyPainRelief' => PainAnalysis::where('user_id', Auth::id())->where('created_at', '>=', $pastWeek)
+            ->pluck('question_11', 'created_at'),
+            // Monthly...
+             'pastMonthAnalyses' => PainAnalysis::where('user_id', Auth::id())
+             ->where('created_at', '>=', $pastMonth)->get(['id', 'created_at']),
+             'monthlyMeds' => PainAnalysis::where('user_id', Auth::id())->where('created_at', '>=', $pastMonth)
+             ->pluck('question_10', 'created_at'),    
+             'monthlyPainIntensity' => PainAnalysis::where('user_id', Auth::id())->where('created_at', '>=', $pastMonth)
+             ->pluck('question_5', 'created_at'), 
+             'monthlyPainRelief' => PainAnalysis::where('user_id', Auth::id())->where('created_at', '>=', $pastMonth)
+             ->pluck('question_11', 'created_at'),
+             //Quarterly
+             'quarterlyAnalyses' => PainAnalysis::where('user_id', Auth::id())
+             ->where('created_at', '>=', $pastQuarter)->get(['id', 'created_at']),
+             'quarterlyMeds' => PainAnalysis::where('user_id', Auth::id())->where('created_at', '>=', $pastQuarter)
+             ->pluck('question_10', 'created_at'),    
+             'quarterlyPainIntensity' => PainAnalysis::where('user_id', Auth::id())->where('created_at', '>=', $pastQuarter)
+             ->pluck('question_5', 'created_at'), 
+             'quarterlyPainRelief' => PainAnalysis::where('user_id', Auth::id())->where('created_at', '>=', $pastQuarter)
+             ->pluck('question_11', 'created_at'),
         ]);
     }
 
