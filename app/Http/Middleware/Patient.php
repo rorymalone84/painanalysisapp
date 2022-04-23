@@ -18,8 +18,10 @@ class Patient
     {
         if ($request->user()->role_id === 1) {
             return $next($request);
+        } else {
+            abort(403);
         }
 
-        abort(403);
+        
     }
 }

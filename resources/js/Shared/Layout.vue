@@ -1,8 +1,7 @@
 <template>
   <section class="p-6 bg-blue-200">
     <header class="flex justify-between">
-      <h1 class="font-bold text-lg">Pain Analysis App</h1>
-      <p class="font-bold text-sm"></p>
+      <h1 class="font-bold text-lg">PAA</h1>
       <Nav />
     </header>
   </section>
