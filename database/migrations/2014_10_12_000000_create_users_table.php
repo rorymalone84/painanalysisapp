@@ -18,10 +18,13 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->integer('user_role')->default('0'); //patients 0 (default) - Doctors 1 - Admin 2
+            $table->bigInteger('role_id')->unsigned();
+            $table->foreign('role_id')->references('id')->on('roles');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+            $table->string('profile_type')->nullable();
+            $table->unsignedInteger('profile_id')->nullable();
         });
     }
 

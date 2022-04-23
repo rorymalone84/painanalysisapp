@@ -22,7 +22,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
-        'user_role',
+        'role_id',
         'password',        
     ];
 
@@ -47,5 +47,23 @@ class User extends Authenticatable
 
     public function setPasswordAttribute($value){
         $this->attributes['password'] = bcrypt($value);        
-    }    
+    }
+
+    
+    public function role() {
+        return $this->belongsTo('App\Role');
+    }
+
+    public function painAnalysis() {
+        return $this->hasMany('App\PainAnalysis');
+    }
+
+    //details profile
+    protected $with = ['profile'];
+ 
+    public function profile()
+    {
+      return $this->morphTo();
+    }
+
 }

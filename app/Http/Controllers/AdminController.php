@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Request;
+use App\Models\Role;
 use App\Models\User;
 use Inertia\Inertia;
+use App\Models\Admin;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -17,11 +18,16 @@ class AdminController extends Controller
     */
 
     //Admin dashboard
-    public function index()
-    {
-        return Inertia::render('Admin/Dashboard');
+    public function index()    {
+        
+        $doctorCount =  User::where('role_id', '=', 2)->get();
+        $patientCount = User::where('role_id', '=', 1)->get();
+    
+        return Inertia::render('Admin/Dashboard',[
+            'doctorCount' => count($doctorCount),
+            'patientCount' => count($patientCount)
+        ]);
     }
-
 
     //create User form
     public function createUser()
@@ -35,7 +41,7 @@ class AdminController extends Controller
         $attributes = Request::validate([
             'name' => 'required',
             'email' => ['required', 'email'],
-            'user_role' => 'required', 
+            'role_id' => 'required', 
             'password' => 'required',
         ]);
     
@@ -46,17 +52,18 @@ class AdminController extends Controller
 
     //show a user record
     public function showUser(User $user)
-    {
+    {   
         return inertia::render('Admin/ShowUser', [
             'user' => [
                'id' => $user->id,
                'name' => $user->name,
                'email'=> $user->email, 
-               'user_role' => $user->user_role
+               'role_id' => $user->role_id,
             ]
         ]);
     }
-
+    
+    //update user form
     public function editUser(User $user)
     {
         return inertia::render('Admin/EditUser', [
@@ -64,18 +71,18 @@ class AdminController extends Controller
                'id' => $user->id,
                'name' => $user->name,
                'email'=> $user->email, 
-               'user_role' => $user->user_role,
+               'role_id' => $user->role_id,
             ]
         ]);
     }
 
-    //updates user
+    //update user data function
     public function updateUser(Request $request, User $user)
     {
         $attributes = Request::validate([
             'name' => 'required',
             'email' => ['required', 'email'],
-            'user_role' => 'required',
+            'role_id' => 'required',
         ]);
 
         // update the user
@@ -84,36 +91,11 @@ class AdminController extends Controller
         return redirect()->route('patients.list');
     }
 
-    //lists doctors with search filter on doctors link
-    public function doctorsList()
-    {
-        return Inertia::render('Admin/DoctorsList', [
-            'users' => User::query()->where('user_role', '=', '1')
-                ->when(Request::input('search'), function ($query, $search) {
-                    $query->where('name', 'like', "%{$search}%");
-                })
-                ->paginate(10)
-                ->withQueryString()
-                ->through(fn($user) => [
-                    'id' => $user->id,
-                    'name' => $user->name,
-                    'can' => [
-                        'edit' => Auth::user()->can('edit', $user)
-                    ]
-                ]),
-
-            'filters' => Request::only(['search']),
-            'can' => [
-                'createUser' => Auth::user()->can('create', User::class)
-            ]
-        ]);
-    }
-
     //lists patients with search filter on patients link
     public function patientsList()
     {   
         return Inertia::render('Admin/PatientsList', [
-            'users' => User::query()->where('user_role', '=', '0')
+            'users' => User::query()->where('role_id', '=', '1')
                 ->when(Request::input('search'), function ($query, $search) {
                     $query->where('name', 'like', "%{$search}%");
                 })
@@ -122,21 +104,47 @@ class AdminController extends Controller
                 ->through(fn($user) => [
                     'id' => $user->id,
                     'name' => $user->name,
-                    'user_role' => $user->user_role,
-                    'can' => [
-                        'edit' => Auth::user()->can('edit', $user)
-                    ],
+                    'role_id' => $user->role_id,
                 ]),
 
             'filters' => Request::only(['search']),
-            'can' => [
-                'createUser' => Auth::user()->can('create', User::class)
-            ]
         ]);
     }
 
-    public function destroy(User $user)
+     //delete doctor prompt
+     public function deleteUserPrompt(User $user){
+        return inertia::render('Admin/DeleteUser', [
+           'user' => [
+               'id' => $user->id,
+               'name' => $user->name
+           ]
+        ]);
+    }
+
+    public function deleteUser(User $user)
     {
         $user->delete();
+
+        return redirect()->route('patients.list');
+    }
+
+    //Doctor resources
+
+    //lists doctors with search filter on doctors link
+    public function doctorsList()
+    {
+        return Inertia::render('Admin/DoctorsList', [
+            'users' => User::query()->where('role_id', '=', '2')
+                ->when(Request::input('search'), function ($query, $search) {
+                    $query->where('name', 'like', "%{$search}%");
+                })
+                ->paginate(10)
+                ->withQueryString()
+                ->through(fn($user) => [
+                    'id' => $user->id,
+                    'name' => $user->name,
+                ]),
+            'filters' => Request::only(['search']),
+        ]);
     }
 }

@@ -42,7 +42,7 @@ class HandleInertiaRequests extends Middleware
             'auth' => Auth::user() ? [
                 'user' => [
                     'name' => Auth::user()->name,
-                    'role' => Auth::user()->user_role
+                    'role_id' => Auth::user()->role_id
                 ] 
             ] : null,
         ]);

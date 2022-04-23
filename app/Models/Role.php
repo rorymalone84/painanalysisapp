@@ -5,14 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PatientProfile extends Model
+class Role extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
-  
-    public function user() 
-    { 
-      return $this->morphOne('\App\User', 'profile');
+    protected $fillable = [
+        'role'
+    ];
+
+    public function users() {
+        return $this->hasMany('App\User');
     }
 }

@@ -35,12 +35,12 @@
               <span>User role</span>
               <span class="ml-auto"
                 ><span
-                  v-if="user.user_role === 0"
+                  v-if="user.role_id === 0"
                   class="bg-green-500 py-1 px-2 rounded text-white text-sm"
                   >Patient</span
                 >
                 <span
-                  v-if="user.user_role === 1"
+                  v-if="user.role_id === 1"
                   class="bg-green-500 py-1 px-2 rounded text-white text-sm"
                   >Doctor</span
                 ></span

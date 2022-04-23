@@ -57,39 +57,40 @@
       >
       <div class="p-6">
         <input
-          v-model="form.user_role"
+          v-model="form.role_id"
           class="pr-2"
           type="radio"
           id="user_role1"
-          name="user_role"
-          value="0"
+          name="role_id"
+          value="1"
         />
         <label class="p-4" for="user_role1">Patient</label>
 
         <input
-          v-model="form.user_role"
+          v-model="form.role_id"
           class="p-2"
           type="radio"
-          id="contactChoice2"
-          name="user_role"
-          value="1"
+          id="user_role2"
+          name="role_id"
+          value="2"
         />
-        <label class="p-4" for="user_role2">Doctor</label>
+        <label class="p-2" for="user_role2">Doctor</label>
 
         <input
-          v-model="form.user_role"
+          v-model="form.role_id"
           class="p-2"
           type="radio"
           id="user_role3"
-          name="user_role"
-          value="2"
+          name="role_id"
+          value="3"
         />
-        <label class="p-2" for="user_role33">Admin</label>
+        <label class="p-2" for="user_role3">Admin</label>
       </div>
+
       <!-- Email validation -->
       <div
-        v-if="form.errors.user_role"
-        v-text="form.errors.user_role"
+        v-if="form.errors.role_id"
+        v-text="form.errors.role_id"
         class="text-red-500 mt-2"
       ></div>
     </div>
@@ -139,7 +140,7 @@ let form = useForm({
   name: "",
   email: "",
   password: "",
-  user_role: "", // 1 is the user role value for Doctors
+  role_id: "",
 });
 
 let submit = () => {
