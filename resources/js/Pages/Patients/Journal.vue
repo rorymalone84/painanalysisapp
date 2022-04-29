@@ -15,6 +15,18 @@
         "
         >+Create Entry</Link
       >
+      <Link
+        href="/patients/requestAppointment"
+        class="
+          bg-blue-600
+          rounded
+          text-sm text-white
+          p-2
+          hover:bg-blue-400
+          ml-4
+        "
+        >Request Appointment</Link
+      >
     </div>
   </div>
 
@@ -33,6 +45,7 @@
               <button
                 @click="currentTab(1)"
                 class="inline-block px-4 py-2 bg-blue-200 focus:outline-none"
+                :class="{ active: currentTab === tab }"
               >
                 7 days
               </button>
@@ -41,6 +54,7 @@
               <button
                 @click="currentTab(2)"
                 class="inline-block px-4 py-2 bg-blue-200 focus:outline-none"
+                :class="{ active: currentTab === tab }"
               >
                 30 days
               </button>
@@ -49,6 +63,7 @@
               <button
                 @click="currentTab(3)"
                 class="inline-block px-4 py-2 bg-blue-200 focus:outline-none"
+                :class="{ active: currentTab === tab }"
               >
                 Quarter
               </button>

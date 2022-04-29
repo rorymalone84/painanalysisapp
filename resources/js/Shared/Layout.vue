@@ -1,5 +1,5 @@
 <template>
-  <section class="p-6 bg-blue-200">
+  <section class="p-6 bg-blue-100">
     <header class="flex justify-between">
       <h1 class="font-bold text-lg">PAA</h1>
       <Nav />
