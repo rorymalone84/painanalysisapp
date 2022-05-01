@@ -40,9 +40,7 @@ Route::middleware('auth','admin:3')->group(function(){
     });
  
 
-    Route::get('/', function () {
-        return Inertia::render('Home');
-    });
+    
     
     Route::get('/settings', function () {
         return Inertia::render('Settings');
@@ -62,6 +60,10 @@ Route::middleware('auth','patient:1')->group(function(){
     Route::controller(PatientsController::class)->group(function () {
         Route::get('/patients/home', 'index')->name('patients.home');    
         Route::get('/patients/consults', 'consultIndex');        
+    });
+
+    Route::get('/', function () {
+        return Inertia::render('Home');
     });
 
     Route::controller(PainAnalysisController::class)->group(function () {

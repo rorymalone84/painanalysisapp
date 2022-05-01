@@ -7,6 +7,7 @@ import { ZiggyVue } from "../../vendor/tightenco/ziggy/dist/vue";
 import VueChartkick from "vue-chartkick";
 import { Chart } from "chart.js";
 import Chartkick from "vue-chartkick";
+import Tabs from "./Shared/Tabs";
 
 InertiaProgress.init({
     color: "navy",
@@ -30,6 +31,7 @@ createInertiaApp({
             .mixin({ methods: { route: window.route } }) //ziggy
             .component("Link", Link)
             .component("Head", Head)
+            .component("Tabs", Tabs)
             .mount(el);
     },
 

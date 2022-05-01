@@ -58,223 +58,228 @@
               {{ tab }}
             </li>
           </ul>
-          <div class="min-w-full divide-y divide-gray-200">
-            <div v-show="currentTab === 0">
-              <line-chart
+          <div class="min-w-full divide-y divide-blue-200">
+            <Tabs class="w-11/12 lg:w-10/12 mx-auto mb-16 bg-blue" :tabList="tabList">
+              <template v-slot:tabPanel-1> 
+                <line-chart
                 class="min-w-full divide-y divide-gray-200"
                 :data="weeklyData"
-              ></line-chart>
-              <table class="min-w-full divide-y divide-gray-200">
-                <tbody class="bg-white divide-y divide-gray-200">
-                  <tr
-                    v-for="painAnalysis in pastWeekAnalyses"
-                    :key="painAnalysis"
-                  >
-                    <td class="min-w-full divide-y divide-gray-200">
-                      <div class="flex items-center">
-                        <div class="ml-4">
-                          <div class="text-sm font-medium text-gray-900">
-                            {{
-                              moment(painAnalysis.created_at).format(
-                                "dddd, MMMM Do YYYY"
-                              )
-                            }}
+                ></line-chart>
+                <table class="min-w-full divide-y divide-gray-200">
+                  <tbody class="bg-white divide-y divide-gray-200">
+                    <tr
+                      v-for="painAnalysis in pastWeekAnalyses"
+                      :key="painAnalysis"
+                    >
+                      <td class="min-w-full divide-y divide-gray-200">
+                        <div class="flex items-center">
+                          <div class="ml-4">
+                            <div class="text-sm font-medium text-gray-900">
+                              {{
+                                moment(painAnalysis.created_at).format(
+                                  "dddd, MMMM Do YYYY"
+                                )
+                              }}
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </td>
+                      </td>
 
-                    <td
-                      class="
-                        px-6
-                        py-4
-                        whitespace-nowrap
-                        text-right text-sm
-                        font-medium
-                      "
-                    >
-                      <Link
-                        class="text-indigo-600 hover:text-indigo-900"
-                        :href="route('show.entry', painAnalysis.id)"
+                      <td
+                        class="
+                          px-6
+                          py-4
+                          whitespace-nowrap
+                          text-right text-sm
+                          font-medium
+                        "
                       >
-                        view
-                      </Link>
-                    </td>
+                        <Link
+                          class="text-indigo-600 hover:text-indigo-900"
+                          :href="route('show.entry', painAnalysis.id)"
+                        >
+                          view
+                        </Link>
+                      </td>
 
-                    <td
-                      class="
-                        px-6
-                        py-4
-                        whitespace-nowrap
-                        text-right text-sm
-                        font-medium
-                      "
-                    ></td>
+                      <td
+                        class="
+                          px-6
+                          py-4
+                          whitespace-nowrap
+                          text-right text-sm
+                          font-medium
+                        "
+                      ></td>
 
-                    <td
-                      class="
-                        px-6
-                        py-4
-                        whitespace-nowrap
-                        text-right text-sm
-                        font-medium
-                      "
-                    >
-                      <Link
-                        class="text-indigo-600 hover:text-indigo-900"
-                        :href="route('deletePrompt.entry', painAnalysis.id)"
+                      <td
+                        class="
+                          px-6
+                          py-4
+                          whitespace-nowrap
+                          text-right text-sm
+                          font-medium
+                        "
                       >
-                        delete
-                      </Link>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div v-show="currentTab === 1">
-              <line-chart
-                class="min-w-full divide-y divide-gray-200"
-                :data="monthlyData"
-              ></line-chart>
-              <table class="min-w-full divide-y divide-gray-200">
-                <tbody class="bg-white divide-y divide-gray-200">
-                  <tr
-                    v-for="painAnalysis in pastMonthAnalyses"
-                    :key="painAnalysis"
-                  >
-                    <td class="min-w-full divide-y divide-gray-200">
-                      <div class="flex items-center">
-                        <div class="ml-4">
-                          <div class="text-sm font-medium text-gray-900">
-                            {{
-                              moment(painAnalysis.created_at).format(
-                                "dddd, MMMM Do YYYY"
-                              )
-                            }}
+                        <Link
+                          class="text-indigo-600 hover:text-indigo-900"
+                          :href="route('deletePrompt.entry', painAnalysis.id)"
+                        >
+                          delete
+                        </Link>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </template>
+              <!-- monthly tab -->
+              <template v-slot:tabPanel-2>
+                <line-chart
+                  class="min-w-full divide-y divide-gray-200"
+                  :data="monthlyData"
+                ></line-chart>
+                <table class="min-w-full divide-y divide-gray-200">
+                  <tbody class="bg-white divide-y divide-gray-200">
+                    <tr
+                      v-for="painAnalysis in pastMonthAnalyses"
+                      :key="painAnalysis"
+                    >
+                      <td class="min-w-full divide-y divide-gray-200">
+                        <div class="flex items-center">
+                          <div class="ml-4">
+                            <div class="text-sm font-medium text-gray-900">
+                              {{
+                                moment(painAnalysis.created_at).format(
+                                  "dddd, MMMM Do YYYY"
+                                )
+                              }}
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </td>
+                      </td>
 
-                    <td
-                      class="
-                        px-6
-                        py-4
-                        whitespace-nowrap
-                        text-right text-sm
-                        font-medium
-                      "
-                    >
-                      <Link
-                        class="text-indigo-600 hover:text-indigo-900"
-                        :href="route('show.entry', painAnalysis.id)"
+                      <td
+                        class="
+                          px-6
+                          py-4
+                          whitespace-nowrap
+                          text-right text-sm
+                          font-medium
+                        "
                       >
-                        view
-                      </Link>
-                    </td>
+                        <Link
+                          class="text-indigo-600 hover:text-indigo-900"
+                          :href="route('show.entry', painAnalysis.id)"
+                        >
+                          view
+                        </Link>
+                      </td>
 
-                    <td
-                      class="
-                        px-6
-                        py-4
-                        whitespace-nowrap
-                        text-right text-sm
-                        font-medium
-                      "
-                    ></td>
+                      <td
+                        class="
+                          px-6
+                          py-4
+                          whitespace-nowrap
+                          text-right text-sm
+                          font-medium
+                        "
+                      ></td>
 
-                    <td
-                      class="
-                        px-6
-                        py-4
-                        whitespace-nowrap
-                        text-right text-sm
-                        font-medium
-                      "
-                    >
-                      <Link
-                        class="text-indigo-600 hover:text-indigo-900"
-                        :href="route('deletePrompt.entry', painAnalysis.id)"
+                      <td
+                        class="
+                          px-6
+                          py-4
+                          whitespace-nowrap
+                          text-right text-sm
+                          font-medium
+                        "
                       >
-                        delete
-                      </Link>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div v-show="currentTab === 2">
-              <line-chart
-                class="min-w-full divide-y divide-gray-200"
-                :data="quarterlyData"
-              ></line-chart>
-              <table class="min-w-full divide-y divide-gray-200">
-                <tbody class="bg-white divide-y divide-gray-200">
-                  <tr
-                    v-for="painAnalysis in quarterlyAnalyses"
-                    :key="painAnalysis"
-                  >
-                    <td class="min-w-full divide-y divide-gray-200">
-                      <div class="flex items-center">
-                        <div class="ml-4">
-                          <div class="text-sm font-medium text-gray-900">
-                            {{
-                              moment(painAnalysis.created_at).format(
-                                "dddd, MMMM Do YYYY"
-                              )
-                            }}
+                        <Link
+                          class="text-indigo-600 hover:text-indigo-900"
+                          :href="route('deletePrompt.entry', painAnalysis.id)"
+                        >
+                          delete
+                        </Link>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table> 
+              </template>
+              <!-- Tab 3 -->
+              <template v-slot:tabPanel-3>
+                <line-chart
+                  class="min-w-full divide-y divide-gray-200"
+                  :data="quarterlyData"
+                >
+                </line-chart>
+                <table class="min-w-full divide-y divide-gray-200">
+                  <tbody class="bg-white divide-y divide-gray-200">
+                    <tr
+                      v-for="painAnalysis in quarterlyAnalyses"
+                      :key="painAnalysis"
+                    >
+                      <td class="min-w-full divide-y divide-gray-200">
+                        <div class="flex items-center">
+                          <div class="ml-4">
+                            <div class="text-sm font-medium text-gray-900">
+                              {{
+                                moment(painAnalysis.created_at).format(
+                                  "dddd, MMMM Do YYYY"
+                                )
+                              }}
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </td>
+                      </td>
 
-                    <td
-                      class="
-                        px-6
-                        py-4
-                        whitespace-nowrap
-                        text-right text-sm
-                        font-medium
-                      "
-                    >
-                      <Link
-                        class="text-indigo-600 hover:text-indigo-900"
-                        :href="route('show.entry', painAnalysis.id)"
+                      <td
+                        class="
+                          px-6
+                          py-4
+                          whitespace-nowrap
+                          text-right text-sm
+                          font-medium
+                        "
                       >
-                        view
-                      </Link>
-                    </td>
+                        <Link
+                          class="text-indigo-600 hover:text-indigo-900"
+                          :href="route('show.entry', painAnalysis.id)"
+                        >
+                          view
+                        </Link>
+                      </td>
 
-                    <td
-                      class="
-                        px-6
-                        py-4
-                        whitespace-nowrap
-                        text-right text-sm
-                        font-medium
-                      "
-                    ></td>
+                      <td
+                        class="
+                          px-6
+                          py-4
+                          whitespace-nowrap
+                          text-right text-sm
+                          font-medium
+                        "
+                      ></td>
 
-                    <td
-                      class="
-                        px-6
-                        py-4
-                        whitespace-nowrap
-                        text-right text-sm
-                        font-medium
-                      "
-                    >
-                      <Link
-                        class="text-indigo-600 hover:text-indigo-900"
-                        :href="route('deletePrompt.entry', painAnalysis.id)"
+                      <td
+                        class="
+                          px-6
+                          py-4
+                          whitespace-nowrap
+                          text-right text-sm
+                          font-medium
+                        "
                       >
-                        delete
-                      </Link>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+                        <Link
+                          class="text-indigo-600 hover:text-indigo-900"
+                          :href="route('deletePrompt.entry', painAnalysis.id)"
+                        >
+                          delete
+                        </Link>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </template>
+            </Tabs>
           </div>
         </div>
       </div>
@@ -289,8 +294,7 @@ import inertia, { Inertia } from "@inertiajs/inertia";
 import VueChartkick from "vue-chartkick";
 import "chartkick/chart.js";
 
-const currentTab = ref(0);
-const tabs = ["Week", "Month", "Quarter"];
+const tabList = ["Week", "Month", "Quarter"];
 
 let props = defineProps({
   //weekly data objects from PainAnalysisController
