@@ -1,8 +1,9 @@
 <template>
   <Head title="Log In" />
 
-  <main class="grid place-items-center min-h-screen">
-    <section class="bg-white p-8 rounded-xl max-w-md mx-auto border w-full">
+  <main class="grid place-items-center min-h-screen bg-orange-50">
+    <h1 class="max-w-3xl mx-auto text-3xl mb-6">Pain Analysis App</h1>
+    <section class="bg-blue-200 p-8 rounded-xl max-w-md mx-auto border w-full">
       <h1 class="text-3xl mb-6">Log In</h1>
 
       <form @submit.prevent="submit">

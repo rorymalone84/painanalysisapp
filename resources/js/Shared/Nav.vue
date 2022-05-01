@@ -1,5 +1,5 @@
 <template>
-  <nav class="z-10">
+  <nav class="">
     <ul class="invisible lg:visible flex space-x-6">
       <!-- Admin Links -->
       <li v-if="$page.props.auth.user.role_id === 3">
@@ -77,7 +77,19 @@
     <!-- mobile menu -->
     <ul
       :class="showMenu ? 'flex' : 'hidden'"
-      class="flex-col mt-8 space-y-4 md:hidden"
+      class="
+        p-10
+        flex-col
+        mt-8
+        space-y-4
+        fixed
+        bg-blue-100
+        top-5
+        left-0
+        right-0
+        z-10
+        md:hidden
+      "
     >
       <!-- Admin Links -->
       <li v-if="$page.props.auth.user.role_id === 3">
@@ -186,3 +198,4 @@ export default {
   },
 };
 </script>
+

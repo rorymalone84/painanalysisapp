@@ -15,7 +15,20 @@
         "
         >+Create Entry</Link
       >
+      <Link
+        href="/patients/requestAppointment"
+        class="
+          bg-blue-600
+          rounded
+          text-sm text-white
+          p-2
+          hover:bg-blue-400
+          ml-4
+        "
+        >Request Appointment</Link
+      >
     </div>
+    <Tabs />
   </div>
 
   <div class="flex flex-col min-w-full divide-y divide-gray-200">
@@ -28,34 +41,26 @@
           Your condition over the last...
         </h2>
         <div class="container mx-auto">
-          <ul class="flex justify-center space-x-2 text-black">
-            <li>
-              <button
-                @click="currentTab(1)"
-                class="inline-block px-4 py-2 bg-blue-200 focus:outline-none"
-              >
-                7 days
-              </button>
-            </li>
-            <li>
-              <button
-                @click="currentTab(2)"
-                class="inline-block px-4 py-2 bg-blue-200 focus:outline-none"
-              >
-                30 days
-              </button>
-            </li>
-            <li>
-              <button
-                @click="currentTab(3)"
-                class="inline-block px-4 py-2 bg-blue-200 focus:outline-none"
-              >
-                Quarter
-              </button>
+          <ul class="flex justify-center space-x-2 text-black py-2">
+            <li
+              v-for="(tab, index) in tabs"
+              :key="index"
+              @click="currentTab = index"
+              class="
+                inline-block
+                px-4
+                py-3
+                bg-blue-100
+                focus:outline-none
+                rounded
+              "
+              :class="{ active: currentTab === index }"
+            >
+              {{ tab }}
             </li>
           </ul>
           <div class="min-w-full divide-y divide-gray-200">
-            <div v-if="tab === 1">
+            <div v-show="currentTab === 0">
               <line-chart
                 class="min-w-full divide-y divide-gray-200"
                 :data="weeklyData"
@@ -127,7 +132,7 @@
                 </tbody>
               </table>
             </div>
-            <div v-if="tab === 2">
+            <div v-show="currentTab === 1">
               <line-chart
                 class="min-w-full divide-y divide-gray-200"
                 :data="monthlyData"
@@ -199,7 +204,7 @@
                 </tbody>
               </table>
             </div>
-            <div v-if="tab === 3">
+            <div v-show="currentTab === 3">
               <line-chart
                 class="min-w-full divide-y divide-gray-200"
                 :data="quarterlyData"
@@ -285,8 +290,8 @@ import inertia, { Inertia } from "@inertiajs/inertia";
 import VueChartkick from "vue-chartkick";
 import "chartkick/chart.js";
 
-const tab = ref(1);
-const currentTab = (tabNumber) => (tab.value = tabNumber);
+const currentTab = ref(0);
+const tabs = ["Week", "Month", "Quarter"];
 
 let props = defineProps({
   //weekly data objects from PainAnalysisController
@@ -357,4 +362,7 @@ let quarterlyData = [
 </script>
 
 <style>
+.active {
+  font-weight: bold;
+}
 </style>

@@ -1,13 +1,13 @@
 <template>
-  <section class="p-6 bg-blue-200">
+  <section class="p-6 bg-blue-100">
     <header class="flex justify-between">
       <h1 class="font-bold text-lg">PAA</h1>
       <Nav />
     </header>
   </section>
 
-  <section class="p-6">
-    <div class="max-w-3xl mx-auto">
+  <section class="p-6 bg-orange-50">
+    <div class="max-w-3xl mx-auto bg-orange-50">
       <slot />
     </div>
   </section>

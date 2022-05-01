@@ -20,6 +20,5 @@ class Doctor
             return $next($request);
         }
 
-        abort(403);
     }
 }
