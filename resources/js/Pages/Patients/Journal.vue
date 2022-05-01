@@ -46,7 +46,14 @@
               v-for="(tab, index) in tabs"
               :key="index"
               @click="currentTab = index"
-              class="inline-block px-4 py-3 bg-blue-100 focus:outline-none"
+              class="
+                inline-block
+                px-4
+                py-3
+                bg-blue-100
+                focus:outline-none
+                rounded
+              "
               :class="{ active: currentTab === index }"
             >
               {{ tab }}
