@@ -28,7 +28,6 @@
         >Request Appointment</Link
       >
     </div>
-    <Tabs />
   </div>
 
   <div class="flex flex-col min-w-full divide-y divide-gray-200">
@@ -36,10 +35,10 @@
       <div
         class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg"
       >
-        <!-- tabs -->
         <h2 class="mb-4 font-bold text-center text-blue-900 text-1xl">
           Your condition over the last...
         </h2>
+        <!-- tabs -->
         <div class="container mx-auto">
           <ul class="flex justify-center space-x-2 text-black py-2">
             <li
@@ -204,7 +203,7 @@
                 </tbody>
               </table>
             </div>
-            <div v-show="currentTab === 3">
+            <div v-show="currentTab === 2">
               <line-chart
                 class="min-w-full divide-y divide-gray-200"
                 :data="quarterlyData"
@@ -212,7 +211,7 @@
               <table class="min-w-full divide-y divide-gray-200">
                 <tbody class="bg-white divide-y divide-gray-200">
                   <tr
-                    v-for="painAnalysis in pastQuarterAnalyses"
+                    v-for="painAnalysis in quarterlyAnalyses"
                     :key="painAnalysis"
                   >
                     <td class="min-w-full divide-y divide-gray-200">
