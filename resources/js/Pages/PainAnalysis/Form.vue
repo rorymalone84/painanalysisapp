@@ -51,33 +51,171 @@
       <!-- Question 2-->
       <div v-show="step === 2">
         <label class="block mb-4 font-bold text-gray-500" for="name"
-          >Point to where you feel the pain the most</label
+          >Where you feel the pain the most?</label
         >
 
-        <div class="grid grid-cols-4 md:grid-cols-6">
-          <div
-            v-for="(key, index) in question2_values"
-            :key="index"
-            class="grid"
-          >
-            <label class="PillList-item">
-              <input
-                type="checkbox"
-                name="question_2[]"
-                :value="key"
-                v-model="form.question_2"
-                class="PillList-item"
-              />
-              <span class="PillList-label">{{ key }} </span>
-            </label>
-          </div>
-        </div>
+        <Tabs
+          class="w-11/12 lg:w-10/12 mx-auto mb-16 bg-blue"
+          :tabList="tabList"
+        >
+          <!-- Head -->
+          <template v-slot:tabPanel-1>
+            <div class="grid grid-cols-3 md:grid-cols-3">
+              <div
+                v-for="(key, index) in question2_values_head"
+                :key="index"
+                class="grid"
+              >
+                <label class="PillList-item">
+                  <input
+                    type="checkbox"
+                    name="question_2[]"
+                    :value="key"
+                    v-model="form.question_2"
+                    class="PillList-item"
+                  />
+                  <span class="PillList-label">{{ key }} </span>
+                </label>
+              </div>
+            </div>
 
-        <div
-          v-if="form.errors.question_2"
-          v-text="form.errors.question_2"
-          class="text-red-500 mt-2"
-        ></div>
+            <div
+              v-if="form.errors.question_2"
+              v-text="form.errors.question_2"
+              class="text-red-500 mt-2"
+            ></div>
+          </template>
+          <template v-slot:tabPanel-2>
+            <div class="grid grid-cols-3 md:grid-cols-3">
+              <div
+                v-for="(key, index) in question2_values_front"
+                :key="index"
+                class="grid"
+              >
+                <label class="PillList-item">
+                  <input
+                    type="checkbox"
+                    name="question_2[]"
+                    :value="key"
+                    v-model="form.question_2"
+                    class="PillList-item"
+                  />
+                  <span class="PillList-label">{{ key }} </span>
+                </label>
+              </div>
+            </div>
+
+            <div
+              v-if="form.errors.question_2"
+              v-text="form.errors.question_2"
+              class="text-red-500 mt-2"
+            ></div>
+          </template>
+          <template v-slot:tabPanel-3>
+            <div class="grid grid-cols-2 md:grid-cols-2">
+              <div
+                v-for="(key, index) in question2_values_back"
+                :key="index"
+                class="grid"
+              >
+                <label class="PillList-item">
+                  <input
+                    type="checkbox"
+                    name="question_2[]"
+                    :value="key"
+                    v-model="form.question_2"
+                    class="PillList-item"
+                  />
+                  <span class="PillList-label">{{ key }} </span>
+                </label>
+              </div>
+            </div>
+
+            <div
+              v-if="form.errors.question_2"
+              v-text="form.errors.question_2"
+              class="text-red-500 mt-2"
+            ></div>
+          </template>
+          <template v-slot:tabPanel-4>
+            <div class="grid grid-cols-2 md:grid-cols-2">
+              <div
+                v-for="(key, index) in question2_values_arms"
+                :key="index"
+                class="grid"
+              >
+                <label class="PillList-item">
+                  <input
+                    type="checkbox"
+                    name="question_2[]"
+                    :value="key"
+                    v-model="form.question_2"
+                    class="PillList-item"
+                  />
+                  <span class="PillList-label">{{ key }} </span>
+                </label>
+              </div>
+            </div>
+
+            <div
+              v-if="form.errors.question_2"
+              v-text="form.errors.question_2"
+              class="text-red-500 mt-2"
+            ></div>
+          </template>
+          <template v-slot:tabPanel-5>
+            <div class="grid grid-cols-2 md:grid-cols-2">
+              <div
+                v-for="(key, index) in question2_values_legs"
+                :key="index"
+                class="grid"
+              >
+                <label class="PillList-item">
+                  <input
+                    type="checkbox"
+                    name="question_2[]"
+                    :value="key"
+                    v-model="form.question_2"
+                    class="PillList-item"
+                  />
+                  <span class="PillList-label">{{ key }} </span>
+                </label>
+              </div>
+            </div>
+
+            <div
+              v-if="form.errors.question_2"
+              v-text="form.errors.question_2"
+              class="text-red-500 mt-2"
+            ></div>
+          </template>
+          <template v-slot:tabPanel-6>
+            <div class="grid grid-cols-2 md:grid-cols-2">
+              <div
+                v-for="(key, index) in question2_values_feet"
+                :key="index"
+                class="grid"
+              >
+                <label class="PillList-item">
+                  <input
+                    type="checkbox"
+                    name="question_2[]"
+                    :value="key"
+                    v-model="form.question_2"
+                    class="PillList-item"
+                  />
+                  <span class="PillList-label">{{ key }} </span>
+                </label>
+              </div>
+            </div>
+
+            <div
+              v-if="form.errors.question_2"
+              v-text="form.errors.question_2"
+              class="text-red-500 mt-2"
+            ></div>
+          </template>
+        </Tabs>
       </div>
 
       <!--Question 3 -->
@@ -439,13 +577,23 @@ defineProps({
   user: Object,
   errors: Object,
 
-  //question values are passed for the checkbox values
+  //values are passed from PainAnalysisController for the checkbox values
   question1_values: Array,
-  question2_values: Array,
+  //values for each tab on question 2
+  question2_values_head: Array,
+  question2_values_front: Array,
+  question2_values_back: Array,
+  question2_values_arms: Array,
+  question2_values_legs: Array,
+  question2_values_feet: Array,
+  //
   question3_values: Array,
   question4_values: Array,
   question9_values: Array,
 });
+
+//Tabs list for question 2
+const tabList = ["Head", "Front", "Back", "Arms", "Legs", "Feet"];
 
 let form = useForm({
   question_1: [],
@@ -492,7 +640,7 @@ let submit = () => {
   border-radius: 20px;
   color: #1c94e0;
   display: block;
-  padding: 6px 24px;
+  padding: 3px 18px;
   text-decoration: none;
 }
 

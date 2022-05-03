@@ -5,7 +5,17 @@
     }"
   >
     <ul
-      class="font-medium list-none bg-blue-700 bg-opacity-30 p-1.5 rounded-lg text-center overflow-auto whitespace-nowrap"
+      class="
+        grid grid-cols-3
+        font-medium
+        list-none
+        bg-blue-600 bg-opacity-30
+        p-1.5
+        rounded-lg
+        text-center
+        overflow-auto
+        whitespace-nowrap
+      "
       :class="{
         'flex items-center mb-6': variant === 'vertical',
       }"
@@ -15,15 +25,12 @@
         :key="index"
         class="w-full px-4 py-1.5 rounded-lg"
         :class="{
-          'text-black-500 bg-blue-100 shadow-xl font-medium': index + 1 === activeTab,
+          'text-black-500 bg-blue-100 shadow-xl font-medium':
+            index + 1 === activeTab,
           'text-black': index + 1 !== activeTab,
         }"
       >
-        <label
-          :for="`${index}`"
-          v-text="tab"
-          class="cursor-pointer block"
-        />
+        <label :for="`${index}`" v-text="tab" class="cursor-pointer block" />
         <input
           :id="`${index}`"
           type="radio"
