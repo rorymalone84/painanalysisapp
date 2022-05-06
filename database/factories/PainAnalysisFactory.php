@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,12 +17,14 @@ class PainAnalysisFactory extends Factory
      */
     public function definition()
     {   
-        static $id_increment = 1;
+        static $id_increment = 1; 
+        $date = Carbon::today()->subDays(rand(1, 90));
+        
 
         if($id_increment === 103){
             $id_increment = 1;
         }
-        
+               
         return [
             'question_1' => $this->faker->randomElement(['Aching', 'Throbbing', 'Shooting','Stabbing','Tender','Burning','Tiring','Numb']),
             'question_2' => $this->faker->randomElement(['Fore Head', 'Left Temple', 'Right Temple', 'Throat', 'Right Shoulder, Chest, Left Shoulder', 'Stomach']),
@@ -36,7 +39,7 @@ class PainAnalysisFactory extends Factory
             'question_11' => $this->faker->numberBetween(1, 10),
             'question_12' => $this->faker->numberBetween(1, 10),
             'user_id' => $this->faker->numerify($id_increment++),
-            'created_at' => now(),
-        ];
+            'created_at' => $this->faker->dateTimeBetween('-30 days'),
+        ];        
     }
 }
