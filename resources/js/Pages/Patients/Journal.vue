@@ -59,11 +59,14 @@
             </li>
           </ul>
           <div class="min-w-full divide-y divide-blue-200">
-            <Tabs class="w-11/12 lg:w-10/12 mx-auto mb-16 bg-blue" :tabList="tabList">
-              <template v-slot:tabPanel-1> 
+            <Tabs
+              class="w-11/12 lg:w-10/12 mx-auto mb-16 bg-blue"
+              :tabList="tabList"
+            >
+              <template v-slot:tabPanel-1>
                 <line-chart
-                class="min-w-full divide-y divide-gray-200"
-                :data="weeklyData"
+                  class="min-w-full divide-y divide-gray-200"
+                  :data="weeklyData"
                 ></line-chart>
                 <table class="min-w-full divide-y divide-gray-200">
                   <tbody class="bg-white divide-y divide-gray-200">
@@ -203,7 +206,7 @@
                       </td>
                     </tr>
                   </tbody>
-                </table> 
+                </table>
               </template>
               <!-- Tab 3 -->
               <template v-slot:tabPanel-3>

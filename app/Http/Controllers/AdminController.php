@@ -6,6 +6,7 @@ use App\Models\Role;
 use App\Models\User;
 use Inertia\Inertia;
 use App\Models\Admin;
+use App\Models\PainAnalysis;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -19,13 +20,19 @@ class AdminController extends Controller
 
     //Admin dashboard
     public function index()    {
-        
         $doctorCount =  User::where('role_id', '=', 2)->get();
+        $latestDoctor = User::where('role_id', '=', 2)->latest()->first();
         $patientCount = User::where('role_id', '=', 1)->get();
+        $latestPatient = User::where('role_id', '=', 1)->latest()->first();
+        $journalEntries = User::with('painAnalysis')->get();        
     
         return Inertia::render('Admin/Dashboard',[
+            'userCount' => count($doctorCount) + count($patientCount),
             'doctorCount' => count($doctorCount),
-            'patientCount' => count($patientCount)
+            'latestDoctor' => $latestDoctor,
+            'patientCount' => count($patientCount),
+            'latestPatient' => $latestPatient,
+            'journalCount' => count($journalEntries),                    
         ]);
     }
 

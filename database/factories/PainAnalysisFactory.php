@@ -39,7 +39,7 @@ class PainAnalysisFactory extends Factory
             'question_11' => $this->faker->numberBetween(1, 10),
             'question_12' => $this->faker->numberBetween(1, 10),
             'user_id' => $this->faker->numerify($id_increment++),
-            'created_at' => $this->faker->dateTimeBetween('-30 days'),
+            'created_at' => $this->faker->dateTimeBetween('-30 days','-1 days'),
         ];        
     }
 }

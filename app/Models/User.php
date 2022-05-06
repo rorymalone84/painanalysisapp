@@ -51,11 +51,11 @@ class User extends Authenticatable
 
     
     public function role() {
-        return $this->belongsTo('App\Role');
+        return $this->belongsTo('App\Models\Role');
     }
 
     public function painAnalysis() {
-        return $this->hasMany('App\PainAnalysis');
+        return $this->hasMany('App\Models\PainAnalysis');
     }
 
     //details profile
