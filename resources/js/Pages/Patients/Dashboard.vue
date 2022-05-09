@@ -9,75 +9,67 @@
     </div>
   </div>
   <div class="flex justify-between mt-4 space-x-4 s">
-    <div
-      class="
-        bg-white
-        w-1/3
-        rounded-xl
-        shadow-lg
-        flex
-        items-center
-        justify-around
-      "
-    >
-      <img src="https://i.imgur.com/VHc5SJE.png" alt="" />
-      <div class="text-center">
-        <h1 class="text-4xl font-bold text-gray-800">
-          <!-- enter the number or journal entries for this week -->
-        </h1>
-        <span class="text-gray-500">My Journal</span>
-      </div>
-    </div>
-    <div
-      class="
-        bg-white
-        w-1/3
-        rounded-xl
-        shadow-lg
-        flex
-        items-center
-        justify-around
-      "
-    >
-      <img src="https://i.imgur.com/Qnmqkil.png" alt="" />
-      <div class="text-center">
-        <h1 class="text-4xl font-bold text-gray-800">{{ patientCount }}</h1>
-        <span class="text-gray-500">My Consults</span>
-      </div>
-    </div>
-    <div
-      class="
-        bg-white
-        w-1/3
-        rounded-xl
-        shadow-lg
-        flex
-        items-center
-        justify-around
-      "
-    >
-      <img src="https://i.imgur.com/dJeEVcO.png" alt="" />
-      <div class="text-center">
-        <h1 class="text-4xl font-bold text-gray-800"></h1>
-        <span class="text-gray-500">My Appointments</span>
-      </div>
-    </div>
-  </div>
-  <div class="flex space-x-4">
-    <div class="justify-between rounded-xl mt-4 p-4 bg-white shadow-lg">
-      <h1 class="text-xl font-bold text-gray-800 mt-4">My Status</h1>
-      <div class="flex justify-between space-x-4 text-center mt-6">
-        <div class="bg-indigo-50 rounded-xl p-10">
-          <h3>8.7K</h3>
-          <span>My Doctor</span>
+    <div class="flex flex-wrap mb-2">
+      <div class="w-full md:w-1/2 xl:w-1/3 pt-3 px-3 md:pr-2">
+        <div class="bg-cyan-900 border rounded shadow p-2">
+          <div class="flex flex-row items-center">
+            <div class="flex-shrink pl-1 pr-4">
+              <i class="fa fa-wallet fa-2x fa-fw fa-inverse"></i>
+            </div>
+            <div class="flex-1 text-right">
+              <h5 class="text-white">Journal Entries</h5>
+              <h3 class="text-white text-3xl">Journal Entries</h3>
+            </div>
+          </div>
         </div>
-        <div class="bg-indigo-50 rounded-xl p-10">
-          <h3>99</h3>
-          <span>My next Appointment</span>
+      </div>
+      <div class="w-full md:w-1/2 xl:w-1/3 pt-3 px-3 md:pl-2">
+        <div class="bg-cyan-700 border rounded shadow p-2">
+          <div class="flex flex-row items-center">
+            <div class="flex-shrink pl-1 pr-4">
+              <i class="fas fa-users fa-2x fa-fw fa-inverse"></i>
+            </div>
+            <div class="flex-1 text-right">
+              <h5 class="text-white">Last Entry</h5>
+              <h3 class="text-white text-3xl">
+                last entry
+                <span class="text-blue-400"
+                  ><i class="fas fa-caret-up"></i
+                ></span>
+              </h3>
+            </div>
+          </div>
         </div>
-        <div class="bg-indigo-50 rounded-xl p-10">
-          <h3>30</h3>
-          <span>My latest Consultation</span>
+      </div>
+      <div class="w-full md:w-1/2 xl:w-1/3 pt-3 px-3 md:pr-2 xl:pr-3 xl:pl-1">
+        <div class="bg-cyan-500 border rounded shadow p-2">
+          <div class="flex flex-row items-center">
+            <div class="flex-shrink pl-1 pr-4">
+              <i class="fas fa-user-plus fa-2x fa-fw fa-inverse"></i>
+            </div>
+            <div class="flex-1 text-right pr-1">
+              <h5 class="text-white">This weeks entries</h5>
+              <h3 class="text-white text-3xl">
+                this weeks entries
+                <span class="text-orange-400"
+                  ><i class="fas fa-caret-up"></i
+                ></span>
+              </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w-full md:w-1/2 xl:w-1/3 pt-3 px-3 md:pr-2 xl:pl-2 xl:pr-3">
+        <div class="bg-cyan-100 border rounded shadow p-2">
+          <div class="flex flex-row items-center">
+            <div class="flex-shrink pl-1 pr-4">
+              <i class="fas fa-tasks fa-2x fa-fw fa-inverse"></i>
+            </div>
+            <div class="flex-1 text-right">
+              <h5 class="text-slate-800">Appointments</h5>
+              <h3 class="text-slate-800 text-3xl">Coming soon</h3>
+            </div>
+          </div>
         </div>
       </div>
     </div>
