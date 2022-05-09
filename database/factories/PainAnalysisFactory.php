@@ -29,7 +29,7 @@ class PainAnalysisFactory extends Factory
             'question_1' => $this->faker->randomElement(['Aching', 'Throbbing', 'Shooting','Stabbing','Tender','Burning','Tiring','Numb']),
             'question_2' => $this->faker->randomElement(['Fore Head', 'Left Temple', 'Right Temple', 'Throat', 'Right Shoulder, Chest, Left Shoulder', 'Stomach']),
             'question_3' => $this->faker->randomElement(['Morning','Afternoon', 'Night', 'It varies']),
-            'question_4' => $this->faker->numberBetween(1, 10),
+            'question_4' => $this->faker->randomElement(['Occasional','Frequent', 'Constant', 'Often', 'It varies', 'Nothing Today']),
             'question_5' => $this->faker->numberBetween(1, 10),
             'question_6' => $this->faker->numberBetween(1, 10),
             'question_7' => $this->faker->numberBetween(1, 10),

@@ -190,28 +190,38 @@ class PainAnalysisController extends Controller
             //Journal - weekly tab records and chart data
             'pastWeekAnalyses' => PainAnalysis::where('user_id', Auth::id())
             ->where('created_at', '>=', $pastWeek)->get(['id', 'created_at']),
+            
             'weeklyMeds' => PainAnalysis::where('user_id', Auth::id())->where('created_at', '>=', $pastWeek)
-            ->pluck('question_10', 'created_at'),    
+            ->pluck('question_10', 'created_at'),
+                
             'weeklyPainIntensity' => PainAnalysis::where('user_id', Auth::id())->where('created_at', '>=', $pastWeek)
-            ->pluck('question_5', 'created_at'), 
+            ->pluck('question_5', 'created_at'),
+             
             'weeklyPainRelief' => PainAnalysis::where('user_id', Auth::id())->where('created_at', '>=', $pastWeek)
             ->pluck('question_11', 'created_at'),
+            
             // Monthly...
              'pastMonthAnalyses' => PainAnalysis::where('user_id', Auth::id())
              ->where('created_at', '>=', $pastMonth)->get(['id', 'created_at']),
+             
              'monthlyMeds' => PainAnalysis::where('user_id', Auth::id())->where('created_at', '>=', $pastMonth)
-             ->pluck('question_10', 'created_at'),    
+             ->pluck('question_10', 'created_at'),  
+               
              'monthlyPainIntensity' => PainAnalysis::where('user_id', Auth::id())->where('created_at', '>=', $pastMonth)
-             ->pluck('question_5', 'created_at'), 
+             ->pluck('question_5', 'created_at'),
+             
              'monthlyPainRelief' => PainAnalysis::where('user_id', Auth::id())->where('created_at', '>=', $pastMonth)
              ->pluck('question_11', 'created_at'),
+             
              //Quarterly
              'quarterlyAnalyses' => PainAnalysis::where('user_id', Auth::id())
              ->where('created_at', '>=', $pastQuarter)->get(['id', 'created_at']),
+             
              'quarterlyMeds' => PainAnalysis::where('user_id', Auth::id())->where('created_at', '>=', $pastQuarter)
-             ->pluck('question_10', 'created_at'),    
+             ->pluck('question_10', 'created_at'),
              'quarterlyPainIntensity' => PainAnalysis::where('user_id', Auth::id())->where('created_at', '>=', $pastQuarter)
-             ->pluck('question_5', 'created_at'), 
+             ->pluck('question_5', 'created_at'),
+             
              'quarterlyPainRelief' => PainAnalysis::where('user_id', Auth::id())->where('created_at', '>=', $pastQuarter)
              ->pluck('question_11', 'created_at'),
         ]);
@@ -222,9 +232,19 @@ class PainAnalysisController extends Controller
         return Inertia::render('PainAnalysis/ShowEntry', [
             'painAnalysis' => [
                 'id' => $painAnalysis->id,
+                'created_at' => $painAnalysis->created_at,
                 'question_1' => $painAnalysis->question_1,
                 'question_2' => $painAnalysis->question_2,
+                'question_3' => $painAnalysis->question_3,
+                'question_4' => $painAnalysis->question_4,
+                'question_5' => $painAnalysis->question_5,
+                'question_6' => $painAnalysis->question_6,
+                'question_7' => $painAnalysis->question_7,
+                'question_8' => $painAnalysis->question_8,
                 'question_9' => $painAnalysis->question_9,
+                'question_10' => $painAnalysis->question_10,
+                'question_11' => $painAnalysis->question_11,
+                'question_12' => $painAnalysis->question_12,
             ]
         ]);
     }

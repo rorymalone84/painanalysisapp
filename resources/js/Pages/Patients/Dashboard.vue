@@ -4,7 +4,8 @@
     <h1 class="text-xl font-bold text-gray-700">Patient Home</h1>
     <div class="flex justify-between w-2/5">
       <div class="flex items-center space-x-6 pr-8">
-        Welcome back, {{ name }}
+        Welcome back,<br />
+        <b>{{ name }}</b>
       </div>
     </div>
   </div>
