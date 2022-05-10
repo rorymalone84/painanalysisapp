@@ -24,7 +24,8 @@ class AdminController extends Controller
         $latestDoctor = User::where('role_id', '=', 2)->latest()->first();
         $patientCount = User::where('role_id', '=', 1)->get();
         $latestPatient = User::where('role_id', '=', 1)->latest()->first();
-        $journalEntries = User::with('painAnalysis')->get();        
+        $journalEntries = User::with('painAnalysis')->get();
+        $latestJournal = PainAnalysis::latest()->first();            
     
         return Inertia::render('Admin/Dashboard',[
             'userCount' => count($doctorCount) + count($patientCount),
@@ -32,7 +33,8 @@ class AdminController extends Controller
             'latestDoctor' => $latestDoctor,
             'patientCount' => count($patientCount),
             'latestPatient' => $latestPatient,
-            'journalCount' => count($journalEntries),                    
+            'journalCount' => count($journalEntries),   
+            'latestJournal' => $latestJournal
         ]);
     }
 

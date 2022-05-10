@@ -13,7 +13,7 @@
           hover:bg-blue-400
           ml-4
         "
-        >+Register Patient</Link
+        >+ Patient</Link
       >
     </div>
 
@@ -37,28 +37,16 @@
                 <td class="px-6 py-4 whitespace-nowrap">
                   <div class="flex items-center">
                     <div class="ml-4">
-                      <div class="text-sm font-medium text-gray-900">
-                        {{ user.name }}
-                      </div>
+                      <Link
+                        class="text-indigo-600 hover:text-indigo-900"
+                        :href="route('show.user', user.id)"
+                      >
+                        <div class="text-sm font-medium text-gray-900">
+                          {{ user.name }}
+                        </div>
+                      </Link>
                     </div>
                   </div>
-                </td>
-
-                <td
-                  class="
-                    px-6
-                    py-4
-                    whitespace-nowrap
-                    text-right text-sm
-                    font-medium
-                  "
-                >
-                  <Link
-                    class="text-indigo-600 hover:text-indigo-900"
-                    :href="route('show.user', user.id)"
-                  >
-                    view
-                  </Link>
                 </td>
 
                 <td
