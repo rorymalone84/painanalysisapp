@@ -21,7 +21,7 @@ Route::middleware('auth','admin:3')->group(function(){
     
     // Admin is responsible for registering patients and doctors, and their interactions   
     Route::controller(AdminController::class)->group(function () {
-        Route::get('/admin/dashboard', 'index');
+        Route::get('/admin/dashboard', 'index')->name('dashboard.admin');
         /*
         user and doctor lists
         */

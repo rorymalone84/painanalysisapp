@@ -25282,7 +25282,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "p-6 bg-blue-100"
+  "class": "p-6 bg-blue-100 sticky top-0 z-50"
 };
 var _hoisted_2 = {
   "class": "flex justify-between"
@@ -25295,7 +25295,7 @@ var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 );
 
 var _hoisted_4 = {
-  "class": "p-6 bg-orange-50"
+  "class": "p-6 bg-orange-50 relative"
 };
 var _hoisted_5 = {
   "class": "max-w-3xl mx-auto bg-orange-50"
@@ -25327,7 +25327,7 @@ var _hoisted_1 = {
   "class": ""
 };
 var _hoisted_2 = {
-  "class": "invisible lg:visible flex space-x-6"
+  "class": "invisible lg:visible flex space-x-6 sticky"
 };
 var _hoisted_3 = {
   key: 0

@@ -20,6 +20,5 @@ class Admin
         if ($request->user()->role_id === 3) {
             return $next($request);
         }
-
     }
 }

@@ -1,6 +1,6 @@
 <template>
   <nav class="">
-    <ul class="invisible lg:visible flex space-x-6">
+    <ul class="invisible lg:visible flex space-x-6 sticky">
       <!-- Admin Links -->
       <li v-if="$page.props.auth.user.role_id === 3">
         <NavLink
