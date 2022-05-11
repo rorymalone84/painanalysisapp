@@ -45,6 +45,7 @@ class HandleInertiaRequests extends Middleware
                     'role_id' => Auth::user()->role_id
                 ],
             ] : null,
-        ]);
+            
+        ]);        
     }
 }

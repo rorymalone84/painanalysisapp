@@ -18,14 +18,15 @@
               <i class="fa fa-wallet fa-2x fa-fw fa-inverse"></i>
             </div>
             <div class="flex-1 text-right">
-              <h5 class="text-white">Journal Entries</h5>
+              <h5 class="text-white underline">Journal Entries</h5>
               <h3 class="text-white text-3xl">{{ journalCount }}</h3>
-              <h5 class="text-white">Latest Entry</h5>
+              <h5 class="text-white pt-4 underline">Latest Entry</h5>
               <h3 class="text-white text-3xl">
                 {{
                   moment(latestEntry.created_at).format("dddd, MMMM Do YYYY")
                 }}
               </h3>
+              <h5 class="text-white pt-4">Click to view all</h5>
             </div>
           </div>
         </div>
@@ -37,15 +38,15 @@
               <i class="fas fa-users fa-2x fa-fw fa-inverse"></i>
             </div>
             <div class="flex-1 text-right">
-              <h5 class="text-white text-1xl">Last Entry Summary</h5>
-              <br />
+              <h5 class="text-white text-1xl underline">Last Entry Summary</h5>
               <h3 class="text-white text-2xl">
-                {{ latestEntry.question_1 }} pain, on the
-                {{ latestEntry.question_2 }}, was felt during the
-                {{ latestEntry.question_3 }}. To relive this,
-                {{ latestEntry.question_9 }} was taken
-                {{ latestEntry.question_10 }} times.
+                {{ latestEntry.question_1.toString() }} pain, on the
+                {{ latestEntry.question_2.toString() }}, was felt during the
+                {{ latestEntry.question_3.toString() }}. To relive this,
+                {{ latestEntry.question_9.toString() }} was taken
+                {{ latestEntry.question_10.toString() }} times.
               </h3>
+              <h5 class="text-white pt-4">Click to view last entry</h5>
             </div>
           </div>
         </div>
@@ -57,7 +58,7 @@
               <i class="fas fa-tasks fa-2x fa-fw fa-inverse"></i>
             </div>
             <div class="flex-1 text-right">
-              <h5 class="text-slate-800">Appointments</h5>
+              <h5 class="text-slate-800 underline">Appointments</h5>
               <h3 class="text-slate-800 text-3xl">Coming soon</h3>
             </div>
           </div>

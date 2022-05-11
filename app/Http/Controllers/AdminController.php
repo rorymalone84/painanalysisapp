@@ -137,8 +137,6 @@ class AdminController extends Controller
         return redirect()->route('patients.list');
     }
 
-    //Doctor resources
-
     //lists doctors with search filter on doctors link
     public function doctorsList()
     {

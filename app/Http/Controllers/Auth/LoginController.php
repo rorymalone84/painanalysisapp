@@ -24,15 +24,15 @@ class LoginController extends Controller
             $request->session()->regenerate();
 
             if(Auth::user()->role_id === 1){ 
-                return redirect()->intended('/patients/home');
+                return redirect('/patients/home');
             }
             
             if(Auth::user()->role_id === 2){ 
-                return redirect()->intended('/doctors/dashboard');
+                return redirect('/doctors/dashboard');
             }
 
             if(Auth::user()->role_id === 3){ 
-                return redirect()->intended('/admin/dashboard');
+                return redirect('/admin/dashboard');
             } 
         }
  

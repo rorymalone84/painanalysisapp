@@ -29,12 +29,4 @@ In order to ensure that the Laravel community is welcoming to all, please review
 
 ## ToDo
 
-I want to add some kind of doctor consultancy or appointment system
-
-## Bugs
-
-On first login attempt, an inertia error message indicates a response is expected. This is a small glitch thats being worked on and is bypassed with a 2nd login attempt.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+I plan on adding some kind of doctor consultancy or appointment system
