@@ -120,7 +120,7 @@ class AdminController extends Controller
         ]);
     }
 
-     //delete doctor prompt
+     //delete user prompt
      public function deleteUserPrompt(User $user){
         return inertia::render('Admin/DeleteUser', [
            'user' => [

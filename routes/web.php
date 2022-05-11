@@ -72,7 +72,8 @@ Route::middleware('auth','patient:1')->group(function(){
         Route::get('/patients/journal', 'journalIndex')->name('journal');
         Route::get('/patients/showEntry/{painAnalysis}', 'showEntry')->name('show.entry');
         Route::get('/patients/editEntry/{painAnalysis}', 'editEntry')->name('edit.entry');
-        Route::get('/patients/deletePrompt/{painAnalysis}', 'deletePrompt')->name('deletePrompt.entry');
+        Route::get('/patients/deleteEntry/{painAnalysis}', 'deletePrompt')->name('deletePrompt.entry');
+        Route::delete('/admin/deleteEntry/{painAnalysis}','deleteEntry')->name('delete.entry'); 
     }); 
 });
 

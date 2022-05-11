@@ -249,11 +249,23 @@ class PainAnalysisController extends Controller
         ]);
     }
 
+    //delete prompt for chosen pain analysis entry from the journal
     public function deletePrompt(PainAnalysis $painAnalysis)
     {           
-        return Inertia::render('Patients/EditEntry', [
-            'painAnalyses' => PainAnalysis::all()
+        return Inertia::render('PainAnalysis/DeletePrompt', [
+            'painAnalysis' => [
+            'id' => $painAnalysis->id,
+            'created_at' => $painAnalysis->created_at,
+            ]
         ]);
+    }
+
+    //deletes painAnalysis record
+    public function deleteEntry(PainAnalysis $painAnalysis)
+    {           
+        $painAnalysis->delete();
+
+        return redirect()->route('journal');
     }
 
 }
