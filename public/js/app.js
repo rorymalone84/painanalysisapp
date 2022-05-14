@@ -25576,7 +25576,7 @@ var _hoisted_1 = {
   "class": ""
 };
 var _hoisted_2 = {
-  "class": "invisible lg:visible flex space-x-6 sticky"
+  "class": "invisible lg:visible flex sticky"
 };
 var _hoisted_3 = {
   key: 0
@@ -25666,7 +25666,14 @@ var _hoisted_31 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNo
 
 var _hoisted_32 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Logout ");
 
-var _hoisted_33 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+var _hoisted_33 = {
+  "class": "relative"
+};
+var _hoisted_34 = {
+  "class": "absolute top-0 right-0 h-16 w-4 ..."
+};
+
+var _hoisted_35 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
   type: "button",
   "class": "text-gray-800 hover:text-gray-400 focus:outline-none focus:text-gray-400"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
@@ -25679,7 +25686,7 @@ var _hoisted_33 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_34 = [_hoisted_33];
+var _hoisted_36 = [_hoisted_35];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_NavLink = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("NavLink");
 
@@ -25875,12 +25882,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   })])], 2
   /* CLASS */
-  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" mobile menu button"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_33, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_34, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" mobile menu button"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     onClick: _cache[0] || (_cache[0] = function ($event) {
       return $data.showMenu = !$data.showMenu;
     }),
     "class": "md:hidden"
-  }, _hoisted_34)], 64
+  }, _hoisted_36)])])], 64
   /* STABLE_FRAGMENT */
   );
 }

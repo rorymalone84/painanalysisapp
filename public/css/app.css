@@ -463,6 +463,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .fixed {
   position: fixed;
 }
+.absolute {
+  position: absolute;
+}
 .relative {
   position: relative;
 }
@@ -481,6 +484,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .right-0 {
   right: 0px;
+}
+.left-5 {
+  left: 1.25rem;
+}
+.right-10 {
+  right: 2.5rem;
 }
 .z-50 {
   z-index: 50;
@@ -584,6 +593,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 .h-5 {
   height: 1.25rem;
 }
+.h-32 {
+  height: 8rem;
+}
+.h-16 {
+  height: 4rem;
+}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -598,6 +613,21 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .w-11\/12 {
   width: 91.666667%;
+}
+.w-32 {
+  width: 8rem;
+}
+.w-16 {
+  width: 4rem;
+}
+.w-8 {
+  width: 2rem;
+}
+.w-12 {
+  width: 3rem;
+}
+.w-4 {
+  width: 1rem;
 }
 .min-w-full {
   min-width: 100%;
