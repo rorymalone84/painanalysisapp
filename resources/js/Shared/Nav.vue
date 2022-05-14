@@ -2,7 +2,7 @@
   <nav class="">
     <ul class="invisible lg:visible flex sticky">
       <!-- Admin Links -->
-      <li v-if="$page.props.auth.user.role_id === 3">
+      <li v-if="$page.props.auth.user.role_id === 3" class="pr-4">
         <NavLink
           href="/admin/dashboard"
           :active="$page.component === 'Admin/Dashboard'"
@@ -11,7 +11,7 @@
         </NavLink>
       </li>
 
-      <li v-if="$page.props.auth.user.role_id === 3">
+      <li v-if="$page.props.auth.user.role_id === 3" class="pr-4">
         <NavLink
           href="/admin/patientsList"
           :active="$page.component === 'Admin/PatientsList'"
@@ -20,7 +20,7 @@
         </NavLink>
       </li>
 
-      <li v-if="$page.props.auth.user.role_id === 3">
+      <li v-if="$page.props.auth.user.role_id === 3" class="pr-4">
         <NavLink
           href="/admin/doctorsList"
           :active="$page.component === 'Admin/DoctorsList'"
@@ -31,7 +31,7 @@
       <!-- end of Admin specific links -->
 
       <!-- patient links -->
-      <li v-if="$page.props.auth.user.role_id === 1">
+      <li v-if="$page.props.auth.user.role_id === 1" class="pr-4">
         <NavLink
           href="/patients/home"
           :active="$page.component === 'Patients/Dashboard'"
@@ -40,7 +40,7 @@
         </NavLink>
       </li>
 
-      <li v-if="$page.props.auth.user.role_id === 1">
+      <li v-if="$page.props.auth.user.role_id === 1" class="pr-4">
         <NavLink
           href="/patients/form"
           :active="$page.component === 'PainAnalysis/Form'"
@@ -49,7 +49,7 @@
         </NavLink>
       </li>
 
-      <li v-if="$page.props.auth.user.role_id === 1">
+      <li v-if="$page.props.auth.user.role_id === 1" class="pr-4">
         <NavLink
           href="/patients/journal"
           :active="$page.component === 'Patients/Journal'"
@@ -58,7 +58,7 @@
         </NavLink>
       </li>
 
-      <li v-if="$page.props.auth.user.role_id === 1">
+      <li v-if="$page.props.auth.user.role_id === 1" class="pr-4">
         <NavLink
           href="/patients/consults"
           :active="$page.component === 'Patients/Consults'"

@@ -463,9 +463,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .fixed {
   position: fixed;
 }
-.absolute {
-  position: absolute;
-}
 .relative {
   position: relative;
 }
@@ -484,12 +481,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .right-0 {
   right: 0px;
-}
-.left-5 {
-  left: 1.25rem;
-}
-.right-10 {
-  right: 2.5rem;
 }
 .z-50 {
   z-index: 50;
@@ -593,12 +584,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .h-5 {
   height: 1.25rem;
 }
-.h-32 {
-  height: 8rem;
-}
-.h-16 {
-  height: 4rem;
-}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -613,21 +598,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .w-11\/12 {
   width: 91.666667%;
-}
-.w-32 {
-  width: 8rem;
-}
-.w-16 {
-  width: 4rem;
-}
-.w-8 {
-  width: 2rem;
-}
-.w-12 {
-  width: 3rem;
-}
-.w-4 {
-  width: 1rem;
 }
 .min-w-full {
   min-width: 100%;
@@ -683,11 +653,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .justify-around {
   justify-content: space-around;
 }
-.space-x-6 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-x-reverse: 0;
-  margin-right: calc(1.5rem * var(--tw-space-x-reverse));
-  margin-left: calc(1.5rem * calc(1 - var(--tw-space-x-reverse)));
-}
 .space-y-4 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
@@ -698,13 +663,15 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-right: calc(1rem * var(--tw-space-x-reverse));
   margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
 }
+.space-x-6 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(1.5rem * var(--tw-space-x-reverse));
+  margin-left: calc(1.5rem * calc(1 - var(--tw-space-x-reverse)));
+}
 .space-x-2 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(0.5rem * var(--tw-space-x-reverse));
   margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
-}
-.space-y-reverse > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-y-reverse: 1;
 }
 .divide-y > :not([hidden]) ~ :not([hidden]) {
   --tw-divide-y-reverse: 0;
@@ -837,6 +804,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .p-6 {
   padding: 1.5rem;
 }
+.p-2 {
+  padding: 0.5rem;
+}
 .p-10 {
   padding: 2.5rem;
 }
@@ -848,9 +818,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .p-4 {
   padding: 1rem;
-}
-.p-2 {
-  padding: 0.5rem;
 }
 .p-5 {
   padding: 1.25rem;
@@ -921,6 +888,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .pt-4 {
   padding-top: 1rem;
+}
+.pr-3 {
+  padding-right: 0.75rem;
 }
 .text-center {
   text-align: center;
@@ -1154,6 +1124,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   }
 }
 @media (min-width: 768px) {
+
+  .md\:visible {
+    visibility: visible;
+  }
 
   .md\:-mx-2 {
     margin-left: -0.5rem;

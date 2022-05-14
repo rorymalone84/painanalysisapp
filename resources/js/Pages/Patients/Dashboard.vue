@@ -3,8 +3,8 @@
   <div class="flex justify-between p-4 bg-white mt-3 rounded-xl shadow-lg">
     <h1 class="text-xl font-bold text-gray-700">Patient Home</h1>
     <div class="flex justify-between w-2/5">
-      <div class="flex items-center space-x-6 pr-8">
-        Welcome back,<br />
+      <div class="flex items-center pr-8">
+        Welcome back,
         <b>{{ name }}</b>
       </div>
     </div>
@@ -14,9 +14,6 @@
       <div class="w-full md:w-1/2 xl:w-1/3 pt-3 px-3 md:pr-2">
         <div class="bg-cyan-900 border rounded shadow p-2">
           <div class="flex flex-row items-center">
-            <div class="flex-shrink pl-1 pr-4">
-              <i class="fa fa-wallet fa-2x fa-fw fa-inverse"></i>
-            </div>
             <div class="flex-1 text-right">
               <h5 class="text-white underline">Journal Entries</h5>
               <h3 class="text-white text-3xl">{{ journalCount }}</h3>
