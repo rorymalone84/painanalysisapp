@@ -1,6 +1,6 @@
 <template>
   <nav class="">
-    <ul class="invisible lg:visible flex space-x-6 sticky">
+    <ul class="invisible lg:visible flex sticky">
       <!-- Admin Links -->
       <li v-if="$page.props.auth.user.role_id === 3">
         <NavLink
@@ -162,7 +162,7 @@
       <li>
         <NavLink href="/logout" method="post"> Logout </NavLink>
       </li>
-    </ul
+    </ul>
   </nav>
 
   <!-- mobile menu button-->

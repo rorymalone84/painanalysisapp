@@ -680,6 +680,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .justify-between {
   justify-content: space-between;
 }
+.justify-around {
+  justify-content: space-around;
+}
 .space-x-6 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(1.5rem * var(--tw-space-x-reverse));
@@ -699,6 +702,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-space-x-reverse: 0;
   margin-right: calc(0.5rem * var(--tw-space-x-reverse));
   margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
+}
+.space-y-reverse > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 1;
 }
 .divide-y > :not([hidden]) ~ :not([hidden]) {
   --tw-divide-y-reverse: 0;
@@ -1128,6 +1134,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   outline-offset: 2px;
 }
 @media (min-width: 640px) {
+
+  .sm\:visible {
+    visibility: visible;
+  }
 
   .sm\:-mx-6 {
     margin-left: -1.5rem;
