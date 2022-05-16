@@ -13,7 +13,7 @@
           hover:bg-blue-400
           ml-4
         "
-        >+Create Entry</Link
+        >+Entry</Link
       >
       <Link
         href="/patients/requestAppointment"
@@ -25,7 +25,7 @@
           hover:bg-blue-400
           ml-4
         "
-        >Request Appointment</Link
+        >+Appoinment</Link
       >
     </div>
   </div>

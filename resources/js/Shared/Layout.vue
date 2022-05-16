@@ -6,8 +6,8 @@
     </header>
   </section>
 
-  <section class="p-6 bg-orange-50 relative">
-    <div class="max-w-3xl mx-auto bg-orange-50">
+  <section class="p-6 relative">
+    <div class="max-w-3xl mx-auto">
       <slot />
     </div>
   </section>

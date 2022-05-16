@@ -13,7 +13,7 @@
           hover:bg-blue-400
           ml-4
         "
-        >+ Doctor</Link
+        >+Doctor</Link
       >
     </div>
 
@@ -21,7 +21,7 @@
       v-model="search"
       type="text"
       placeholder="Search Doctor"
-      class="border px-2 rounded-lg"
+      class="w-32 border px-2 rounded-lg"
     />
   </div>
 

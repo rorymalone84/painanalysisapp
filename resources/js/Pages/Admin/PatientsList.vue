@@ -13,7 +13,7 @@
           hover:bg-blue-400
           ml-4
         "
-        >+ Patient</Link
+        >+Patient</Link
       >
     </div>
 
@@ -21,12 +21,12 @@
       v-model="search"
       type="text"
       placeholder="Search Patient"
-      class="border px-2 rounded-lg"
+      class="w-32 border px-2 rounded-lg"
     />
   </div>
 
   <div class="flex flex-col">
-    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+    <div class="sm-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
       <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
         <div
           class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg"

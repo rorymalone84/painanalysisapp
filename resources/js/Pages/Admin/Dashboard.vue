@@ -1,15 +1,14 @@
 <template>
   <Head title="Admin Dashboard" />
   <div class="flex justify-between p-4 bg-white mt-3 rounded-xl shadow-lg">
-    <h1 class="text-xl font-bold text-gray-700">Admin Dashboard</h1>
+    <h1 class="text-xl font-bold text-gray-700">Welcome back,</h1>
     <div class="flex justify-between w-2/5">
-      <div class="flex items-center space-x-6 pr-8">
-        Welcome back,<br />
-        <b>{{ name }}</b>
+      <div class="flex items-center pr-8">
+        {{ name }}
       </div>
     </div>
   </div>
-  <div class="flex justify-between mt-4 space-x-4 s">
+  <div class="flex justify-between mt-4">
     <div class="flex flex-wrap mb-2">
       <div class="w-full md:w-1/2 xl:w-1/3 pt-3 px-3 md:pr-2">
         <Link href="/admin/patientsList">
