@@ -58,6 +58,8 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\PainAnalysis');
     }
 
+   
+
     //details profile
     protected $with = ['profile'];
  

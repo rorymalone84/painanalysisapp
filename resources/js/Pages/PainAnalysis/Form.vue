@@ -389,7 +389,7 @@
           pain?</label
         >
 
-        <div class="grid grid-cols-3">
+        <div class="grid grid-cols-2">
           <div
             v-for="(key, index) in question9_values"
             :key="index"
