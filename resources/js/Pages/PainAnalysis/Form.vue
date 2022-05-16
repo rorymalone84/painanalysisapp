@@ -25,7 +25,7 @@
           >What best describes the pain you have felt today?
         </label>
 
-        <div class="grid grid-cols-3">
+        <div class="grid grid-cols-2">
           <div v-for="(key, index) in question1_values" :key="index">
             <label class="PillList-item">
               <input
@@ -60,7 +60,7 @@
         >
           <!-- Head -->
           <template v-slot:tabPanel-1>
-            <div class="grid grid-cols-3 md:grid-cols-3">
+            <div class="grid grid-cols-2 md:grid-cols-3">
               <div
                 v-for="(key, index) in question2_values_head"
                 :key="index"
@@ -86,7 +86,7 @@
             ></div>
           </template>
           <template v-slot:tabPanel-2>
-            <div class="grid grid-cols-3 md:grid-cols-3">
+            <div class="grid grid-cols-2 md:grid-cols-3">
               <div
                 v-for="(key, index) in question2_values_front"
                 :key="index"

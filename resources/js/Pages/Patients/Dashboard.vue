@@ -1,15 +1,14 @@
 <template>
   <Head title="Admin Dashboard" />
   <div class="flex justify-between p-4 bg-white mt-3 rounded-xl shadow-lg">
-    <h1 class="text-xl font-bold text-gray-700">Patient Home</h1>
+    <h1 class="text-xl font-bold text-gray-700">Welcome back,</h1>
     <div class="flex justify-between w-2/5">
       <div class="flex items-center pr-8">
-        Welcome back,
         <b>{{ name }}</b>
       </div>
     </div>
   </div>
-  <div class="flex justify-between mt-4 space-x-4 s">
+  <div class="flex justify-between mt-4">
     <div class="flex flex-wrap mb-2">
       <div class="w-full md:w-1/2 xl:w-1/3 pt-3 px-3 md:pr-2">
         <div class="bg-cyan-900 border rounded shadow p-2">
@@ -35,13 +34,21 @@
               <i class="fas fa-users fa-2x fa-fw fa-inverse"></i>
             </div>
             <div class="flex-1 text-right">
-              <h5 class="text-white text-1xl underline">Last Entry Summary</h5>
-              <h3 class="text-white text-2xl">
-                {{ latestEntry.question_1.toString() }} pain, on the
-                {{ latestEntry.question_2.toString() }}, was felt during the
-                {{ latestEntry.question_3.toString() }}. To relive this,
-                {{ latestEntry.question_9.toString() }} was taken
-                {{ latestEntry.question_10.toString() }} times.
+              <h5 class="text-white text-1xl underline">Latest Entry</h5>
+              <h3 class="text-white text-sm">
+                <ul class="list-outside list-disc ml-6">
+                  <br />
+                  <h4 class="font-bold">Condition</h4>
+                  <br />
+                  <li>{{ latestEntry.question_1.toString() }} pain</li>
+                  <li>On {{ latestEntry.question_2.toString() }}</li>
+                  <li>In the {{ latestEntry.question_3.toString() }}</li>
+                  <br />
+                  <h4 class="font-bold">Treatment</h4>
+                  <br />
+                  <li>{{ latestEntry.question_9.toString() }}</li>
+                  <li>{{ latestEntry.question_10.toString() }} doses</li>
+                </ul>
               </h3>
               <h5 class="text-white pt-4">Click to view last entry</h5>
             </div>

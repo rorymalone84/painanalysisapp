@@ -463,6 +463,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .fixed {
   position: fixed;
 }
+.absolute {
+  position: absolute;
+}
 .relative {
   position: relative;
 }
@@ -481,6 +484,24 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .right-0 {
   right: 0px;
+}
+.right-4 {
+  right: 1rem;
+}
+.bottom-0 {
+  bottom: 0px;
+}
+.top-10 {
+  top: 2.5rem;
+}
+.right-5 {
+  right: 1.25rem;
+}
+.top-6 {
+  top: 1.5rem;
+}
+.right-6 {
+  right: 1.5rem;
 }
 .z-50 {
   z-index: 50;
@@ -554,6 +575,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mb-16 {
   margin-bottom: 4rem;
 }
+.ml-6 {
+  margin-left: 1.5rem;
+}
 .block {
   display: block;
 }
@@ -608,6 +632,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .max-w-md {
   max-width: 28rem;
 }
+.max-w-2xl {
+  max-width: 42rem;
+}
 .flex-1 {
   flex: 1 1 0%;
 }
@@ -620,8 +647,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 .cursor-pointer {
   cursor: pointer;
 }
+.list-outside {
+  list-style-position: outside;
+}
 .list-none {
   list-style-type: none;
+}
+.list-disc {
+  list-style-type: disc;
 }
 .grid-cols-3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -649,9 +682,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .justify-between {
   justify-content: space-between;
-}
-.justify-around {
-  justify-content: space-around;
 }
 .space-y-4 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
@@ -804,9 +834,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .p-6 {
   padding: 1.5rem;
 }
-.p-2 {
-  padding: 0.5rem;
-}
 .p-10 {
   padding: 2.5rem;
 }
@@ -818,6 +845,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .p-4 {
   padding: 1rem;
+}
+.p-2 {
+  padding: 0.5rem;
 }
 .p-5 {
   padding: 1.25rem;
@@ -868,6 +898,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
 }
+.pr-4 {
+  padding-right: 1rem;
+}
 .pr-2 {
   padding-right: 0.5rem;
 }
@@ -880,17 +913,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 .pl-1 {
   padding-left: 0.25rem;
 }
-.pr-4 {
-  padding-right: 1rem;
-}
 .pr-1 {
   padding-right: 0.25rem;
 }
 .pt-4 {
   padding-top: 1rem;
 }
-.pr-3 {
-  padding-right: 0.75rem;
+.pr-6 {
+  padding-right: 1.5rem;
 }
 .text-center {
   text-align: center;
@@ -1105,10 +1135,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 @media (min-width: 640px) {
 
-  .sm\:visible {
-    visibility: visible;
-  }
-
   .sm\:-mx-6 {
     margin-left: -1.5rem;
     margin-right: -1.5rem;
@@ -1124,10 +1150,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   }
 }
 @media (min-width: 768px) {
-
-  .md\:visible {
-    visibility: visible;
-  }
 
   .md\:-mx-2 {
     margin-left: -0.5rem;
