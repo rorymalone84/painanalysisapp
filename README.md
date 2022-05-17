@@ -15,12 +15,14 @@ I remade my masters project using Laravel and Vue through Inertia JS. It has 3 u
 -   Open the project in your IDE
 -   Run 'php artisan serve' on the IDE's command line
 -   Navigate to localhost:8000 on your browser
--   On your database, create a scheme called painAnalysisApp
+-   On your database, create a schema called painAnalysisApp
 -   By default i used MYSQL for my database, if you use different, changed DB_CONNECTION within the .env file
 -   Run 'php artisan migrate' to migrate the DB schema
--   Run 'php artisan db:seed' to populate the DB with users and journal posts from the users via the factories
+-   Run 'php artisan db:seed' to populate the DB with demo users (re install composer and uncomment lines 56-62 on DatabaseSeeders.php if you wish to add faker data)
+-   In the command line - 'nmp run dev', then 'nmp run watch' 
 -   Login as 'email: admin@demo.com / password: demoAdmin' to add yourself as a patient
 -   Or Alternatively, Login as 'email: patient@demo.com / password: demoPatient' if you dont wish to add yourself, but wish to demo as a patient.
+-   These Logins also apply to the deployed version here [https://painanalysisapp.herokuapp.com/]
 -   Create a journal entry as a patient, then check out the updated Journal with chart data and journal entry CRUD functions
 
 ## Code of Conduct
