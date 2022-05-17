@@ -433,7 +433,7 @@
               m-4
             "
           >
-            Prev
+            Previous
           </div>
         </div>
         <div v-show="step === 13">
