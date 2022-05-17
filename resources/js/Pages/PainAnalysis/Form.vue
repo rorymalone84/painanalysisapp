@@ -25,7 +25,7 @@
           >What best describes the pain you have felt today?
         </label>
 
-        <div class="grid grid-cols-2">
+        <div class="grid grid-cols-2 md:grid-cols-3">
           <div v-for="(key, index) in question1_values" :key="index">
             <label class="PillList-item">
               <input
@@ -40,12 +40,6 @@
             </label>
           </div>
         </div>
-
-        <div
-          v-if="form.errors.question_1"
-          v-text="form.errors.question_1"
-          class="text-red-500 mt-2"
-        ></div>
       </div>
 
       <!-- Question 2-->
@@ -78,12 +72,6 @@
                 </label>
               </div>
             </div>
-
-            <div
-              v-if="form.errors.question_2"
-              v-text="form.errors.question_2"
-              class="text-red-500 mt-2"
-            ></div>
           </template>
           <template v-slot:tabPanel-2>
             <div class="grid grid-cols-2 md:grid-cols-3">
@@ -104,12 +92,6 @@
                 </label>
               </div>
             </div>
-
-            <div
-              v-if="form.errors.question_2"
-              v-text="form.errors.question_2"
-              class="text-red-500 mt-2"
-            ></div>
           </template>
           <template v-slot:tabPanel-3>
             <div class="grid grid-cols-2 md:grid-cols-2">
@@ -130,12 +112,6 @@
                 </label>
               </div>
             </div>
-
-            <div
-              v-if="form.errors.question_2"
-              v-text="form.errors.question_2"
-              class="text-red-500 mt-2"
-            ></div>
           </template>
           <template v-slot:tabPanel-4>
             <div class="grid grid-cols-2 md:grid-cols-2">
@@ -156,12 +132,6 @@
                 </label>
               </div>
             </div>
-
-            <div
-              v-if="form.errors.question_2"
-              v-text="form.errors.question_2"
-              class="text-red-500 mt-2"
-            ></div>
           </template>
           <template v-slot:tabPanel-5>
             <div class="grid grid-cols-2 md:grid-cols-2">
@@ -182,12 +152,6 @@
                 </label>
               </div>
             </div>
-
-            <div
-              v-if="form.errors.question_2"
-              v-text="form.errors.question_2"
-              class="text-red-500 mt-2"
-            ></div>
           </template>
           <template v-slot:tabPanel-6>
             <div class="grid grid-cols-2 md:grid-cols-2">
@@ -208,12 +172,6 @@
                 </label>
               </div>
             </div>
-
-            <div
-              v-if="form.errors.question_2"
-              v-text="form.errors.question_2"
-              class="text-red-500 mt-2"
-            ></div>
           </template>
         </Tabs>
       </div>
@@ -241,11 +199,6 @@
             </label>
           </div>
         </div>
-        <div
-          v-if="form.errors.question_3"
-          v-text="form.errors.question_3"
-          class="text-red-500 mt-2"
-        ></div>
       </div>
 
       <!--Question 4 -->
@@ -271,11 +224,6 @@
             </label>
           </div>
         </div>
-        <div
-          v-if="form.errors.question_4"
-          v-text="form.errors.question_4"
-          class="text-red-500 mt-2"
-        ></div>
       </div>
 
       <!-- Question 5-->
@@ -297,11 +245,6 @@
           class="border border-gray-400 p-2 w-full"
           required
         />
-        <div
-          v-if="form.errors.question_5"
-          v-text="form.errors.question_5"
-          class="text-red-500 mt-2"
-        ></div>
       </div>
 
       <!-- Question 6-->
@@ -323,11 +266,6 @@
           class="border border-gray-400 p-2 w-full"
           required
         />
-        <div
-          v-if="form.errors.question_6"
-          v-text="form.errors.question_6"
-          class="text-red-500 mt-2"
-        ></div>
       </div>
       <!-- Question 7-->
       <div v-show="step == 7">
@@ -348,11 +286,6 @@
           class="border border-gray-400 p-2 w-full"
           required
         />
-        <div
-          v-if="form.errors.question_7"
-          v-text="form.errors.question_7"
-          class="text-red-500 mt-2"
-        ></div>
       </div>
 
       <!-- Question 8-->
@@ -375,11 +308,6 @@
           class="border border-gray-400 p-2 w-full"
           required
         />
-        <div
-          v-if="form.errors.question_8"
-          v-text="form.errors.question_8"
-          class="text-red-500 mt-2"
-        ></div>
       </div>
 
       <!-- Question 9-->
@@ -408,12 +336,6 @@
             </label>
           </div>
         </div>
-
-        <div
-          v-if="form.errors.question_9"
-          v-text="form.errors.question_9"
-          class="text-red-500 mt-2"
-        ></div>
       </div>
 
       <!-- Question 10-->
@@ -435,11 +357,6 @@
           class="border border-gray-400 p-2 w-full"
           required
         />
-        <div
-          v-if="form.errors.question_10"
-          v-text="form.errors.question_10"
-          class="text-red-500 mt-2"
-        ></div>
       </div>
       <!-- Question 11-->
       <div v-show="step == 11">
@@ -459,11 +376,6 @@
           class="border border-gray-400 p-2 w-full"
           required
         />
-        <div
-          v-if="form.errors.question_11"
-          v-text="form.errors.question_11"
-          class="text-red-500 mt-2"
-        ></div>
       </div>
       <!-- Question 12-->
       <div v-show="step == 12">
@@ -484,11 +396,6 @@
           class="border border-gray-400 p-2 w-full"
           required
         />
-        <div
-          v-if="form.errors.question_12"
-          v-text="form.errors.question_12"
-          class="text-red-500 mt-2"
-        ></div>
       </div>
       <!-- Nav buttons -->
       <div class="m-4 grid place-items-center">
@@ -526,7 +433,7 @@
               m-4
             "
           >
-            Previous
+            Prev
           </div>
         </div>
         <div v-show="step === 13">
@@ -548,6 +455,66 @@
             </button>
           </div>
         </div>
+        <div
+          v-if="form.errors.question_1"
+          v-text="form.errors.question_1"
+          class="text-red-500 mt-2"
+        ></div>
+        <div
+          v-if="form.errors.question_2"
+          v-text="form.errors.question_2"
+          class="text-red-500 mt-2"
+        ></div>
+        <div
+          v-if="form.errors.question_3"
+          v-text="form.errors.question_3"
+          class="text-red-500 mt-2"
+        ></div>
+        <div
+          v-if="form.errors.question_4"
+          v-text="form.errors.question_4"
+          class="text-red-500 mt-2"
+        ></div>
+        <div
+          v-if="form.errors.question_5"
+          v-text="form.errors.question_5"
+          class="text-red-500 mt-2"
+        ></div>
+        <div
+          v-if="form.errors.question_6"
+          v-text="form.errors.question_6"
+          class="text-red-500 mt-2"
+        ></div>
+        <div
+          v-if="form.errors.question_7"
+          v-text="form.errors.question_7"
+          class="text-red-500 mt-2"
+        ></div>
+        <div
+          v-if="form.errors.question_8"
+          v-text="form.errors.question_8"
+          class="text-red-500 mt-2"
+        ></div>
+        <div
+          v-if="form.errors.question_9"
+          v-text="form.errors.question_9"
+          class="text-red-500 mt-2"
+        ></div>
+        <div
+          v-if="form.errors.question_10"
+          v-text="form.errors.question_10"
+          class="text-red-500 mt-2"
+        ></div>
+        <div
+          v-if="form.errors.question_11"
+          v-text="form.errors.question_11"
+          class="text-red-500 mt-2"
+        ></div>
+        <div
+          v-if="form.errors.question_12"
+          v-text="form.errors.question_12"
+          class="text-red-500 mt-2"
+        ></div>
       </div>
     </div>
   </form>
