@@ -719,6 +719,6 @@ input[type="range"]:focus::-ms-fill-lower {
   background: #3071a9;
 }
 input[type="range"]:focus::-ms-fill-upper {
-  background: #d7dbdf;
+  background: #151a1f;
 }
 </style>
