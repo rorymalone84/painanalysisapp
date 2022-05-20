@@ -96,6 +96,7 @@
         <NavLink
           href="/admin/dashboard"
           :active="$page.component === 'Admin/Dashboard'"
+          @click="showMenu = !showMenu"
         >
           Dashboard
         </NavLink>
@@ -105,6 +106,7 @@
         <NavLink
           href="/admin/patientsList"
           :active="$page.component === 'Admin/PatientsList'"
+          @click="showMenu = !showMenu"
         >
           Patients
         </NavLink>
@@ -114,6 +116,7 @@
         <NavLink
           href="/admin/doctorsList"
           :active="$page.component === 'Admin/DoctorsList'"
+          @click="showMenu = !showMenu"
         >
           Doctors
         </NavLink>
@@ -125,6 +128,7 @@
         <NavLink
           href="/patients/home"
           :active="$page.component === 'Patients/Dashboard'"
+          @click="showMenu = !showMenu"
         >
           Home
         </NavLink>
@@ -134,6 +138,7 @@
         <NavLink
           href="/patients/form"
           :active="$page.component === 'PainAnalysis/Form'"
+          @click="showMenu = !showMenu"
         >
           Form
         </NavLink>
@@ -143,6 +148,7 @@
         <NavLink
           href="/patients/journal"
           :active="$page.component === 'Patients/Journal'"
+          @click="showMenu = !showMenu"
         >
           Journal
         </NavLink>
@@ -152,6 +158,7 @@
         <NavLink
           href="/patients/consults"
           :active="$page.component === 'Patients/Consults'"
+          @click="showMenu = !showMenu"
         >
           Consults
         </NavLink>
