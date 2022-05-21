@@ -157,7 +157,7 @@
       <li v-if="$page.props.auth.user.role_id === 1">
         <NavLink
           href="/patients/consults"
-          :active="$page.component === 'Patients/Consults'"
+          :active="$page.component === 'Consults/Index'"
           @click="showMenu = !showMenu"
         >
           Consults

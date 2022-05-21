@@ -4,10 +4,12 @@ use App\Models\User;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ConsultController;
 use App\Http\Controllers\DoctorsController;
 use App\Http\Controllers\PatientsController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\PainAnalysisController;
+use App\Http\Controllers\RequestConsultController;
 
 Route::controller(LoginController::class)->group(function () {
     Route::get('/login', 'create')->name('login');
@@ -58,12 +60,18 @@ Route::middleware('auth', 'doctor:2')->group(function(){
 // Authenticates Patient 'role_id = 1' routes
 Route::middleware('auth','patient:1')->group(function(){        
     Route::controller(PatientsController::class)->group(function () {
-        Route::get('/patients/home', 'index')->name('patients.home');    
-        Route::get('/patients/consults', 'consultIndex');        
+        Route::get('/patients/home', 'index')->name('patients.home');           
     });
 
     Route::get('/', function () {
         return Inertia::render('Home');
+    });
+
+    //used for the patient to request a consultation from a doctor
+    Route::controller(RequestConsultController::class)->group(function(){
+        Route::get('/patients/consults', 'index');
+        Route::get('/patients/requestConsult/{user}', 'createRequest')->name('request.consult');
+        Route::post('/patients/requestConsult/{user}', 'store')->name('store.consult');
     });
 
     Route::controller(PainAnalysisController::class)->group(function () {

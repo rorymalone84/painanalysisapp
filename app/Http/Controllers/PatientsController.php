@@ -26,10 +26,4 @@ class PatientsController extends Controller
             'latestEntry' => $latestEntry,
         ]);      
     }
-
-    public function consultsIndex()
-    {
-        return Inertia::render('Patients/Consults');      
-    }
-
 }

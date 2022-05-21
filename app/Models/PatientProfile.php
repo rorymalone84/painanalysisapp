@@ -13,6 +13,6 @@ class PatientProfile extends Model
   
     public function user() 
     { 
-      return $this->morphOne('\App\User', 'profile');
+      return $this->morphOne('\App\Models\User', 'profile');
     }
 }
