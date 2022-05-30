@@ -1,4 +1,4 @@
-<template></template>
+<template>Consult Requests</template>
 
 <script>
 export default {};

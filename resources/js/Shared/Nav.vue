@@ -60,14 +60,36 @@
 
       <li v-if="$page.props.auth.user.role_id === 1" class="pr-4">
         <NavLink
-          href="/patients/consults"
-          :active="$page.component === 'Patients/Consults'"
+          href="/patients/consultMenu"
+          :active="$page.component === 'Patients/ConsultMenu'"
         >
           Consults
         </NavLink>
       </li>
 
       <!-- end of patient links -->
+
+      <!-- doctor links -->
+
+      <li v-if="$page.props.auth.user.role_id === 2" class="pr-4">
+        <NavLink
+          href="/doctors/dashboard"
+          :active="$page.component === 'Doctors/Dashboard'"
+        >
+          Dashboard
+        </NavLink>
+      </li>
+
+      <li v-if="$page.props.auth.user.role_id === 2" class="pr-4">
+        <NavLink
+          href="/doctors/consults"
+          :active="$page.component === 'Consults/Index'"
+        >
+          Consults
+        </NavLink>
+      </li>
+
+      <!-- end of doctor links -->
 
       <li>
         <NavLink href="/logout" method="post"> Logout </NavLink>
@@ -123,6 +145,30 @@
       </li>
       <!-- end of Admin specific links -->
 
+      <!-- doctor links -->
+
+      <li v-if="$page.props.auth.user.role_id === 2" class="pr-4">
+        <NavLink
+          href="/doctors/dashboard"
+          :active="$page.component === 'Doctors/Dashboard'"
+          @click="showMenu = !showMenu"
+        >
+          Dashboard
+        </NavLink>
+      </li>
+
+      <li v-if="$page.props.auth.user.role_id === 2" class="pr-4">
+        <NavLink
+          href="/doctors/consultMenu"
+          :active="$page.component === 'Consults/Index'"
+          @click="showMenu = !showMenu"
+        >
+          Consults
+        </NavLink>
+      </li>
+
+      <!-- end of doctor links -->
+
       <!-- patient links -->
       <li v-if="$page.props.auth.user.role_id === 1">
         <NavLink
@@ -156,8 +202,8 @@
 
       <li v-if="$page.props.auth.user.role_id === 1">
         <NavLink
-          href="/patients/consults"
-          :active="$page.component === 'Consults/Index'"
+          href="/patients/consultMenu"
+          :active="$page.component === 'Patients/ConsultMenu'"
           @click="showMenu = !showMenu"
         >
           Consults

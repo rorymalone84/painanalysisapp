@@ -21,7 +21,7 @@ Route::controller(LoginController::class)->group(function () {
 // Authorizes Admin 'role_id = 3' routes
 Route::middleware('auth','admin:3')->group(function(){
     
-    // Admin is responsible for registering patients and doctors, and their interactions   
+    // Admin is responsible for registering patients and doctors   
     Route::controller(AdminController::class)->group(function () {
         Route::get('/admin/dashboard', 'index')->name('dashboard.admin');
         /*
@@ -30,7 +30,7 @@ Route::middleware('auth','admin:3')->group(function(){
         Route::get('/admin/patientsList', 'patientsList')->name('patients.list');
         Route::get('/admin/doctorsList', 'doctorsList')->name('doctors.list');        
         /*
-        crud routes
+        registration crud routes
         */
         Route::get('/admin/createUser', 'createUser');
         Route::post('/admin/createUser', 'storeUser');
@@ -53,23 +53,30 @@ Route::middleware('auth','admin:3')->group(function(){
 // Authenticates doctor 'role_id = 2' routes
 Route::middleware('auth', 'doctor:2')->group(function(){     
     Route::controller(DoctorsController::class)->group(function () {
-        Route::get('/doctors/dashboard', 'index');     
+        Route::get('/doctors/dashboard', 'index');
+        Route::get('/doctors/consults', 'consults');
+        Route::get('/doctors/consults/requests', 'consultRequests');
+        Route::get('/doctors/consults/fulfilled', 'fulfilledConsults');                  
+    });
+
+    
+    Route::controller(RequestConsultController::class)->group(function () {
+        Route::get('/doctors/consults', 'consults');
+        Route::get('/doctors/consults/requests', 'consultRequests');
+        Route::get('/doctors/consults/fulfilled', 'fulfilledConsults');                  
     });
 });
 
 // Authenticates Patient 'role_id = 1' routes
 Route::middleware('auth','patient:1')->group(function(){        
     Route::controller(PatientsController::class)->group(function () {
-        Route::get('/patients/home', 'index')->name('patients.home');           
-    });
-
-    Route::get('/', function () {
-        return Inertia::render('Home');
+        Route::get('/patients/home', 'index')->name('patients.home');
+        Route::get('/patients/consultMenu', 'consultMenu')->name('patients.consultMenu');
+        Route::get('/patients/doctorIndex', 'doctorIndex')->name('doctor.index');
     });
 
     //used for the patient to request a consultation from a doctor
     Route::controller(RequestConsultController::class)->group(function(){
-        Route::get('/patients/consults', 'index');
         Route::get('/patients/requestConsult/{user}', 'createRequest')->name('request.consult');
         Route::post('/patients/requestConsult/{user}', 'store')->name('store.consult');
     });
