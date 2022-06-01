@@ -82,8 +82,8 @@
 
       <li v-if="$page.props.auth.user.role_id === 2" class="pr-4">
         <NavLink
-          href="/doctors/consults"
-          :active="$page.component === 'Consults/Index'"
+          href="/doctors/consults/menu"
+          :active="$page.component === 'Doctors/ConsultMenu'"
         >
           Consults
         </NavLink>
@@ -159,8 +159,8 @@
 
       <li v-if="$page.props.auth.user.role_id === 2" class="pr-4">
         <NavLink
-          href="/doctors/consultMenu"
-          :active="$page.component === 'Consults/Index'"
+          href="/doctors/consults/menu"
+          :active="$page.component === 'Doctors/ConsultMenu'"
           @click="showMenu = !showMenu"
         >
           Consults

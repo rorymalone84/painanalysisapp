@@ -20,7 +20,7 @@ class RequestConsultController extends Controller
 
 
     /**
-     * Show the form for creating a new resource.
+     * Lets the patient look up a doctor to request a consultation from.
      *
      * @return \Illuminate\Http\Response
      */
@@ -37,7 +37,7 @@ class RequestConsultController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Stores a consultation request from the patient to the doctor.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -63,17 +63,15 @@ class RequestConsultController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Consult  $consult
-     * @return \Illuminate\Http\Response
+     * Displays the patients requests to the doctor.
      */
 
-    public function consultRequests(RequestConsult $requestConsult, User $user )
+    public function requests()
     {
-        return Inertia::render('Consults/ConsultRequests',[
-            'consultRequests' => RequestConsult::where('doctor_id', Auth::id())
-            ->get(['id', 'created_at','patient_id']),           
+        return Inertia::render('Doctors/ConsultRequests',[
+            'patientRequests' => RequestConsult::where('doctor_id', Auth::id())
+            ->join('users', 'users.id', '=', 'patient_id', 'consult_requests')
+            ->get(['patient_id','comments', 'name', 'consult_requests.created_at']),           
         ]);
     }
 }

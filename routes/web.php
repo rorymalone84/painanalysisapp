@@ -17,6 +17,10 @@ Route::controller(LoginController::class)->group(function () {
     Route::post('/logout','logout')->middleware('auth');
 });
 
+Route::get('/', function () {
+    return Inertia::render('Auth/Login');
+});
+
 
 // Authorizes Admin 'role_id = 3' routes
 Route::middleware('auth','admin:3')->group(function(){
@@ -39,31 +43,20 @@ Route::middleware('auth','admin:3')->group(function(){
         Route::put('/admin/editUser/{user}', 'updateUser')->name('update.user');
         Route::get('/admin/deleteUser/{user}', 'deleteUserPrompt')->name('deletePrompt.user');
         Route::delete('/admin/deleteUser/{user}','deleteUser')->name('delete.user');        
-    });
- 
-
+    });    
     
-    
-    Route::get('/settings', function () {
-        return Inertia::render('Settings');
-    });
-
 });
 
 // Authenticates doctor 'role_id = 2' routes
 Route::middleware('auth', 'doctor:2')->group(function(){     
     Route::controller(DoctorsController::class)->group(function () {
         Route::get('/doctors/dashboard', 'index');
-        Route::get('/doctors/consults', 'consults');
-        Route::get('/doctors/consults/requests', 'consultRequests');
+        Route::get('/doctors/consults/menu', 'consultMenu');
         Route::get('/doctors/consults/fulfilled', 'fulfilledConsults');                  
     });
-
     
     Route::controller(RequestConsultController::class)->group(function () {
-        Route::get('/doctors/consults', 'consults');
-        Route::get('/doctors/consults/requests', 'consultRequests');
-        Route::get('/doctors/consults/fulfilled', 'fulfilledConsults');                  
+        Route::get('/doctors/consults/requests', 'requests');               
     });
 });
 

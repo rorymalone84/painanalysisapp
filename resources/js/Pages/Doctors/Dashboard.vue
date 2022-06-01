@@ -33,7 +33,7 @@
             </div>
             <div class="flex-1 text-right">
               <h5 class="text-white">Todays Appointments</h5>
-              <h3 class="text-white text-3xl">Soming Soon</h3>
+              <h3 class="text-white text-3xl">Coming Soon</h3>
             </div>
           </div>
         </div>
