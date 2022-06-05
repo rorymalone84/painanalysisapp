@@ -69,9 +69,19 @@ class RequestConsultController extends Controller
     public function requests()
     {
         return Inertia::render('Doctors/ConsultRequests',[
-            'patientRequests' => RequestConsult::where('doctor_id', Auth::id())
+            'requestConsults' => RequestConsult::where('doctor_id', Auth::id())
             ->join('users', 'users.id', '=', 'patient_id', 'consult_requests')
-            ->get(['patient_id','comments', 'name', 'consult_requests.created_at']),           
+            ->get(['consult_requests.id','patient_id','comments', 'name', 'consult_requests.created_at']),           
+        ]);
+    }
+
+    public function showRequest(RequestConsult $requestConsult){
+        return Inertia::render('Doctors/ShowRequest', [
+            'consultRequest' => [
+                'id' => $requestConsult->id,
+                'duration' => $requestConsult->duration,
+                'comments' => $requestConsult->comments,
+            ]
         ]);
     }
 }

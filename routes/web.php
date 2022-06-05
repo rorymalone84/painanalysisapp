@@ -23,8 +23,7 @@ Route::get('/', function () {
 
 
 // Authorizes Admin 'role_id = 3' routes
-Route::middleware('auth','admin:3')->group(function(){
-    
+Route::middleware('auth','admin:3')->group(function(){    
     // Admin is responsible for registering patients and doctors   
     Route::controller(AdminController::class)->group(function () {
         Route::get('/admin/dashboard', 'index')->name('dashboard.admin');
@@ -44,7 +43,6 @@ Route::middleware('auth','admin:3')->group(function(){
         Route::get('/admin/deleteUser/{user}', 'deleteUserPrompt')->name('deletePrompt.user');
         Route::delete('/admin/deleteUser/{user}','deleteUser')->name('delete.user');        
     });    
-    
 });
 
 // Authenticates doctor 'role_id = 2' routes
@@ -56,7 +54,8 @@ Route::middleware('auth', 'doctor:2')->group(function(){
     });
     
     Route::controller(RequestConsultController::class)->group(function () {
-        Route::get('/doctors/consults/requests', 'requests');               
+        Route::get('/doctors/consults/requests', 'requests');
+        Route::get('/doctors/consults/{requestConsult}', 'showRequest')->name('show.request'); 
     });
 });
 
