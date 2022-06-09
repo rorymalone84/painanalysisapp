@@ -48,14 +48,20 @@ Route::middleware('auth','admin:3')->group(function(){
 // Authenticates doctor 'role_id = 2' routes
 Route::middleware('auth', 'doctor:2')->group(function(){     
     Route::controller(DoctorsController::class)->group(function () {
-        Route::get('/doctors/dashboard', 'index');
+        Route::get('/doctors/dashboard', 'index')->name('doctors.home');
         Route::get('/doctors/consults/menu', 'consultMenu');
         Route::get('/doctors/consults/fulfilled', 'fulfilledConsults');                  
     });
-    
+
+    //shows the doctor consult requests
     Route::controller(RequestConsultController::class)->group(function () {
         Route::get('/doctors/consults/requests', 'requests');
         Route::get('/doctors/consults/{requestConsult}', 'showRequest')->name('show.request'); 
+    });
+
+    //posts consultation to patient
+    Route::controller(ConsultController::class)->group(function () { 
+        Route::post('/doctors/consults/{requestConsult}', 'postConsult')->name('post.consult');
     });
 });
 

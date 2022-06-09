@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Consult;
 use Illuminate\Http\Request;
 use App\Models\RequestConsult;
+use Illuminate\Support\Facades\Redirect;
 
 class ConsultController extends Controller
 {
@@ -13,14 +14,7 @@ class ConsultController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-   
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function consults()
     {
         //
     }
@@ -31,29 +25,37 @@ class ConsultController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function postConsult(Request $request)
     {
-        //
+        
+    $this->validate($request, [
+        'doctor_id' => 'required',
+        'patient_id' => 'required',
+        'request_id' => 'required',
+        'diagnosis' => 'required',
+        'prescription' => 'required',
+        'checkup' => 'required',
+    ]);
+
+    Consult::create([ 
+        'doctor_id' => $request->doctor_id,
+        'patient_id' => $request->patient_id,
+        'request_id' => $request->request_id,
+        'diagnosis' => $request->diagnosis,
+        'prescription' => $request->prescription,
+        'checkup' => $request->checkup,             
+       ]);
+
+        return Redirect::route('doctors.home');
     }
 
     /**
-     * Display the specified resource.
+     * Display the consultation from the doctor.
      *
      * @param  \App\Models\Consult  $consult
      * @return \Illuminate\Http\Response
      */
-    public function show(Consult $consult)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Consult  $consult
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Consult $consult)
+    public function showConsult(Consult $consult)
     {
         //
     }

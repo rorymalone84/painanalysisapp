@@ -79,6 +79,8 @@ class RequestConsultController extends Controller
         return Inertia::render('Doctors/ShowRequest', [
             'consultRequest' => [
                 'id' => $requestConsult->id,
+                'patient_id' => $requestConsult->patient_id,
+                'doctor_id' => $requestConsult->doctor_id,
                 'duration' => $requestConsult->duration,
                 'comments' => $requestConsult->comments,
             ]
