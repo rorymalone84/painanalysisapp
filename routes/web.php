@@ -79,6 +79,11 @@ Route::middleware('auth','patient:1')->group(function(){
         Route::post('/patients/requestConsult/{user}', 'store')->name('store.consult');
     });
 
+    Route::controller(ConsultController::class)->group(function () { 
+        Route::get('/patients/consults', 'consults')->name('consult.index');
+        Route::get('/patients/consults/{consult}', 'consult')->name('consult');
+    });
+
     Route::controller(PainAnalysisController::class)->group(function () {
         Route::get('/patients/form', 'form');
         Route::post('/patients/form', 'store')->name('store.form');
