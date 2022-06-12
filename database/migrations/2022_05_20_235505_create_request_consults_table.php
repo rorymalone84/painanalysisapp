@@ -20,6 +20,7 @@ return new class extends Migration
             $table->bigInteger('doctor_id')->unsigned();
             $table->text('comments');
             $table->text('duration');
+            $table->boolean('request_fulfilled')->default(0);
             $table->foreign('patient_id')->references('id')->on('users')->references('id')->on('users')
             ->onDelete('cascade');
             $table->foreign('doctor_id')->references('id')->on('users')->references('id')->on('users')

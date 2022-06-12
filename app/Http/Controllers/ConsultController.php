@@ -52,6 +52,9 @@ class ConsultController extends Controller
             'checkup' => $request->checkup,             
         ]);
 
+        //marks request as 'fulfilled' on the doctor's end
+        RequestConsult::where('id', $request->request_id)->update(['request_fulfilled' => 1]);
+
         return Redirect::route('doctors.home');
     }
 
