@@ -32,7 +32,7 @@
       </Link>
     </div>
     <div class="flex flex-wrap mb-2">
-      <Link href="/patients/doctorIndex">
+      <Link href="/patients/consults">
         <div class="bg-cyan-500 border rounded shadow p-2">
           <div class="flex flex-row items-center">
             <div class="flex-1 text-right">

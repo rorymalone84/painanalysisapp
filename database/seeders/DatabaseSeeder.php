@@ -54,11 +54,11 @@ class DatabaseSeeder extends Seeder
          ]);
         
         /* seeds the users */
-        \App\Models\User::factory(100)->create();
+        //\App\Models\User::factory(100)->create();
 
         /* create 3 months worth of posts data for 100 fake users, plus the 3 demo users */
-        for ($i=0; $i<93; $i++){
-            \App\Models\PainAnalysis::factory(103)->create();
-        }
+        //for ($i=0; $i<93; $i++){
+        //    \App\Models\PainAnalysis::factory(103)->create();
+        //}
     }
 }
